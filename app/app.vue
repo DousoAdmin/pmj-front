@@ -1,3 +1,12 @@
+<script setup>
+import '@/assets/css/main.css'
+</script>
+
+<template>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+=======
 
 <template>
   <div class="min-h-screen flex flex-col">
@@ -20,4 +29,14 @@
       © 2025 - Mi Proyecto Nuxt 4
     </footer>
   </div>
+>>>>>>> a05345a57a8bb8c06e691ab15f97edad5a313c57
+</template>
+<script setup>
+import '@/assets/css/main.css'
+</script>
+
+<template>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
