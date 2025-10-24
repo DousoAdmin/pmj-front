@@ -1,4 +1,5 @@
 <template>
+    <Slider />
   <div class="p-10 text-center">
     <h1 class="text-3xl font-bold text-blue-600">
       ¡Hola desde la página de inicio! 🎉
@@ -14,5 +15,5 @@
   </div>
 </template>
 <script setup>
-// La idea es que el Slider se inserta globalmente en el layout .
+import Slider from '@/components/public/slider/Slider.vue'
 </script>
