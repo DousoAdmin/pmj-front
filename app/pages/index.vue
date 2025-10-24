@@ -13,3 +13,6 @@
     </NuxtLink>
   </div>
 </template>
+<script setup>
+// La idea es que el Slider se inserta globalmente en el layout .
+</script>
