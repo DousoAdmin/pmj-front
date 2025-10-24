@@ -2,6 +2,7 @@
 <template>
   <div>
     <Header />
+    <Slider />
     <slot />
   </div>
 </template>
