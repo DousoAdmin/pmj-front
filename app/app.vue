@@ -3,7 +3,7 @@ import '@/assets/css/main.css'
 </script>
 
 <template>
-  <NuxtLayout>
-    <NuxtPage />
+  <NuxtLayout >
+    <NuxtPage/>
   </NuxtLayout>
 </template>
