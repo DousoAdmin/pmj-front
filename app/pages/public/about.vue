@@ -21,4 +21,7 @@
 
 <script setup>
 import Slider from '@/components/public/slider/Slider.vue'
+definePageMeta({
+  layout: 'external'
+})
 </script>

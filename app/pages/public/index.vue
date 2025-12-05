@@ -16,4 +16,5 @@
 </template>
 <script setup>
 import Slider from '@/components/public/slider/Slider.vue'
+
 </script>
