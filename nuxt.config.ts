@@ -6,6 +6,12 @@ export default defineNuxtConfig({
     '~/assets/css/main.css',
     '@fortawesome/fontawesome-free/css/all.min.css'
   ],
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false,
+    },
+  ],
   vite: {
     plugins: [
       tailwindcss(),
