@@ -1,0 +1,32 @@
+Disallow:
+<<<<<<< HEAD
+
+
+a
+dfafasdasdasd
+
+
+
+User-Agent: *
+Disallow:
+
+
+a
+dfafasdasdasd
+
+
+
+vUser-Agent: *
+Disallow:
+
+
+a
+dfafasdasdasd
+
+
+
+=======
+>>>>>>> a05345a57a8bb8c06e691ab15f97edad5a313c57
+
+User-Agent: *
+Disallow:
