@@ -6,7 +6,6 @@
     <p class="mt-4 text-gray-700">
       Esta página conserva el contenido que estaba en <code>pages/public/about.vue</code>.
     </p>
-
     <NuxtLink to="/" class="mt-6 inline-block text-white bg-green-500 px-4 py-2 rounded">
       Volver a Demo
     </NuxtLink>
