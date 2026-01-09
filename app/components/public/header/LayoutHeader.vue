@@ -199,11 +199,11 @@ const isMobileOpen = ref(false)
    ======================================== */
 // Items del menú principal - fáciles de mantener
 const navItems = [
-  { name: 'Inicio', path: '/' },
-  { name: 'Nosotros', path: '/nosotros' },
-  { name: 'Noticias', path: '/noticias' },
-  { name: 'Galería', path: '/galeria' },
-  { name: 'Organizaciones', path: '/organizaciones' }
+  { name: 'Inicio', path: '/public/' },
+  { name: 'Nosotros', path: '/public/nosotros' },
+  { name: 'Noticias', path: '/public/noticias' },
+  { name: 'Galería', path: '/public/galeria' },
+  { name: 'Organizaciones', path: '/public/organizaciones' }
 ]
 
 /* ========================================
