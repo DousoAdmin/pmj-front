@@ -19,5 +19,5 @@
 <script setup>
 import Slider from '@/components/public/slider/Slider.vue'
 
-
+//prueba de comit
 </script>
