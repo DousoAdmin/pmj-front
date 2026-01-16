@@ -15,27 +15,31 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="flex justify-between items-center">
         
-        <NuxtLink to="/public/" class="flex items-center space-x-2 sm:space-x-3 group z-10">
-          <div class="relative w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full p-1 shadow-sm transition-transform duration-500 group-hover:scale-105 shrink-0">
-            <div class="w-full h-full bg-[#00B140] rounded-full flex items-center justify-center">
-              <span class="text-white font-black text-base sm:text-lg">PJ</span>
-            </div>
-          </div>
-          <div class="flex flex-col justify-center">
-            <h1 
-              :class="isScrolled ? 'text-gray-900' : 'text-white'" 
-              class="font-bold text-sm sm:text-lg leading-none transition-colors"
-            >
-              Plataforma Juventudes
-            </h1>
-            <p 
-              :class="isScrolled ? 'text-[#00B140]' : 'text-[#F2780C]'" 
-              class="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 transition-colors"
-            >
-              Mosquera
-            </p>
-          </div>
-        </NuxtLink>
+<NuxtLink to="/public/" class="flex items-center space-x-3 sm:space-x-4 group z-10">
+  <div class="relative w-14 h-14 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+    
+    <img 
+      src="/images/favicon.webp" 
+      alt="Logo Plataforma Juventudes"
+      class="w-full h-full object-contain -translate-x-1 sm:-translate-x-2 drop-shadow-md" 
+    />
+    </div>
+
+  <div class="flex flex-col justify-center">
+    <h1 
+      :class="isScrolled ? 'text-gray-900' : 'text-white'" 
+      class="font-black text-base sm:text-2xl leading-none transition-colors tracking-tight"
+    >
+      Plataforma Juventudes
+    </h1>
+    <p 
+      :class="isScrolled ? 'text-[#00B140]' : 'text-[#F2780C]'" 
+      class="text-[11px] sm:text-[13px] font-black uppercase tracking-[0.2em] mt-1 transition-colors"
+    >
+      Mosquera
+    </p>
+  </div>
+</NuxtLink>
 
         <nav class="hidden lg:flex items-center space-x-1 bg-white/10 backdrop-blur-md p-1 rounded-full border border-white/20" 
              :class="{ 'bg-gray-100 border-gray-200': isScrolled }">
