@@ -1,122 +1,196 @@
-<script setup>
-import { ref } from "vue"; 
-import '@/assets/css/header/header.css'
-//import '@assets/css/header/header.css';
-// aquí manejo el estado: si el menú está abierto o cerrado
-const isOpen = ref(false);
-</script>
-
 <template>
-  <!-- HEADER PRINCIPAL -->
-  <header class="header-main">
-    <div class="header-container">
-      
-      <!-- Botón hamburguesa (las 3 rayas de siempre) -->
-      <!-- cuando le doy click, pongo isOpen en true y aparece el menú -->
-      <div class="header-burger">
-        <button 
-          class="text-green-600 focus:outline-none"
-          @click="isOpen = true"
-        >
-          <!-- Este es el ícono del menú hamburguesa -->
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
+  <header 
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
+    :class="[
+      isScrolled 
+        ? 'bg-white shadow-md py-2' 
+        : 'bg-transparent py-5'
+    ]"
+  >
+    <div 
+      class="absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500"
+      :class="isScrolled ? 'bg-gray-100 opacity-100' : 'bg-transparent opacity-0'"
+    ></div>
 
-      <!-- Logo centrado en todo el header -->
-      <!-- lo ubiqué con absolute para que siempre quede fijo en el centro -->
-      <div class="header-logo">
-        <img 
-          src="/assets/imagenes/header/logo.png" 
-          alt="Plataforma Juventud Mosquera" 
-          class="header-logo-img"
-        />
-      </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="flex justify-between items-center">
+        
+        <NuxtLink to="/public/" class="flex items-center space-x-2 sm:space-x-3 group z-10">
+          <div class="relative w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full p-1 shadow-sm transition-transform duration-500 group-hover:scale-105 shrink-0">
+            <div class="w-full h-full bg-[#00B140] rounded-full flex items-center justify-center">
+              <span class="text-white font-black text-base sm:text-lg">PJ</span>
+            </div>
+          </div>
+          <div class="flex flex-col justify-center">
+            <h1 
+              :class="isScrolled ? 'text-gray-900' : 'text-white'" 
+              class="font-bold text-sm sm:text-lg leading-none transition-colors"
+            >
+              Plataforma Juventudes
+            </h1>
+            <p 
+              :class="isScrolled ? 'text-[#00B140]' : 'text-[#F2780C]'" 
+              class="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.2em] mt-0.5 sm:mt-1 transition-colors"
+            >
+              Mosquera
+            </p>
+          </div>
+        </NuxtLink>
 
-      <!-- Redes sociales a la derecha -->
-      <!-- cada icono tiene su circulito verde con hover más oscuro -->
-      <div class="header-social">
-        <a href="#" class="header-social-icon">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="header-social-icon">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="header-social-icon">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="mailto:correo@ejemplo.com" class="header-social-icon">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="#" class="header-social-icon">
-          <i class="fab fa-tiktok"></i>
-        </a>
-        <a href="#" class="header-social-icon">
-          <i class="fab fa-twitter"></i>
-        </a>
+        <nav class="hidden lg:flex items-center space-x-1 bg-white/10 backdrop-blur-md p-1 rounded-full border border-white/20" 
+             :class="{ 'bg-gray-100 border-gray-200': isScrolled }">
+          <NuxtLink 
+            v-for="item in navItems" 
+            :key="item.path" 
+            :to="item.path"
+            class="px-5 py-2 rounded-full text-sm font-bold transition-all duration-300"
+            :class="isScrolled ? 'text-gray-700 hover:text-[#522178] hover:bg-white' : 'text-white hover:bg-white/20'"
+            active-class="active-nav-link"
+          >
+            {{ item.name }}
+          </NuxtLink>
+        </nav>
+
+        <div class="flex items-center space-x-2 sm:space-x-4">
+          <button 
+            @click="$emit('open-registration')" 
+            class="hidden lg:block px-6 py-2.5 text-sm font-extrabold rounded-full shadow-lg transition-all active:scale-95"
+            :class="isScrolled ? 'bg-[#522178] text-white hover:bg-[#401a5d]' : 'bg-white text-[#522178] hover:bg-gray-100'"
+          >
+            UNIRSE
+          </button>
+
+          <button 
+            @click="isMobileOpen = true"
+            class="lg:hidden flex flex-col justify-center items-end space-y-1.5 w-9 h-9 group"
+            :class="isScrolled ? 'text-[#522178]' : 'text-white'"
+          >
+            <span class="h-0.5 w-7 rounded-full bg-current transition-all"></span>
+            <span class="h-0.5 w-5 rounded-full bg-[#F2780C] transition-all group-hover:w-7"></span>
+            <span class="h-0.5 w-6 rounded-full bg-[#00B140] transition-all group-hover:w-7"></span>
+          </button>
+        </div>
+
       </div>
     </div>
+
+    <Teleport to="body">
+      <Transition name="fade">
+        <div v-if="isMobileOpen" class="fixed inset-0 z-100 lg:hidden">
+          <div class="absolute inset-0 bg-[#522178]/30 backdrop-blur-sm" @click="isMobileOpen = false"></div>
+          
+          <Transition name="slide-custom">
+            <div v-if="isMobileOpen" class="absolute right-0 top-0 bottom-0 w-[280px] bg-white shadow-2xl flex flex-col">
+              
+              <div class="p-6 flex items-center justify-between border-b border-gray-50">
+                <div class="flex items-center space-x-3">
+                   <div class="w-10 h-10 bg-[#522178] rounded-xl flex items-center justify-center">
+                      <span class="text-white font-black text-xs">PJ</span>
+                   </div>
+                   <span class="font-black text-[#522178] uppercase text-[10px] tracking-widest">Navegación</span>
+                </div>
+                <button @click="isMobileOpen = false" class="p-2 text-gray-400">
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+              </div>
+
+              <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                <NuxtLink 
+                  v-for="(item, index) in navItems" 
+                  :key="item.path" :to="item.path" @click="isMobileOpen = false"
+                  class="group flex items-center space-x-4 p-4 rounded-2xl transition-all duration-200"
+                  active-class="mobile-active-link"
+                >
+                  <div class="w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-sm"
+                       :class="item.staticColor">
+                    <component :is="item.icon" class="w-5 h-5 text-white" />
+                  </div>
+                  <span class="font-bold text-gray-700 group-hover:text-[#522178]">{{ item.name }}</span>
+                </NuxtLink>
+              </nav>
+
+              <div class="p-6 mt-auto bg-gray-50">
+                <button 
+                  @click="handleMobileRegistration"
+                  class="w-full py-4 bg-[#00B140] text-white font-black rounded-xl shadow-lg shadow-[#00B140]/20 active:scale-95 transition-all flex items-center justify-center space-x-2"
+                >
+                  <span>UNIRSE AHORA</span>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </button>
+              </div>
+            </div>
+          </Transition>
+        </div>
+      </Transition>
+    </Teleport>
   </header>
-
-  <!-- aquí está el panel que aparece desde la izquierda -->
-  <!-- uso <transition> para que entre y salga con animación -->
-  <transition name="slide-smooth">
-    <aside
-      v-if="isOpen"
-      class="sidebar"
-    >
-      <div class="sidebar-panel">
-        
-        <!-- Botón cerrar (la X arriba a la derecha) -->
-        <button class="sidebar-close" @click="isOpen = false">✕</button>
-        
-        <!-- Menú lateral -->
-        <!-- cada link tiene hover -->
-        <nav class="sidebar-menu">
-          <a href="#" class="sidebar-link">Inicio</a>
-          <a href="#" class="sidebar-link">Nosotros</a>
-          <a href="#" class="sidebar-link">Inscripciones</a>
-          <a href="#" class="sidebar-link">Organizaciones</a>
-          <a href="#" class="sidebar-link">Galería</a>
-        </nav>
-      </div>
-    </aside>
-  </transition>
-
-  <!-- Fondo oscuro -->
-  <transition name="fade">
-    <div v-if="isOpen" class="sidebar-backdrop" @click="isOpen = false"></div>
-  </transition>
 </template>
 
-<!-- Importo los estilos desde header.css -->
-<!--<style src="/assets/css/header/header.css" scoped></style> -->
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted, watch, h } from 'vue'
 
-<!--
-GUÍA DE LO QUE HICE EN ESTE PROYECTO (por mí, con ayuda de IA y videos):
+const isScrolled = ref(false)
+const isMobileOpen = ref(false)
 
-- Organicé el proyecto Nuxt 3 creando la carpeta 'components/header' y separando el Header y sus estilos en archivos distintos para mantener todo modular y limpio.
-- En 'Header.vue' armé el header con:
-  - Botón hamburguesa a la izquierda (3 líneas verdes) que abre el menú lateral.
-  - Logo grande y centrado, usando la imagen que subí como 'logo.png' en la carpeta 'public'.
-  - Íconos de redes sociales a la derecha, en círculos verdes y con animación hover.
-- El menú lateral (sidebar):
-  - Aparece desde la izquierda con animación suave (transiciones CSS personalizadas).
-  - Fondo naranja con transparencia sutil (rgba(243,143,19,0.95)).
-  - Texto del menú más pequeño y estilizado.
-  - Botón de cerrar en la esquina superior derecha.
-  - Fondo oscuro suave al abrir el menú.
-- Instalé Font Awesome para los íconos sociales:
-  npm install @fortawesome/fontawesome-free
-  y lo agregué en nuxt.config.ts para que los estilos estén globales.
-- Ajusté márgenes, tamaños y centré el logo para que todo se viera profesional y responsivo.
-- Todos los estilos del header y sidebar están en 'header.css' para fácil mantenimiento.
+// Iconos Sólidos (Heroicons)
+const HomeIcon = () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [h('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '2', d: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' })])
+const UsersIcon = () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [h('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '2', d: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' })])
+const NewsIcon = () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [h('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '2', d: 'M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z' })])
+const PhotoIcon = () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [h('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '2', d: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z' })])
+const OrgIcon = () => h('svg', { fill: 'none', viewBox: '0 0 24 24', stroke: 'currentColor' }, [h('path', { strokeLinecap: 'round', strokeLinejoin: 'round', strokeWidth: '2', d: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' })])
 
-Me ayudé con videos de YouTube y con IA para resolver dudas y mejorar el diseño.
+const navItems = [
+  { name: 'Inicio', path: '/public/', icon: HomeIcon, staticColor: 'bg-[#00B140]' },
+  { name: 'Nosotros', path: '/public/nosotros', icon: UsersIcon, staticColor: 'bg-[#F2780C]' },
+  { name: 'Noticias', path: '/public/noticias', icon: NewsIcon, staticColor: 'bg-[#522178]' },
+  { name: 'Galería', path: '/public/galeria', icon: PhotoIcon, staticColor: 'bg-[#F2780C]' },
+  { name: 'Organizaciones', path: '/public/organizaciones', icon: OrgIcon, staticColor: 'bg-[#00B140]' }
+]
 
-DUDAS O PENDIENTES:
-- A veces, cuando aparece el menú lateral, el fondo se pone muy negro. Toca revisar y ajustar la opacidad del fondo oscuro si es necesario.
-- Todo lo demás quedó funcionando y bien organizado.
--->
+const emit = defineEmits(['open-registration'])
+const handleMobileRegistration = () => { isMobileOpen.value = false; emit('open-registration'); }
+const handleScroll = () => { isScrolled.value = window.scrollY > 20 }
+
+watch(isMobileOpen, (val) => {
+  if (import.meta.client) document.body.style.overflow = val ? 'hidden' : ''
+})
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true })
+  handleScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
+
+<style scoped>
+/* Desktop Active */
+.active-nav-link {
+  background-color: #522178 !important;
+  color: white !important;
+}
+
+/* Mobile Active */
+.mobile-active-link {
+  background-color: #f8fafc;
+}
+.mobile-active-link span {
+  color: #522178 !important;
+}
+
+/* Animaciones */
+.fade-enter-active, .fade-leave-active { transition: opacity 0.2s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+.slide-custom-enter-active { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.slide-custom-leave-active { transition: all 0.2s ease-in; }
+.slide-custom-enter-from, .slide-custom-leave-to { transform: translateX(100%); }
+
+header {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+</style>
