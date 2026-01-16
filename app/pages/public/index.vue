@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="min-h-screen bg-gradient-to-br from-[#d0ffe1] to-[#c9ffdb]">
 
