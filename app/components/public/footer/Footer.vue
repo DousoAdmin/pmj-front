@@ -10,24 +10,32 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
         
         <div class="lg:col-span-5 space-y-8">
-          <NuxtLink to="/public/" class="inline-flex items-center space-x-4">
-            <div class="w-14 h-14 bg-[#522178] rounded-2xl flex items-center justify-center shadow-xl shadow-[#522178]/20 rotate-3 group hover:rotate-0 transition-transform duration-500">
-              <span class="text-white font-black text-2xl">PJ</span>
-            </div>
-            <div>
-              <h2 class="text-2xl font-black text-gray-900 tracking-tighter leading-none">
-                PLATAFORMA <span class="text-[#00B140]">MUNICIPAL</span>
-              </h2>
-              <p class="text-[#F2780C] text-xs font-black uppercase tracking-[0.3em] mt-1">Juventudes de Mosquera</p>
-            </div>
-          </NuxtLink>
+          <NuxtLink to="/public/" class="inline-flex items-center space-x-4 group">
+  <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110">
+    <img 
+      src="/images/favicon.webp" 
+      alt="Logo Juventudes Mosquera" 
+      class="w-full h-full object-contain -translate-x-1"
+    />
+  </div>
+
+  <div>
+    <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none">
+      PLATAFORMA <span class="text-[#00B140]">MUNICIPAL</span>
+    </h2>
+    <p class="text-[#F2780C] text-xs sm:text-sm font-black uppercase tracking-[0.3em] mt-1">
+      Juventudes de Mosquera
+    </p>
+  </div>
+</NuxtLink>
           
           <p class="text-gray-500 text-lg leading-relaxed max-w-md font-medium">
             Construyendo el futuro de Mosquera a través del liderazgo, la participación y el cambio social.
           </p>
 
           <div class="flex space-x-4">
-            <a v-for="social in socials" :key="social.name" :href="social.url" 
+            <a v-for="social in socials" :key="social.name" :href="social.url"
+                target="_blank" rel="noopener noreferrer"
                class="w-12 h-12 rounded-xl border-2 border-gray-50 flex items-center justify-center text-gray-400 hover:border-current transition-all duration-300 hover:-translate-y-1"
                :class="social.hoverClass">
                <component :is="social.icon" class="w-6 h-6" />
@@ -108,8 +116,8 @@ const InstagramIcon = () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24
   h('circle', { cx: '18.406', cy: '5.594', r: '1.44' })
 ])
 const socials = [
-  { name: 'Facebook', url: '#', icon: FacebookIcon, hoverClass: 'hover:text-[#522178] hover:shadow-lg hover:shadow-[#522178]/10' },
-  { name: 'Instagram', url: '#', icon: InstagramIcon, hoverClass: 'hover:text-[#F2780C] hover:shadow-lg hover:shadow-[#F2780C]/10' }
+  { name: 'Facebook', url: 'https://www.facebook.com/pmjmosquera/', icon: FacebookIcon, hoverClass: 'hover:text-[#522178] hover:shadow-lg hover:shadow-[#522178]/10' },
+  { name: 'Instagram', url: 'https://www.instagram.com/pmj_mosquera/', icon: InstagramIcon, hoverClass: 'hover:text-[#F2780C] hover:shadow-lg hover:shadow-[#F2780C]/10' }
 ]
 </script>
 

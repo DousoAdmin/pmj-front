@@ -2,11 +2,11 @@
   <!-- =============================================== -->
   <!-- HERO PRINCIPAL - ALTURA COMPLETA DE PANTALLA -->
   <!-- =============================================== -->
-  <section 
-    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#522178]"
-    role="banner"
-    aria-labelledby="hero-title"
-  >
+<section 
+  class="relative min-h-0 md:min-h-[100dvh] flex flex-col md:items-center md:justify-center overflow-hidden bg-[#522178] pt-28 pb-12 md:pt-32 md:pb-20"
+  role="banner"
+  aria-labelledby="hero-title"
+>
     <!-- Patrón de fondo geométrico sutil -->
     <div class="absolute inset-0 overflow-hidden">
       <!-- Elementos decorativos geométricos -->
