@@ -45,7 +45,7 @@
             >
               <span class="block">Juventudes</span>
               <span 
-                class="block bg-linear-to-r from-[#F2780C] to-[#FF9E5E] bg-clip-text text-transparent mt-1 md:mt-2"
+                class="block bg-[#F2780C] bg-clip-text text-transparent mt-1 md:mt-2"
               >
                 Mosquera
               </span>

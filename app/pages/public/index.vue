@@ -10,10 +10,6 @@
 
     <AboutSection @open-modal="openRegistrationModal" />
 
-    <ServicesSection />
-
-    <AchievementsSection />
-
     <ContactFormSection 
       :show-modal="showModal" 
       @close-modal="closeRegistrationModal" 
