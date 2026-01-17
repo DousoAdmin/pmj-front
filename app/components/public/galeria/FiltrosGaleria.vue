@@ -1,6 +1,6 @@
 <!-- components/galeria/FiltrosGaleria.vue -->
 <template>
-  <section class="py-8 bg-white shadow-sm sticky top-0 z-40 border-b border-gray-100">
+  <section class="py-8 bg-white shadow-sm top-0 z-40 border-b border-gray-100">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap justify-center gap-3">
         <button 

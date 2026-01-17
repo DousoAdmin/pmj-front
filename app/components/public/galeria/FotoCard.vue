@@ -1,41 +1,47 @@
-<!-- components/galeria/FotoCard.vue -->
 <template>
   <article 
-    class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl 
-           cursor-pointer transform hover:scale-105 transition-all duration-500 
-           animate-fade-up border border-gray-200"
+    v-if="photo"
+    class="group relative overflow-hidden bg-white border-4 border-slate-100 rounded-xl transition-all duration-500 hover:border-[#F2780C] hover:-translate-y-2 cursor-pointer"
     :style="{ animationDelay: `${(index + 1) * 50}ms` }"
     role="button"
-    tabindex="0"
-    :aria-label="`Ver foto: ${photo.title}, ${photo.date}`"
     @click="$emit('click')"
-    @keydown.enter.prevent="$emit('click')"
-    @keydown.space.prevent="$emit('click')"
   >
-    <!-- Contenedor para mantener aspect ratio 1:1 -->
-    <div class="relative pb-[100%]"> <!-- pb-[100%] crea un cuadrado perfecto -->
-      <!-- Gradiente de fondo -->
-      <div class="absolute inset-0 bg-gradient-to-br" :class="photo.gradient"></div>
+    <div class="relative pb-[100%] overflow-hidden rounded-lg">
+      
+      <div 
+        class="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
+        :style="{ backgroundColor: photo?.bgColor || '#522178' }"
+      >
+        <img 
+          v-if="photo?.url" 
+          :src="photo.url" 
+          :alt="photo?.title || 'Foto de galería'"
+          class="absolute inset-0 w-full h-full object-cover" 
+        />
+      </div>
 
-      <!-- Overlay con información al hover -->
-      <div class="absolute inset-0 bg-black/0 group-hover:bg-black/60 
-                  transition-all duration-300 flex items-end p-4">
-        <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          <p class="text-white font-bold text-sm md:text-base line-clamp-2">
-            {{ photo.title }}
+      <div 
+        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6 z-20"
+        :class="index % 2 === 0 ? 'bg-[#522178]/90' : 'bg-[#038C33]/90'"
+      >
+        <div class="translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+          <p class="text-white font-black text-lg md:text-xl leading-tight mb-2 uppercase tracking-tighter">
+            {{ photo?.title || 'Sin Título' }}
           </p>
-          <p class="text-white/80 text-xs">{{ photo.date }}</p>
+          
+          <div class="flex items-center gap-2">
+            <span class="h-1 w-8 bg-[#F2780C]"></span>
+            <p class="text-white/80 font-bold text-xs uppercase tracking-widest">
+              {{ photo?.date || '2025' }}
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Icono de zoom al hover -->
-      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 
-                  transition-opacity duration-300 transform group-hover:scale-110">
-        <div class="w-10 h-10 bg-white/30 backdrop-blur-md rounded-full 
-                    flex items-center justify-center shadow-lg">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      <div class="absolute top-4 right-4 z-30 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-50 group-hover:scale-100">
+        <div class="w-10 h-10 bg-[#F2780C] text-white flex items-center justify-center rounded-md shadow-lg">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"/>
           </svg>
         </div>
       </div>
@@ -44,16 +50,27 @@
 </template>
 
 <script setup>
-defineProps({
+// Definimos las props de manera más robusta
+const props = defineProps({
   photo: {
     type: Object,
-    required: true
+    default: () => ({}) // Objeto vacío por defecto
   },
   index: {
     type: Number,
-    required: true
+    default: 0
   }
 })
 
 defineEmits(['click'])
 </script>
+
+<style scoped>
+article {
+  box-shadow: 6px 6px 0px rgba(0,0,0,0.05);
+}
+
+article:hover {
+  box-shadow: 10px 10px 0px rgba(242, 120, 12, 0.2);
+}
+</style>

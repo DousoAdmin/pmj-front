@@ -3,18 +3,13 @@
   <div class="bg-gradient-to-br from-gray-50 via-white to-gray-50 min-h-screen">
     <!-- Componente Hero -->
     <HeroNosotros />
-    
+    <!-- Componente Mesa Directiva -->
+    <MesaDirectiva :team="team" />
     <!-- Componente Introducción Institucional -->
     <InstitucionalIntro />
     
-    <!-- Componente Mesa Directiva -->
-    <MesaDirectiva :team="team" />
-    
     <!-- Componente Ejes de Acción -->
     <EjesAccion />
-    
-    <!-- Componente Historia y Logros -->
-    <HistoriaLogros />
     
     <!-- Componente CTA Final -->
     <CTAFinal />
