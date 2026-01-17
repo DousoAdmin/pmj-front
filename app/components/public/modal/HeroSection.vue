@@ -8,13 +8,15 @@
   aria-labelledby="hero-title"
 >
     <!-- Patrón de fondo geométrico sutil -->
-    <div class="absolute inset-0 overflow-hidden">
-      <!-- Elementos decorativos geométricos -->
+<div class="absolute inset-0 overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none texture-grain"></div>
+      
+      <div class="absolute inset-0 opacity-[0.07]" 
+     style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2240%22 viewBox=%220 0 80 40%22%3E%3Cpath d=%22M0 40 L40 0 L80 40%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221.5%22/%3E%3C/svg%3E'); background-size: 80px 40px;">
+</div>
+
       <div class="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 rounded-full bg-linear-to-br from-[#F2780C]/10 to-white/5 blur-xl md:blur-3xl"></div>
       <div class="absolute bottom-1/4 -right-20 w-64 md:w-96 h-64 md:h-96 rounded-full bg-linear-to-tr from-white/5 to-[#F2780C]/10 blur-xl md:blur-3xl"></div>
-      
-      <!-- Líneas decorativas -->
-      <div class="absolute bottom-0 left-0 w-full h-0.5 md:h-1 bg-linear-to-r from-transparent via-white/20 to-transparent"></div>
     </div>
 
     <!-- =============================================== -->
@@ -164,7 +166,10 @@ const scrollToNextSection = () => {
 /* =============================================== */
 /* ANIMACIONES OFICIALES DEL HERO */
 /* =============================================== */
-
+/* Textura de ruido analógico */
+.texture-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3group%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
 /* Fade up escalonado */
 @keyframes fade-up {
   from { 

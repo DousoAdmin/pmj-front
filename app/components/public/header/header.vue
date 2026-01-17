@@ -1,15 +1,15 @@
 <template>
   <header 
-    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
-    :class="[
-      isScrolled 
-        ? 'bg-white shadow-md py-2' 
-        : 'bg-transparent py-5'
-    ]"
-  >
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out"
+  :class="[
+    isScrolled 
+      ? 'bg-white/10 backdrop-blur-lg shadow-md py-2' 
+      : 'bg-transparent py-5'
+  ]"
+>   
     <div 
       class="absolute bottom-0 left-0 right-0 h-[1px] transition-opacity duration-500"
-      :class="isScrolled ? 'bg-gray-100 opacity-100' : 'bg-transparent opacity-0'"
+      :class="isScrolled ? 'opacity-100' : 'bg-transparent opacity-0'"
     ></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -27,22 +27,30 @@
 
   <div class="flex flex-col justify-center">
     <h1 
-      :class="isScrolled ? 'text-gray-900' : 'text-white'" 
-      class="font-black text-base sm:text-2xl leading-none transition-colors tracking-tight"
-    >
-      Plataforma Juventudes
-    </h1>
+  :class="[
+    isScrolled 
+      ? 'text-white bg-[#522178]/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-lg' 
+      : 'text-white'
+  ]" 
+  class="font-black text-base sm:text-2xl leading-none transition-all duration-300 tracking-tight"
+>
+  Plataforma Juventudes
+</h1>
     <p 
-      :class="isScrolled ? 'text-[#00B140]' : 'text-[#F2780C]'" 
-      class="text-[11px] sm:text-[13px] font-black uppercase tracking-[0.2em] mt-1 transition-colors"
-    >
-      Mosquera
-    </p>
+    :class="[
+      isScrolled 
+        ? 'text-[#00B140] bg-white px-3 py-1 rounded-lg shadow-sm mt-2' 
+        : 'text-[#F2780C] mt-1'
+    ]" 
+    class="text-[11px] sm:text-[16px] font-black uppercase tracking-[0.2em] transition-all duration-300 inline-flex items-center justify-center text-center mx-auto lg:mx-0 w-max"
+  >
+    Mosquera
+  </p>
   </div>
 </NuxtLink>
 
-        <nav class="hidden lg:flex items-center space-x-1 bg-white/10 backdrop-blur-md p-1 rounded-full border border-white/20" 
-             :class="{ 'bg-gray-100 border-gray-200': isScrolled }">
+        <nav class="hidden lg:flex items-center space-x-1 bg-white/10 backdrop-blur-md p-1 rounded-full" 
+             :class="{ 'bg-gray-100': isScrolled }">
           <NuxtLink 
             v-for="item in navItems" 
             :key="item.path" 
@@ -86,7 +94,7 @@
           <Transition name="slide-custom">
             <div v-if="isMobileOpen" class="absolute right-0 top-0 bottom-0 w-[280px] bg-white shadow-2xl flex flex-col">
               
-              <div class="p-6 flex items-center justify-between border-b border-gray-50">
+              <div class="p-6 flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                    <div class="w-10 h-10 bg-[#522178] rounded-xl flex items-center justify-center">
                       <span class="text-white font-black text-xs">PJ</span>
