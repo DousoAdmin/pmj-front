@@ -36,7 +36,7 @@
         </time>
 
         <NuxtLink
-          to="#"
+          to="/public/noticias"
           class="text-[#F2780C] font-bold hover:underline flex items-center space-x-1
                  group-hover:space-x-2 transition-all duration-300"
         >
