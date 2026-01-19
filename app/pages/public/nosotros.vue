@@ -27,7 +27,7 @@ const team = ref([
     committee: 'Mesa Directiva',
     initials: 'JC',
     org: 'De Vuelta a la Vida',
-    photo: 'Joha.jpeg',
+    photo: 'Joha.webp',
     gradient: 'bg-gradient-to-br from-[#64278C] to-[#038C33]'
   },
   {
@@ -36,7 +36,7 @@ const team = ref([
     committee: 'Mesa Directiva',
     initials: 'JE',
     org: 'Los Meseros',
-    photo: 'juanes.jpg',
+    photo: 'juanes.webp',
     gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]'
   },
   {
@@ -45,7 +45,7 @@ const team = ref([
     committee: 'Representación',
     initials: 'DC',
     org: 'Hijos del Zipa',
-    photo: 'David.jpg',
+    photo: 'David.webp',
     gradient: 'bg-gradient-to-br from-[#64278C] to-[#038C33]'
   },
   {
@@ -54,7 +54,7 @@ const team = ref([
     committee: 'Representación',
     initials: 'NP',
     org: 'Malas Hierbas',
-    photo: 'Nikhol.jpeg',
+    photo: 'Nikhol.webp',
     gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]'
   },
   {
@@ -72,7 +72,7 @@ const team = ref([
     committee: 'Liderazgo',
     initials: 'CG',
     org: 'Juventud Agrícola Urbana JAU',
-    photo: 'Cristian.jpeg',
+    photo: 'Cristian.webp',
     gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]'
   }
 ])
