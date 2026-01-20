@@ -34,22 +34,22 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="p-8 rounded-[2rem] bg-slate-50 border-b-4 border-[#038C33] hover:shadow-xl transition-all">
+          <div class="p-8 rounded-4xl bg-slate-50 border-b-4 border-[#038C33] hover:shadow-xl transition-all">
             <span class="text-4xl mb-4 block">⚽</span>
             <h4 class="text-xl font-bold text-slate-800 mb-2">Deportivas</h4>
             <p class="text-slate-500 text-sm">Torneos, integración física y promoción de hábitos saludables.</p>
           </div>
-          <div class="p-8 rounded-[2rem] bg-slate-50 border-b-4 border-[#F2780C] hover:shadow-xl transition-all">
+          <div class="p-8 rounded-4xl bg-slate-50 border-b-4 border-[#F2780C] hover:shadow-xl transition-all">
             <span class="text-4xl mb-4 block">🎨</span>
             <h4 class="text-xl font-bold text-slate-800 mb-2">Culturales</h4>
             <p class="text-slate-500 text-sm">Festivales de arte, música y expresiones creativas juveniles.</p>
           </div>
-          <div class="p-8 rounded-[2rem] bg-slate-50 border-b-4 border-[#00B140] hover:shadow-xl transition-all">
+          <div class="p-8 rounded-4xl bg-slate-50 border-b-4 border-[#00B140] hover:shadow-xl transition-all">
             <span class="text-4xl mb-4 block">🌿</span>
             <h4 class="text-xl font-bold text-slate-800 mb-2">Ambientales</h4>
             <p class="text-slate-500 text-sm">Jornadas de siembra, limpieza y conciencia ecológica territorial.</p>
           </div>
-          <div class="p-8 rounded-[2rem] bg-slate-50 border-b-4 border-[#522178] hover:shadow-xl transition-all">
+          <div class="p-8 rounded-4xl-slate-50 border-b-4 border-[#522178] hover:shadow-xl transition-all">
             <span class="text-4xl mb-4 block">🤝</span>
             <h4 class="text-xl font-bold text-slate-800 mb-2">Sociales</h4>
             <p class="text-slate-500 text-sm">Veeduría, participación política y empoderamiento comunitario.</p>
@@ -84,7 +84,7 @@
             </p>
 
             <div class="relative h-72 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#038C33]/40 to-transparent z-10"></div>
+              <div class="absolute inset-0 bg-linear-to-t from-[#038C33]/40 to-transparent z-10"></div>
               <img src="/images/pmjsofa.webp" alt="Misión PMJ" class="w-full h-full object-cover" />
             </div>
           </div>
@@ -111,7 +111,7 @@
               </p>
 
               <div class="relative h-72 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#F2780C]/40 to-transparent z-10"></div>
+                <div class="absolute inset-0 bg-linear-to-t from-[#F2780C]/40 to-transparent z-10"></div>
                 <img src="/images/vision.webp" alt="Visión PMJ" class="w-full h-full object-cover" />
               </div>
             </div>

@@ -14,8 +14,8 @@
           background-size: 50px 50px;"
       ></div>
       
-      <div class="absolute -top-24 -left-24 w-[600px] h-[600px] bg-white rounded-full blur-[150px] opacity-10 animate-pulse-slow"></div>
-      <div class="absolute -bottom-24 -right-24 w-[500px] h-[500px] bg-[#F2780C] rounded-full blur-[150px] opacity-20 animate-pulse-slow"></div>
+      <div class="absolute -top-24 -left-24 w-150 h-150 bg-white rounded-full blur-[150px] opacity-10 animate-pulse-slow"></div>
+      <div class="absolute -bottom-24 -right-24 w-125 h-125 bg-[#F2780C] rounded-full blur-[150px] opacity-20 animate-pulse-slow"></div>
     </div>
 
     <div class="relative z-10 container mx-auto px-6 text-center">
@@ -28,7 +28,7 @@
       <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tighter py-2 overflow-hidden">
         <span class="block animate-reveal-up">Nuestras</span>
         <span 
-          class="block text-transparent bg-clip-text bg-gradient-to-r from-[#F2780C] via-[#ff983f] to-[#F2780C] italic drop-shadow-lg animate-reveal-up"
+          class="block text-transparent bg-clip-text bg-linear-to-r from-[#F2780C] via-[#ff983f] to-[#F2780C] italic drop-shadow-lg animate-reveal-up"
           style="animation-delay: 0.2s"
         >
           Organizaciones

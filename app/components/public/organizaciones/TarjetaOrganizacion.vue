@@ -17,7 +17,7 @@
       </span>
     </div>
 
-    <div class="relative w-28 h-28 mx-auto mt-4 mb-8 flex-shrink-0">
+    <div class="relative w-28 h-28 mx-auto mt-4 mb-8 shrink-0">
       <div class="absolute inset-0 bg-[#F2780C]/20 rounded-full blur-2xl group-hover:opacity-80 transition-opacity"></div>
       <div class="absolute -inset-2 border-2 border-dashed border-gray-100 rounded-full animate-[spin_10s_linear_infinite] group-hover:border-[#F2780C]/30"></div>
       

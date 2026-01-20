@@ -2,7 +2,7 @@
 <template>
   <div class="col-span-full text-center py-20">
     <div class="max-w-md mx-auto">
-      <div class="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-gray-200 to-gray-300 
+      <div class="w-24 h-24 mx-auto mb-6 bg-linear-to-br from-gray-200 to-gray-300 
                   rounded-full flex items-center justify-center">
         <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" 

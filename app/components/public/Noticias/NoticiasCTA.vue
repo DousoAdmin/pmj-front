@@ -28,7 +28,7 @@
         <div class="animate-reveal-up" style="animation-delay: 0.4s">
           <button
             type="button"
-            class="group relative px-12 py-5 bg-[#64278C] text-white font-black text-xl rounded-[2rem]
+            class="group relative px-12 py-5 bg-[#64278C] text-white font-black text-xl rounded-4xl
                    hover:bg-[#522178] transform hover:-translate-y-2 transition-all duration-300
                    shadow-[0_20px_40px_rgba(100,39,140,0.4)] active:scale-95 focus:outline-none 
                    focus:ring-4 focus:ring-white/30"

@@ -3,7 +3,7 @@
     <Transition name="fade">
       <div 
         v-if="isOpen" 
-        class="fixed inset-0 bg-[#522178]/95 z-[100] flex items-center justify-center p-4 backdrop-blur-sm"
+        class="fixed inset-0 bg-[#522178]/95 z-100 flex items-center justify-center p-4 backdrop-blur-sm"
         role="dialog"
         @click="$emit('close')"
       >

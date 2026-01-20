@@ -9,8 +9,8 @@
         style="background-image: radial-gradient(circle at 50% 50%, #ffffff 1px, transparent 1px); background-size: 60px 60px;"
       ></div>
       
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/10 rounded-full animate-ping-slow"></div>
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] border border-white/5 rounded-full"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 border border-white/10 rounded-full animate-ping-slow"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 border border-white/5 rounded-full"></div>
       
       <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#038C33]/20 rounded-full blur-[120px]"></div>
       <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-[#F2780C]/10 rounded-full blur-[120px]"></div>
@@ -26,7 +26,7 @@
       <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-8 leading-tight tracking-tighter overflow-hidden">
         <span class="block animate-reveal-up">Últimas</span>
         <span 
-          class="inline-block px-6 py-2 bg-white text-[#038C33] rounded-3xl rotate-[-1deg] shadow-2xl animate-reveal-up"
+          class="inline-block px-6 py-2 bg-white text-[#038C33] rounded-3xl -rotate-1 shadow-2xl animate-reveal-up"
           style="animation-delay: 0.2s"
         >
           Noticias
@@ -43,7 +43,7 @@
       </p>
 
       <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce-slow">
-        <div class="w-px h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
+        <div class="w-px h-12 bg-linear-to-b from-white/50 to-transparent"></div>
       </div>
     </div>
   </section>

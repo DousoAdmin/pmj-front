@@ -46,19 +46,19 @@
           <h3 class="text-3xl font-black text-[#F2780C] uppercase mb-8 tracking-tighter">¿Cómo te beneficia participar?</h3>
           <ul class="grid md:grid-cols-2 gap-8">
             <li class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-full bg-[#038C33] flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
+              <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
               <p><strong class="text-white">Gestión de Espacios:</strong> Abrimos puertas para tus proyectos culturales o deportivos.</p>
             </li>
             <li class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-full bg-[#038C33] flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
+              <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
               <p><strong class="text-white">Formación y Becas:</strong> Acceso preferencial a talleres de liderazgo y diplomados.</p>
             </li>
             <li class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-full bg-[#038C33] flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
+              <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
               <p><strong class="text-white">Red de Contactos:</strong> Conectamos tu parche con otros colectivos del municipio.</p>
             </li>
             <li class="flex gap-4 items-start">
-              <div class="w-8 h-8 rounded-full bg-[#038C33] flex-shrink-0 flex items-center justify-center text-white font-bold">✓</div>
+              <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
               <p><strong class="text-white">Voz Institucional:</strong> Garantizamos que tus sugerencias lleguen a los secretarios de despacho.</p>
             </li>
           </ul>
