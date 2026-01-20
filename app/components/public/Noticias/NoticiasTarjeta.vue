@@ -7,10 +7,10 @@
     :style="{ animationDelay: `${(index + 1) * 100}ms` }"
     role="article"
   >
-    <div class="relative h-56 md:h-64 overflow-hidden flex-shrink-0">
+    <div class="relative h-56 md:h-64 overflow-hidden shrink-0">
       <div class="absolute inset-0 bg-[#64278C]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
       
-      <div class="absolute inset-0 w-full h-full bg-gradient-to-br transform group-hover:scale-110 transition-transform duration-700" 
+      <div class="absolute inset-0 w-full h-full bg-linear-to-br transform group-hover:scale-110 transition-transform duration-700" 
            :class="noticia.gradient">
       </div>
 
@@ -20,7 +20,7 @@
         </span>
       </div>
       
-      <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-10"></div>
+      <div class="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black/40 to-transparent z-10"></div>
     </div>
 
     <div class="p-8 flex-1 flex flex-col">

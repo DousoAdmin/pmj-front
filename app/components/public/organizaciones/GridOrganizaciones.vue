@@ -22,7 +22,7 @@
             Explora las <span class="font-black text-[#038C33] text-xl">{{ organizaciones.length }}</span> organizaciones juveniles
           </p>
         </div>
-        <div class="w-px h-16 bg-gradient-to-b from-white/20 to-transparent mt-6"></div>
+        <div class="w-px h-16 bg-linear-to-b from-white/20 to-transparent mt-6"></div>
       </div>
 
       <div 

@@ -6,8 +6,8 @@
       style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 45px 45px;"
     ></div>
 
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#038C33]/10 rounded-full blur-[150px] pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#F2780C]/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-150 h-150 bg-[#038C33]/10 rounded-full blur-[150px] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-150 h-150 bg-[#F2780C]/10 rounded-full blur-[150px] pointer-events-none"></div>
 
     <div class="container mx-auto px-6 relative z-10">
       
