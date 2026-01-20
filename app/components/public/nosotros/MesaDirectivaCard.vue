@@ -1,54 +1,51 @@
-<!-- components/nosotros/MesaDirectivaCard.vue -->
 <template>
   <article 
-    class="group relative bg-white rounded-3xl p-6 shadow-xl hover:shadow-2xl 
-           transform hover:-translate-y-3 transition-all duration-500 
-           animate-fade-up border border-gray-100"
-    :style="{ animationDelay: `${(index + 1) * 150}ms` }"
+    class="group relative bg-white rounded-[2.5rem] p-8 shadow-md hover:shadow-2xl 
+           border-2 border-slate-50 hover:border-[#F2780C]
+           transform hover:-translate-y-4 transition-all duration-500"
     role="figure"
     :aria-label="`Miembro de la Mesa Directiva: ${member.name}`"
   >
-    <!-- Fondo hover con gradiente -->
-    <div class="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-10 
-                transition-opacity duration-500" :class="member.gradient"></div>
-
-    <!-- Foto o iniciales -->
-    <figure class="relative z-10 w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden 
-                    shadow-2xl ring-4 ring-white 
-                    group-hover:ring-[#F2780C]/60 transition-all duration-500">
+    <figure class="relative z-10 w-44 h-44 mx-auto mb-8 rounded-full overflow-hidden 
+                   ring-8 ring-slate-100 group-hover:ring-[#F2780C]/20 transition-all duration-500">
       <img 
         v-if="member.photo"
         :src="`/images/Mesa_directiva_2025/${member.photo}`"
-        :alt="`Foto oficial de ${member.name}, ${member.role}`"
-        class="w-full h-full object-cover"
+        :alt="`Foto de ${member.name}`"
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"
       />
       <div 
         v-else 
-        class="w-full h-full flex items-center justify-center text-3xl font-black text-white"
-        :class="member.gradient"
+        class="w-full h-full flex items-center justify-center text-4xl font-black text-white"
+        :class="index % 2 === 0 ? 'bg-[#522178]' : 'bg-[#038C33]'"
       >
         {{ member.initials }}
       </div>
     </figure>
 
-    <!-- Información del miembro -->
     <figcaption class="relative z-10 text-center">
-      <h3 class="text-xl md:text-2xl font-bold text-[#64278C] mb-2 
-                 group-hover:text-[#038C33] transition-colors duration-300">
+      <h3 class="text-xl md:text-2xl font-black text-[#522178] mb-1 leading-tight transition-colors group-hover:text-[#F2780C]">
         {{ member.name }}
       </h3>
-      <p class="text-sm md:text-base font-bold text-[#F2780C] mb-1">
+      
+      <p class="text-sm font-black text-[#F2780C] uppercase tracking-wider mb-4">
         {{ member.role }}
       </p>
-      <p class="text-xs md:text-sm text-gray-600">{{ member.committee }}</p>
-      <p class="text-xs md:text-sm text-gray-600">Org. {{ member.org }}</p>
+
+      <div class="w-10 h-1 bg-[#038C33] mx-auto mb-4 group-hover:w-20 transition-all duration-500"></div>
+
+      <div class="space-y-1">
+        <p class="text-xs font-bold text-slate-500 uppercase tracking-tighter leading-tight">
+          {{ member.committee }}
+        </p>
+        <p class="text-[11px] font-medium text-slate-400 italic">
+          {{ member.org }}
+        </p>
+      </div>
     </figcaption>
 
-    <!-- Efecto brillo al hover -->
-    <div class="absolute inset-0 rounded-3xl bg-white opacity-0 
-                group-hover:opacity-100 blur-xl scale-0 group-hover:scale-150 
-                transition-all duration-700 -z-10"></div>
+    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-slate-100 group-hover:bg-[#F2780C] group-hover:w-full rounded-b-[2.5rem] transition-all duration-500"></div>
   </article>
 </template>
 
@@ -64,3 +61,14 @@ defineProps({
   }
 })
 </script>
+
+<style scoped>
+/* Optimizamos la legibilidad del texto */
+h3 {
+  letter-spacing: -0.03em;
+}
+
+article {
+  isolation: isolate;
+}
+</style>

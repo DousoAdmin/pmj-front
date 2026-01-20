@@ -10,10 +10,6 @@
 
     <AboutSection @open-modal="openRegistrationModal" />
 
-    <ServicesSection />
-
-    <AchievementsSection />
-
     <ContactFormSection 
       :show-modal="showModal" 
       @close-modal="closeRegistrationModal" 
@@ -78,8 +74,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import HeroSection from '~/components/public/modal/HeroSection.vue'
 import Carousel from '~/components/public/carrusel/Carousel.vue'  
 import AboutSection from '~/components/public/about/AboutSection.vue'
-import ServicesSection from '~/components/public/services/ServicesSection.vue'
-import AchievementsSection from '~/components/public/achievements/AchievementsSection.vue'
 import ContactFormSection from '~/components/public/contactForm/ContactFormSection.vue'
 
 // ===============================================
