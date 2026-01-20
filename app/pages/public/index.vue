@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-[#d0ffe1] to-[#c9ffdb]">
+  <div class="min-h-screen">
 
 
     <HeroSection @open-modal="openRegistrationModal" />
@@ -18,7 +18,7 @@
     <teleport to="body">
       <div
         v-if="showModal"
-        class="fixed inset-0 bg-black/60 backdrop-blur-md z-[100] flex items-center justify-center p-4 
+        class="fixed inset-0 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 
                transition-opacity duration-300"
         role="dialog"
         aria-modal="true"
@@ -37,7 +37,7 @@
           <h3 
             id="modal-title"
             class="text-3xl font-black text-[#64278C] mb-6 text-center 
-                   bg-gradient-to-r from-[#64278C] to-[#038C33] bg-clip-text text-transparent"
+                   bg-[#038C33] bg-clip-text"
           >
             ¡Gracias por Inscribirte!
           </h3>
@@ -52,7 +52,7 @@
           <!-- Botón cerrar -->
           <button
             @click="closeRegistrationModal"
-            class="w-full bg-gradient-to-r from-[#64278C] to-[#038C33] 
+            class="w-full bg-[#038C33] 
                    text-white font-black text-lg py-4 rounded-full 
                    shadow-xl hover:shadow-[#038C33]/50 
                    transform hover:scale-105 active:scale-95 

@@ -37,7 +37,7 @@
       </div>
 
       <div class="flex justify-center lg:justify-end animate-fade-in-right">
-        <div class="max-w-md w-full bg-white rounded-[50px] shadow-[0_50px_100px_rgba(0,0,0,0.4)] p-10 py-16 lg:py-20 border-t-[15px] border-[#F2780C]">
+        <div class="max-w-md w-full bg-white rounded-[50px] shadow-[0_50px_100px_rgba(0,0,0,0.4)] p-10 py-16 lg:py-20 border-b-15 border-[#F2780C]">
           <h4 class="text-center font-black text-[#522178] text-2xl mb-10 tracking-tighter uppercase italic">Ingreso Líder</h4>
           
           <form @submit.prevent="handleLogin" class="space-y-6">

@@ -22,13 +22,13 @@
           </button>
         </div>
 
-        <div class="relative bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl border border-slate-100">
+        <div class="relative bg-white rounded-4xl md:rounded-[3rem] shadow-2xl border border-slate-100">
           <transition name="slide-fade" mode="out-in">
-            <div :key="currentSlide" class="flex flex-col md:flex-row min-h-fit md:min-h-[600px]">
+            <div :key="currentSlide" class="flex flex-col md:flex-row min-h-fit md:min-h-150">
               
               <div class="w-full md:w-[55%] order-1 md:order-2 p-4 md:p-8">
                 <div 
-                  class="w-full aspect-square md:h-full rounded-[1.5rem] md:rounded-[2.5rem] relative overflow-hidden flex items-center justify-center transition-all duration-700"
+                  class="w-full aspect-square md:h-full rounded-3xl md:rounded-[2.5rem] relative overflow-hidden flex items-center justify-center transition-all duration-700"
                   :style="{ backgroundColor: slides[currentSlide].hexColor }"
                 >
                   <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle, white 2px, transparent 2px); background-size: 30px 30px;"></div>

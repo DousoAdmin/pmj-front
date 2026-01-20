@@ -1,5 +1,5 @@
 <template>
-  <article 
+  <article
     class="group relative bg-white rounded-[2.5rem] p-8 shadow-md hover:shadow-2xl 
            border-2 border-slate-50 hover:border-[#F2780C]
            transform hover:-translate-y-4 transition-all duration-500"

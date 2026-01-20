@@ -41,9 +41,9 @@
         </div>
 
         <div class="flex items-center justify-center gap-4 opacity-30">
-          <div class="h-[1px] bg-white w-20"></div>
+          <div class="h-px bg-white w-20"></div>
           <div class="w-2 h-2 rotate-45 bg-[#F2780C]"></div>
-          <div class="h-[1px] bg-white w-20"></div>
+          <div class="h-px bg-white w-20"></div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 max-w-6xl mx-auto">
