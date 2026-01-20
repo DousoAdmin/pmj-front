@@ -1,6 +1,6 @@
 <template>
   <section 
-    class="relative min-h-0 md:min-h-[100dvh] flex flex-col md:items-center md:justify-center overflow-hidden bg-[#522178] pt-28 pb-12 md:pt-32 md:pb-20"
+    class="relative min-h-0 md:min-h-dvh flex flex-col md:items-center md:justify-center overflow-hidden bg-[#522178] pt-28 pb-12 md:pt-32 md:pb-20"
     role="banner"
     aria-labelledby="hero-title"
   >
@@ -65,10 +65,10 @@
           </div>
 
           <div class="lg:w-1/2 mt-16 lg:mt-0 relative flex justify-center items-center">
-            <div class="absolute w-72 h-72 md:w-[500px] md:h-[500px] bg-gradient-to-tr from-[#F2780C]/30 to-[#038C33]/20 rounded-full blur-[100px] animate-pulse-glow"></div>
+            <div class="absolute w-72 h-72 md:w-125 md:h-125 bg-linear-to-tr from-[#F2780C]/30 to-[#038C33]/20 rounded-full blur-[100px] animate-pulse-glow"></div>
             
             <div 
-              class="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-[480px] lg:h-[480px] group transition-all duration-700 ease-in-out hover:scale-105"
+              class="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-120 lg:h-120 group transition-all duration-700 ease-in-out hover:scale-105"
               @mouseenter="updateMotivation"
               @mouseleave="currentMessage = ''"
             >

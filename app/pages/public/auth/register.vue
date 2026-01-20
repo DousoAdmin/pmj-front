@@ -9,7 +9,7 @@
         class="flex justify-center lg:justify-start order-2 lg:order-1 animate-fade-in-left"
       >
         <div
-          class="max-w-xl w-full bg-white rounded-[50px] shadow-[0_50px_100px_rgba(0,0,0,0.3)] p-10 py-12 border-t-[15px] border-[#522178]"
+          class="max-w-xl w-full bg-white rounded-[50px] shadow-[0_50px_100px_rgba(0,0,0,0.3)] p-10 py-12 border-b-20 border-[#522178]"
         >
           <h4
             class="text-center font-black text-[#00A036] text-2xl mb-8 tracking-tighter uppercase italic"
@@ -211,7 +211,7 @@
           </p>
         </div>
         <div
-          class="w-64 h-64 lg:w-[450px] lg:h-[450px] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] drop-shadow-[0_45px_50px_rgba(0,0,0,0.4)] relative animate-float-slow"
+          class="w-64 h-64 lg:w-112.5 lg:h-112.5 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] drop-shadow-[0_45px_50px_rgba(0,0,0,0.4)] relative animate-float-slow"
           :class="{
             'scale-110 -translate-x-12 rotate-6': llamaState === 'curious',
             'scale-125 -translate-y-12': llamaState === 'happy',

@@ -17,11 +17,11 @@
       </h1>
 
       <div class="flex items-center justify-center gap-6 mb-8 animate-fade-in-up delay-200">
-        <div class="h-[2px] w-12 bg-white/30"></div>
+        <div class="h-0.5 w-12 bg-white/30"></div>
         <p class="text-2xl md:text-4xl font-black text-white italic tracking-tight">
           2025 <span class="text-[#F2780C]">—</span> 2026
         </p>
-        <div class="h-[2px] w-12 bg-white/30"></div>
+        <div class="h-0.5 w-12 bg-white/30"></div>
       </div>
 
       <p class="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed animate-fade-in-up delay-300">
