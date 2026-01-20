@@ -56,7 +56,7 @@
         </div>
 
         <div class="lg:col-span-4">
-          <div class="bg-gray-50 rounded-[2rem] p-8 border border-gray-100 relative">
+          <div class="bg-gray-50 rounded-4xl p-8 border border-gray-100 relative">
             <div class="absolute -top-4 -right-4 w-20 h-20 bg-[#F2780C]/5 rounded-full -z-10"></div>
             
             <h3 class="text-gray-900 font-black text-xl mb-4">¿Representas una organización?</h3>
