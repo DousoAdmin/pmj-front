@@ -217,7 +217,7 @@
             'scale-125 -translate-y-12': llamaState === 'happy',
           }"
         >
-          <img
+          <NuxtImg
             src="/images/favicon.webp"
             alt="Logo Llama"
             class="w-full h-full object-contain"

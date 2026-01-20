@@ -19,7 +19,7 @@
 
           <div class="w-full lg:w-2/5">
             <div class="relative rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500 bg-white p-2">
-              <img src="/images/pmj1.webp" alt="Jóvenes PMJ" class="w-full h-auto rounded-[2.5rem]" />
+              <NuxtImg src="/images/pmj1.webp" alt="Jóvenes PMJ" class="w-full h-auto rounded-[2.5rem]" />
             </div>
           </div>
         </div>
@@ -85,7 +85,7 @@
 
             <div class="relative h-72 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
               <div class="absolute inset-0 bg-linear-to-t from-[#038C33]/40 to-transparent z-10"></div>
-              <img src="/images/pmjsofa.webp" alt="Misión PMJ" class="w-full h-full object-cover" />
+              <NuxtImg src="/images/pmjsofa.webp" alt="Misión PMJ" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@
 
               <div class="relative h-72 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
                 <div class="absolute inset-0 bg-linear-to-t from-[#F2780C]/40 to-transparent z-10"></div>
-                <img src="/images/vision.webp" alt="Visión PMJ" class="w-full h-full object-cover" />
+                <NuxtImg src="/images/vision.webp" alt="Visión PMJ" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>

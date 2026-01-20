@@ -81,7 +81,7 @@
                 </div>
               </Transition>
 
-              <img 
+              <NuxtImg 
                 src="/images/favicon.webp" 
                 alt="Logo"
                 class="w-full h-full object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.4)] animate-float-slow transition-all" 

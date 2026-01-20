@@ -2,23 +2,23 @@
 <template>
   <div class="bg-linear-to-br from-gray-50 via-white to-gray-50 min-h-screen">
     <!-- Componente Hero -->
-    <HeroGaleria />
+    <LazyHeroGaleria />
     
     <!-- Componente Filtros -->
-    <FiltrosGaleria 
+    <LazyFiltrosGaleria 
       :filters="filters"
       :activeFilter="activeFilter"
       @filter-change="activeFilter = $event"
     />
     
     <!-- Componente Grid de Fotos -->
-    <GridFotos 
+    <LazyGridFotos 
       :photos="filteredPhotos"
       @open-lightbox="openLightbox"
     />
     
     <!-- Componente Lightbox -->
-    <Lightbox 
+    <LazyLightbox 
       :is-open="lightboxOpen"
       :current-photo="currentPhoto"
       :current-index="currentIndex"
@@ -29,7 +29,7 @@
     />
     
     <!-- Componente CTA Final -->
-    <CTAFotos />
+    <LazyCTAFotos />
   </div>
 </template>
 

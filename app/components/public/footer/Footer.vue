@@ -12,7 +12,7 @@
         <div class="lg:col-span-5 space-y-8">
           <NuxtLink to="/public/" class="inline-flex items-center space-x-4 group">
   <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110">
-    <img 
+    <NuxtImg 
       src="/images/favicon.webp" 
       alt="Logo Juventudes Mosquera" 
       class="w-full h-full object-contain -translate-x-1"

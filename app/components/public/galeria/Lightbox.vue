@@ -21,7 +21,7 @@
                         class="w-full h-full"
                         :style="{ backgroundColor: currentPhoto?.bgColor || '#038C33' }"
                       ></div>
-                      <img 
+                      <NuxtImg 
                         v-else
                         :src="currentPhoto.image" 
                         class="w-full h-full object-cover"

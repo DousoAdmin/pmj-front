@@ -2,17 +2,17 @@
 <template>
   <div class="min-h-screen">
     <!-- Componente Hero -->
-    <HeroNosotros />
+    <LazyHeroNosotros />
     <!-- Componente Mesa Directiva -->
-    <MesaDirectiva :team="team" />
+    <LazyMesaDirectiva :team="team" />
     <!-- Componente Introducción Institucional -->
-    <InstitucionalIntro />
+    <LazyInstitucionalIntro />
     
     <!-- Componente Ejes de Acción -->
-    <EjesAccion />
+    <LazyEjesAccion />
     
     <!-- Componente CTA Final -->
-    <CTAFinal />
+    <LazyCTAFinal />
   </div>
 </template>
 

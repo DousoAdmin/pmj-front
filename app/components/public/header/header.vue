@@ -13,7 +13,7 @@
           class="flex items-center space-x-2 sm:space-x-4 group z-10 flex-1 lg:flex-none min-w-0 w-full lg:w-auto">
           <div
             class="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 shrink-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-            <img src="/images/favicon.webp" alt="Logo"
+            <NuxtImg src="/images/favicon.webp" alt="Logo"
               class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
           </div>
 
@@ -73,7 +73,7 @@
               <div class="p-8 flex items-center justify-between border-b border-white/10">
                 <div class="flex items-center space-x-4 min-w-0">
                   <div class="w-12 h-12 shrink-0">
-                    <img src="/images/favicon.webp" alt="Logo" class="w-full h-full object-contain drop-shadow-md" />
+                    <NuxtImg src="/images/favicon.webp" alt="Logo" class="w-full h-full object-contain drop-shadow-md" />
                   </div>
                   <span class="font-black text-white uppercase italic tracking-tighter text-xl truncate">Menú</span>
                 </div>

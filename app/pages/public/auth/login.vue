@@ -25,7 +25,7 @@
             'scale-125 -translate-y-8': llamaState === 'happy'
           }"
         >
-          <img src="/images/favicon.webp" alt="Mascota Llama" class="w-full h-full object-contain" />
+          <NuxtImg src="/images/favicon.webp" alt="Mascota Llama" class="w-full h-full object-contain" />
           
           <Transition name="pop">
             <div v-if="currentMessage" class="absolute -top-10 -right-4 lg:right-auto lg:-top-16 lg:left-0 bg-white text-[#522178] px-6 py-3 rounded-2xl rounded-bl-none font-black text-xs shadow-2xl uppercase italic whitespace-nowrap z-20 border-2 border-[#F2780C]">
