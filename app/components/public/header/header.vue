@@ -94,17 +94,24 @@
           <Transition name="slide-custom">
             <div v-if="isMobileOpen" class="absolute right-0 top-0 bottom-0 w-[280px] bg-white shadow-2xl flex flex-col">
               
-              <div class="p-6 flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                   <div class="w-10 h-10 bg-[#522178] rounded-xl flex items-center justify-center">
-                      <span class="text-white font-black text-xs">PJ</span>
-                   </div>
-                   <span class="font-black text-[#522178] uppercase text-[10px] tracking-widest">Navegación</span>
-                </div>
-                <button @click="isMobileOpen = false" class="p-2 text-gray-400">
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
-                </button>
-              </div>
+<div class="p-6 flex items-center justify-between">
+  <div class="flex items-center space-x-3">
+    <div class="w-14 h-14 flex items-center justify-center">
+      <img 
+        src="/images/favicon.webp" 
+        alt="Logo" 
+        class="w-full h-full object-contain"
+      />
+    </div>
+    <span class="font-black text-[#522178] uppercase text-[15px] tracking-widest">Navegación</span>
+  </div>
+
+  <button @click="isMobileOpen = false" class="p-2 text-gray-400">
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+</div>
 
               <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
                 <NuxtLink 
