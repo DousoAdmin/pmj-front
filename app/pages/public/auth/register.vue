@@ -1,0 +1,192 @@
+<template>
+  <div class="min-h-screen flex items-center justify-center px-6 pt-25 pb-20 bg-[#00A036] relative overflow-hidden register-texture">
+    <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center relative z-10">
+      
+      <div class="flex justify-center lg:justify-start order-2 lg:order-1 animate-fade-in-left">
+        <div class="max-w-xl w-full bg-white rounded-[50px] shadow-[0_50px_100px_rgba(0,0,0,0.3)] p-10 py-12 border-t-[15px] border-[#522178]">
+          <h4 class="text-center font-black text-[#00A036] text-2xl mb-8 tracking-tighter uppercase italic">Nuevo Registro</h4>
+          
+          <form @submit.prevent="handleRegister" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            
+            <div class="sm:col-span-2 space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Nombre Completo</label>
+              <input 
+                v-model="form.name" @input="handleTyping('name')"
+                @focus="setLlamaStatus('curious', 'Prometemos no juzgar 🤐')" @blur="setLlamaStatus('idle')"
+                type="text" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs focus:ring-4 focus:ring-[#F2780C]/20 transition-all border-2 border-transparent focus:border-gray-100" 
+              />
+            </div>
+            
+            <div class="space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Nombre de usuario</label>
+              <input 
+                v-model="form.user" @input="handleTyping('user')"
+                @focus="setLlamaStatus('curious', 'Piensa en tu yo del futuro. 😎')" @blur="setLlamaStatus('idle')"
+                type="text" placeholder="Usuario" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs" 
+              />
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Teléfono celular</label>
+              <input 
+                v-model="form.phone" @input="handleTyping('phone')"
+                @focus="setLlamaStatus('curious', 'Prometemos no llamarte a las 3 a.m.')" @blur="setLlamaStatus('idle')"
+                type="tel" placeholder="300 000 0000" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs" 
+              />
+            </div>
+
+            <div class="sm:col-span-1 space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Correo electrónico</label>
+              <input 
+                v-model="form.email" @input="handleTyping('email')"
+                @focus="setLlamaStatus('curious', 'pon el correo pero ¡Tratame serio! 📧')" @blur="setLlamaStatus('idle')"
+                type="email" placeholder="CORREO@EJEMPLO.COM" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs" 
+              />
+            </div>
+
+            <div class="sm:col-span-1 space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Fecha de nacimiento</label>
+              <input 
+                v-model="form.birthdate" @input="handleTyping('birthdate')"
+                @focus="setLlamaStatus('curious', '¿Ya tienes edad para estar aquí? (Jóvenes de 14 a 28 años)👶')" @blur="setLlamaStatus('idle')"
+                type="date" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs text-gray-500" 
+              />
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">contraseña</label>
+              <input 
+                v-model="form.password" @input="handleTyping('password')"
+                @focus="setLlamaStatus('curious', 'No pongas ‘123456’. Te veo.')" @blur="setLlamaStatus('idle')"
+                type="password" placeholder="••••••••" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs border-2 border-transparent focus:border-gray-100" 
+              />
+            </div>
+
+            <div class="space-y-1">
+              <label class="text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Repite la contraseña</label>
+              <input 
+                v-model="form.confirmPassword" @input="handleTyping('confirmPassword')"
+                @focus="setLlamaStatus('curious', 'A ver esa memoria... 🧠')" @blur="setLlamaStatus('idle')"
+                type="password" placeholder="••••••••" class="w-full px-6 py-4 bg-gray-50 rounded-2xl outline-none font-bold text-xs border-2 border-transparent focus:border-gray-100" 
+              />
+            </div>
+            
+            <button 
+              @mouseenter="setLlamaStatus('happy', '¡DALE CLIC YA! 🔥')" @mouseleave="setLlamaStatus('idle')"
+              type="submit" 
+              class="sm:col-span-2 py-5 bg-[#F2780C] hover:bg-[#522178] text-white font-black rounded-2xl shadow-xl transition-all tracking-[0.4em] mt-2 uppercase active:scale-95"
+            >
+              CREAR CUENTA
+            </button>
+          </form>
+          
+          <div class="mt-8 text-center border-t border-gray-100 pt-6">
+            <NuxtLink to="/public/auth/login" class="text-gray-400 font-black text-[10px] tracking-widest hover:text-[#522178]">
+              ¿YA TIENES CUENTA? <span class="text-[#00A036] underline decoration-[#522178] decoration-2">ENTRA AQUÍ</span>
+            </NuxtLink>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center lg:items-end space-y-12 order-1 lg:order-2 animate-fade-in-down text-center lg:text-right">
+        <div class="space-y-6">
+          <div class="space-y-2">
+            <h2 class="text-[#522178] text-6xl sm:text-8xl font-black tracking-tighter leading-none uppercase italic">ESCRIBE LA</h2>
+            <div class="bg-white px-6 py-3 inline-block transform skew-x-12 shadow-2xl">
+              <h2 class="text-[#522178] text-6xl sm:text-8xl font-black tracking-tighter leading-none uppercase -skew-x-12">HISTORIA.</h2>
+            </div>
+          </div>
+        </div>
+
+        <div 
+          class="w-64 h-64 lg:w-[450px] lg:h-[450px] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] drop-shadow-[0_45px_50px_rgba(0,0,0,0.4)] relative animate-float-slow"
+          :class="{ 'scale-110 -translate-x-12 rotate-6': llamaState === 'curious', 'scale-125 -translate-y-12': llamaState === 'happy' }"
+        >
+          <img src="/images/favicon.webp" alt="Logo Llama" class="w-full h-full object-contain" />
+          
+          <Transition name="pop">
+            <div v-if="currentMessage" class="absolute -top-12 right-0 lg:right-auto lg:left-0 bg-white text-[#522178] px-6 py-3 rounded-2xl rounded-bl-none font-black text-[11px] shadow-2xl uppercase italic whitespace-nowrap z-20 border-2 border-[#F2780C]">
+              {{ currentMessage }}
+              <div class="absolute -bottom-2 left-4 w-4 h-4 bg-white border-r-2 border-b-2 border-[#F2780C] rotate-45"></div>
+            </div>
+          </Transition>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, reactive } from 'vue'
+
+const llamaState = ref('idle')
+const currentMessage = ref('')
+
+const form = reactive({
+  name: '',
+  user: '',
+  phone: '',
+  email: '',
+  birthdate: '',
+  password: '',
+  confirmPassword: ''
+})
+
+const setLlamaStatus = (state, message = '') => {
+  llamaState.value = state
+  currentMessage.value = message
+}
+
+const handleTyping = (field) => {
+  llamaState.value = 'curious'
+  
+  const messages = {
+    name: '¡Tus papás sí que fueron creativos… demasiado! 🤣',
+    user: 'Ese user parece contraseña mal escrita. XD',
+    phone: '¿A quién vas a estafar con ese número? 📱',
+    email: 'Espero que no sea el de tus páginas cochinas... 🤐',
+    birthdate: '¿En serio naciste ese día? Mejor no digo nada... 👴',
+    password: 'Eso no es una clave, es una sugerencia 😑'
+  }
+
+  if (field === 'confirmPassword') {
+    currentMessage.value = form.confirmPassword !== form.password 
+      ? '¡Concéntrate. Solo esta vez!' 
+      : 'Vaya, al menos sabes repetir cosas. 👍'
+  } else if (form[field].length > 0) {
+    currentMessage.value = messages[field]
+  }
+}
+
+const handleRegister = () => {
+  if (form.password !== form.confirmPassword) {
+    setLlamaStatus('curious', '¡Arregla esas claves primero! 🙄')
+    return
+  }
+  console.log("Formulario enviado", form)
+}
+</script>
+
+<style scoped>
+.register-texture {
+  background-color: #00A036;
+  background-image: radial-gradient(#008a2e 20%, transparent 20%), radial-gradient(#008a2e 20%, transparent 20%);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+.animate-float-slow { animation: floatSlow 6s ease-in-out infinite; }
+@keyframes floatSlow { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(-3deg); } }
+.pop-enter-active { animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.pop-leave-active { animation: pop-in 0.2s reverse ease-in; }
+@keyframes pop-in { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-left { animation: fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes fadeInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+
+/* Ajuste para el input de fecha */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+}
+</style>
