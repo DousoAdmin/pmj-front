@@ -3,6 +3,8 @@
   <div class="bg-gradient-to-br from-gray-50 via-white to-gray-50 min-h-screen">
     <!-- Componente Hero -->
     <HeroOrganizaciones />
+    <!-- Componente CTA Final -->
+    <CTAInscripcion />
     
     <!-- Componente Filtros -->
     <FiltrosOrganizaciones 
@@ -16,8 +18,6 @@
       :organizaciones="filteredOrgs"
     />
     
-    <!-- Componente CTA Final -->
-    <CTAInscripcion />
   </div>
 </template>
 
