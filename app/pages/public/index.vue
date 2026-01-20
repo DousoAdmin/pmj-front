@@ -2,15 +2,15 @@
   <div class="min-h-screen">
 
 
-    <HeroSection @open-modal="openRegistrationModal" />
+    <LazyHeroSection @open-modal="openRegistrationModal" />
 
 
-    <Carousel />
+    <LazyCarousel />
     
 
-    <AboutSection @open-modal="openRegistrationModal" />
+    <LazyAboutSection @open-modal="openRegistrationModal" />
 
-    <ContactFormSection 
+    <LazyContactFormSection 
       :show-modal="showModal" 
       @close-modal="closeRegistrationModal" 
     />
@@ -71,14 +71,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import HeroSection from '~/components/public/modal/HeroSection.vue'
-import Carousel from '~/components/public/carrusel/Carousel.vue'  
-import AboutSection from '~/components/public/about/AboutSection.vue'
-import ContactFormSection from '~/components/public/contactForm/ContactFormSection.vue'
 
-// ===============================================
-// ESTADO GLOBAL DEL MODAL DE INSCRIPCIÓN
-// ===============================================
+
+
 const showModal = ref(false)
 
 /**
@@ -126,10 +121,6 @@ onUnmounted(() => {
 
 
 <style scoped>
-/* =============================================== */
-/* ANIMACIONES GLOBALES - REUTILIZABLES EN TODO EL SITIO */
-/* =============================================== */
-
 /* Flotación suave para logos, iconos o elementos decorativos */
 @keyframes float {
   0%, 100% { 

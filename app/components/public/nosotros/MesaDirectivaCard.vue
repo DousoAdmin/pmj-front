@@ -10,7 +10,7 @@
       
       <div class="w-44 h-44 mx-auto mb-8 rounded-full overflow-hidden 
                   ring-8 ring-slate-100 group-hover:ring-[#F2780C]/20 transition-all duration-500">
-        <img 
+        <NuxtImg 
           v-if="member.photo"
           :src="`/images/Mesa_directiva_2025/${member.photo}`"
           :alt="`Foto de ${member.name}`"

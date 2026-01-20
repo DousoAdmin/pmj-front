@@ -78,5 +78,5 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['nuxt-security']
+  modules: ['nuxt-security', '@nuxt/image']
 });

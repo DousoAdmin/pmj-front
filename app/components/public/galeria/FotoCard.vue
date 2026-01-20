@@ -12,7 +12,7 @@
         class="absolute inset-0 transition-transform duration-700 group-hover:scale-110"
         :style="{ backgroundColor: photo?.bgColor || '#522178' }"
       >
-        <img 
+        <NuxtImg 
           v-if="photo?.url" 
           :src="photo.url" 
           :alt="photo?.title || 'Foto de galería'"

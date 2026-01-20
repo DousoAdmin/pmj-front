@@ -2,19 +2,19 @@
 <template>
   <div class="bg-linear-to-br from-gray-50 via-white to-gray-50 min-h-screen">
     <!-- Componente Hero -->
-    <HeroOrganizaciones />
+    <LazyHeroOrganizaciones />
     <!-- Componente CTA Final -->
-    <CTAInscripcion />
+    <LazyCTAInscripcion />
     
     <!-- Componente Filtros -->
-    <FiltrosOrganizaciones 
+    <LazyFiltrosOrganizaciones 
       :filters="filters"
       :activeFilter="activeFilter"
       @filter-change="activeFilter = $event"
     />
     
     <!-- Componente Grid de Organizaciones -->
-    <GridOrganizaciones 
+    <LazyGridOrganizaciones 
       :organizaciones="filteredOrgs"
     />
     

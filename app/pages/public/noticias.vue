@@ -1,9 +1,9 @@
 <template>
   <main>
-    <NoticiasHero />
-    <NoticiasFiltros v-model="filtro" :filters="filters" />
-    <NoticiasGrid :noticias="noticiasFiltradas" />
-    <NoticiasCTA @enviar="onEnviar" />
+    <LazyNoticiasHero />
+    <LazyNoticiasFiltros v-model="filtro" :filters="filters" />
+    <LazyNoticiasGrid :noticias="noticiasFiltradas" />
+    <LazyNoticiasCTA @enviar="onEnviar" />
   </main>
 </template>
 
