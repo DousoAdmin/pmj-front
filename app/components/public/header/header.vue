@@ -1,61 +1,51 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out" :class="[
-    isScrolled
-      ? 'bg-white/5 backdrop-blur-xl shadow-2xl py-3'
-      : 'bg-transparent py-6',
-  ]">
-    <div class="absolute bottom-0 left-0 right-0 h-px transition-opacity duration-500"
-      :class="isScrolled ? 'bg-white/10 opacity-100' : 'opacity-0'"></div>
+  <header 
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out" 
+    :class="[isScrolled ? 'bg-white/10 backdrop-blur-xl shadow-2xl py-2' : 'bg-transparent py-4 sm:py-6']"
+  >
+    <div 
+      class="absolute bottom-0 left-0 right-0 h-px transition-opacity duration-500"
+      :class="isScrolled ? 'bg-white/10 opacity-100' : 'opacity-0'"
+    ></div>
 
-    <div class="max-w-350 mx-auto px-4 sm:px-6 lg:px-12 relative">
-      <div class="flex justify-between items-center gap-2 sm:gap-8">
-        <NuxtLink to="/public/"
-          class="flex items-center space-x-2 sm:space-x-4 group z-10 flex-1 lg:flex-none min-w-0 w-full lg:w-auto">
-          <div
-            class="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-24 lg:h-24 shrink-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
-            <NuxtImg src="/images/favicon.webp" alt="Logo"
-              class="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" />
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative">
+      <div class="flex justify-between items-center gap-2 sm:gap-4">
+        
+        <NuxtLink to="/public/" class="flex items-center group z-10 shrink-0 min-w-max">
+          <div class="relative w-10 h-10 sm:w-14 sm:h-14 lg:w-20 lg:h-20 shrink-0 flex items-center justify-center transition-transform duration-500 group-hover:scale-105">
+            <NuxtImg src="/images/favicon.webp" alt="Logo" class="w-full h-full object-contain" />
           </div>
 
-          <div
-            class="flex flex-col justify-center border-l border-white/20 pl-2 sm:pl-4 space-y-1.5 min-w-0 lg:min-w-max">
-            <h1 class="font-black leading-none tracking-tighter uppercase text-[15px] sm:text-2xl lg:text-3xl">
-              <span class="bg-white px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-sm shadow-sm inline-block">
+          <div class="flex flex-col justify-center border-l border-white/20 ml-2 pl-2 sm:ml-4 sm:pl-4 space-y-0.5 sm:space-y-1 min-w-0">
+            <h1 class="font-black leading-none tracking-tighter uppercase text-[11px] xs:text-[13px] sm:text-xl lg:text-2xl truncate">
+              <span class="bg-white px-1 py-0.5 sm:px-2 sm:py-1 rounded-sm shadow-sm inline-block">
                 <span class="text-black">Plataforma</span>
                 <span class="text-[#00B140] ml-1">Municipal</span>
               </span>
             </h1>
-
-            <div class="flex">
-              <p
-                class="bg-white px-2 py-0.5 rounded-sm text-[8px] sm:text-[11px] font-black uppercase tracking-[0.2em] sm:tracking-[0.4em] text-[#F2780C] shadow-sm">
-                Juventudes de Mosquera
-              </p>
-            </div>
+            <p class="bg-white/90 px-1.5 py-0.5 rounded-sm text-[7px] sm:text-[10px] font-black uppercase tracking-tight sm:tracking-[0.3em] text-[#F2780C] w-max">
+              Juventudes de Mosquera
+            </p>
           </div>
         </NuxtLink>
 
-        <nav
-          class="hidden xl:flex items-center space-x-2 bg-white/5 backdrop-blur-md p-1.5 rounded-2xl border border-white/10">
-          <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path"
-            class="px-6 py-2.5 rounded-xl text-[12px] font-black uppercase tracking-widest transition-all duration-300 text-white hover:bg-white/10 whitespace-nowrap"
-            active-class="active-nav-link">
-            {{ item.name }}
-          </NuxtLink>
-        </nav>
+        <nav class="hidden xl:flex items-center bg-white/5 backdrop-blur-md p-1 rounded-2xl border border-white/10 mx-2 2xl:mx-4">
+  <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path"
+    class="px-2 xl:px-3 2xl:px-6 py-2.5 rounded-xl text-[10px] 2xl:text-[12px] font-black uppercase tracking-tight 2xl:tracking-widest transition-all duration-300 text-white hover:bg-white/10 whitespace-nowrap"
+    active-class="active-nav-link">
+    {{ item.name }}
+  </NuxtLink>
+</nav>
 
-        <div class="flex items-center space-x-2 sm:space-x-6 shrink-0">
-          <div class="hidden lg:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
-            <NuxtLink to="/public/auth/Login"
-              class="px-6 py-2.5 text-[12px] font-black tracking-widest text-white rounded-xl">LOGIN</NuxtLink>
-            <NuxtLink to="/public/auth/Register"
-              class="px-8 py-2.5 bg-[#00B140] text-white text-[12px] font-black rounded-xl shadow-lg">REGISTRARSE
-            </NuxtLink>
+        <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+          <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
+            <NuxtLink to="/public/auth/Login" class="px-4 py-2 text-[11px] font-black tracking-widest text-white rounded-xl hover:bg-white/5 transition-colors">LOGIN</NuxtLink>
+            <NuxtLink to="/public/auth/Register" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
           </div>
 
           <button @click="isMobileOpen = true"
-            class="xl:hidden flex flex-col justify-center items-end space-y-1.5 w-10 h-10 group z-50 shrink-0">
-            <span class="h-1 w-8 rounded-full bg-white shadow-sm"></span>
+            class="xl:hidden flex flex-col justify-center items-end space-y-1.5 w-10 h-10 group z-50">
+            <span class="h-1 w-8 rounded-full bg-white shadow-sm transition-all"></span>
             <span class="h-1 w-5 rounded-full bg-[#F2780C] group-hover:w-8 transition-all shadow-sm"></span>
             <span class="h-1 w-6 rounded-full bg-[#00B140] group-hover:w-8 transition-all shadow-sm"></span>
           </button>
@@ -65,42 +55,41 @@
 
     <Teleport to="body">
       <Transition name="fade">
-        <div v-if="isMobileOpen" class="fixed inset-0 z-100 xl:hidden">
-          <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="isMobileOpen = false"></div>
+        <div v-if="isMobileOpen" class="fixed inset-0 z-[100] xl:hidden">
+          <div class="absolute inset-0 bg-black/70 backdrop-blur-md" @click="isMobileOpen = false"></div>
           <Transition name="slide-custom">
             <div v-if="isMobileOpen"
-              class="absolute right-0 top-0 bottom-0 w-[320px] bg-[#522178] shadow-2xl flex flex-col border-l border-white/10">
-              <div class="p-8 flex items-center justify-between border-b border-white/10">
-                <div class="flex items-center space-x-4 min-w-0">
-                  <div class="w-12 h-12 shrink-0">
-                    <NuxtImg src="/images/favicon.webp" alt="Logo" class="w-full h-full object-contain drop-shadow-md" />
-                  </div>
-                  <span class="font-black text-white uppercase italic tracking-tighter text-xl truncate">Menú</span>
+              class="absolute right-0 top-0 bottom-0 w-[280px] sm:w-[360px] bg-[#522178] shadow-2xl flex flex-col border-l border-white/20">
+              
+              <div class="p-6 flex items-center justify-between border-b border-white/10">
+                <div class="flex items-center space-x-3">
+                  <NuxtImg src="/images/favicon.webp" alt="Logo" class="w-10 h-10 object-contain" />
+                  <span class="font-black text-white uppercase italic text-xl">Menú</span>
                 </div>
-                <button @click="isMobileOpen = false" class="text-white/50 hover:text-white transition-colors">
+                <button @click="isMobileOpen = false" class="text-white/40 hover:text-white transition-colors p-2">
                   <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
                     <path d="M6 18L18 6M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <nav class="flex-1 px-6 py-8 space-y-4 overflow-y-auto">
+              
+              <nav class="flex-1 px-4 py-8 space-y-3 overflow-y-auto">
                 <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path" @click="isMobileOpen = false"
-                  class="group flex items-center space-x-5 p-4 rounded-2xl transition-all duration-300 hover:bg-white/5 border border-transparent hover:border-white/10"
+                  class="group flex items-center space-x-4 p-4 rounded-2xl transition-all duration-300 hover:bg-white/5 border border-transparent hover:border-white/10"
                   active-class="mobile-active-link">
-                  <div
-                    class="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-transform group-hover:rotate-12"
-                    :class="item.staticColor">
-                    <component :is="item.icon" class="w-6 h-6 text-white" />
+                  <div class="w-11 h-11 rounded-xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-110 group-hover:rotate-6" :class="item.staticColor">
+                    <component :is="item.icon" class="w-5 h-5 text-white" />
                   </div>
-                  <span class="font-black text-white uppercase tracking-widest text-sm">{{ item.name }}</span>
+                  <span class="font-black text-white uppercase tracking-[0.15em] text-[13px]">{{ item.name }}</span>
                 </NuxtLink>
               </nav>
-              <div class="p-8 bg-black/20 space-y-4">
+
+              <div class="p-6 bg-black/30 space-y-3">
                 <NuxtLink to="/public/auth/Login" @click="isMobileOpen = false"
-                  class="w-full py-4 text-white font-black text-center text-xs tracking-widest block border border-white/20 rounded-xl">
+                  class="w-full py-4 text-white font-black text-center text-[11px] tracking-widest block border border-white/20 rounded-xl hover:bg-white/5">
                   INICIAR SESIÓN</NuxtLink>
                 <NuxtLink to="/public/auth/Register" @click="isMobileOpen = false"
-                  class="w-full py-4 bg-[#00B140] text-white font-black rounded-xl text-center text-xs tracking-widest block shadow-lg shadow-[#00B140]/20">
+                  class="w-full py-4 bg-[#00B140] text-white font-black rounded-xl text-center text-[11px] tracking-widest block shadow-lg shadow-[#00B140]/20 active:scale-[0.98] transition-transform">
                   REGISTRARSE</NuxtLink>
               </div>
             </div>
