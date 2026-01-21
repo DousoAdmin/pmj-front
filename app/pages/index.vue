@@ -1,9 +1,7 @@
+<template>
+  <PublicPage />
+</template>
+
 <script setup>
-definePageMeta({
-  middleware: [
-    function (to, from) {
-      return navigateTo('/public/')
-    },
-  ],
-});
+import PublicPage from '~/pages/public/index.vue'
 </script>

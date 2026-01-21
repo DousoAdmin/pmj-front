@@ -5,6 +5,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// Página de contacto
-</script>
+

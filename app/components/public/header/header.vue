@@ -8,7 +8,7 @@
       :class="isScrolled ? 'bg-white/10 opacity-100' : 'opacity-0'"
     ></div>
 
-    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 relative">
+    <div class="max-w-360 mx-auto px-4 sm:px-6 lg:px-12 relative">
       <div class="flex justify-between items-center gap-2 sm:gap-4">
         
         <NuxtLink to="/public/" class="flex items-center group z-10 shrink-0 min-w-max">
@@ -55,11 +55,11 @@
 
     <Teleport to="body">
       <Transition name="fade">
-        <div v-if="isMobileOpen" class="fixed inset-0 z-[100] xl:hidden">
+        <div v-if="isMobileOpen" class="fixed inset-0 z-100 xl:hidden">
           <div class="absolute inset-0 bg-black/70 backdrop-blur-md" @click="isMobileOpen = false"></div>
           <Transition name="slide-custom">
             <div v-if="isMobileOpen"
-              class="absolute right-0 top-0 bottom-0 w-[280px] sm:w-[360px] bg-[#522178] shadow-2xl flex flex-col border-l border-white/20">
+              class="absolute right-0 top-0 bottom-0 w-70 sm:w-90 bg-[#522178] shadow-2xl flex flex-col border-l border-white/20">
               
               <div class="p-6 flex items-center justify-between border-b border-white/10">
                 <div class="flex items-center space-x-3">
@@ -155,7 +155,7 @@ const OrgIcon = () =>
 const navItems = [
   {
     name: "Inicio",
-    path: "/public/",
+    path: "/",
     icon: HomeIcon,
     staticColor: "bg-[#00B140]",
   },
