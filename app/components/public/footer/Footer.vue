@@ -63,7 +63,6 @@
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">
               Registra tu grupo juvenil y haz parte de las decisiones que transforman nuestro territorio.
             </p>
-            
             <button @click="$emit('open-registration')" 
                     class="group w-full py-4 bg-[#522178] text-white rounded-2xl font-black text-xs tracking-widest uppercase hover:bg-gray-900 transition-all flex items-center justify-center space-x-3">
               <span>Registrarse ahora</span>

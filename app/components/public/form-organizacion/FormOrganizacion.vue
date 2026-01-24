@@ -30,9 +30,11 @@
       @submit="handleSubmit"
       @prev="step--"
     />
+    <button v-if="step !== 6" @click="$emit('close')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 text-xl">&times;</button>
     <div v-if="step === 6" class="text-center py-12">
       <h2 class="text-2xl font-bold text-[#038C33]">¡Inscripción enviada!</h2>
       <p>Gracias por inscribir tu organización.</p>
+      <button @click="$emit('close')" class="mt-6 bg-[#522178] text-white px-6 py-2 rounded">Cerrar</button>
     </div>
   </div>
 </template>
@@ -47,7 +49,9 @@ import DatosResponsable from './sections/DatosResponsable.vue'
 
 const step = ref(1)
 const form = ref({
-  informacionBasica: {},
+  informacionBasica: {
+  tipoExperiencia: [],
+  },
   documentos: {},
   caracterizacion: {},
   contacto: {},
