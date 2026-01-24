@@ -7,6 +7,7 @@
       @change="onFileChange"
       class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-[#F2780C]/10 file:text-[#F2780C] hover:file:bg-[#F2780C]/20"
     />
+    <span v-if="!files.length" class="ml-2 text-gray-500">No se eligió ningún archivo</span>
     <div v-if="files && files.length" class="mt-2 space-y-1">
       <div v-for="(file, idx) in files" :key="idx" class="flex items-center text-xs">
         <span>{{ file.name }} ({{ (file.size / 1024 / 1024).toFixed(2) }} MB)</span>

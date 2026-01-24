@@ -63,11 +63,15 @@
             <p class="text-gray-500 text-sm mb-6 leading-relaxed">
               Registra tu grupo juvenil y haz parte de las decisiones que transforman nuestro territorio.
             </p>
-            <button @click="$emit('open-registration')" 
-                    class="group w-full py-4 bg-[#522178] text-white rounded-2xl font-black text-xs tracking-widest uppercase hover:bg-gray-900 transition-all flex items-center justify-center space-x-3">
+            <NuxtLink
+              to="/public/formulario"
+              class="group w-full py-4 bg-[#522178] text-white rounded-2xl font-black text-xs tracking-widest uppercase hover:bg-gray-900 transition-all flex items-center justify-center space-x-3"
+            >
               <span>Registrarse ahora</span>
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-            </button>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </NuxtLink>
           </div>
         </div>
       </div>
