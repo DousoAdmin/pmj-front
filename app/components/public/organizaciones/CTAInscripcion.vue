@@ -45,7 +45,7 @@
               </svg>
             </span>
           </button>
-          <!-- botón para ir al formulario -->
+          
           <NuxtLink 
             to="/formulario"
             class="group relative px-12 py-5 bg-[#038C33] text-white font-black text-lg rounded-2xl 
