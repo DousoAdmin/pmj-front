@@ -1,5 +1,6 @@
 <template>
-  <div class="container mx-auto py-12">
+  <div     class="relative min-h-0 md:min-h-dvh flex flex-col md:items-center md:justify-center overflow-hidden bg-[#522178] pt-28 pb-12 md:pt-32 md:pb-20"
+>
     <FormOrganizacion />
   </div>
 </template>
