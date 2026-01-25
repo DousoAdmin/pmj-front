@@ -40,7 +40,7 @@
         <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
           <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
             <NuxtLink to="/public/auth/Login" class="px-4 py-2 text-[11px] font-black tracking-widest text-white rounded-xl hover:bg-white/5 transition-colors">LOGIN</NuxtLink>
-            <NuxtLink to="/public/auth/Register" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
+            <NuxtLink to="/public/formulario" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
           </div>
 
           <button @click="isMobileOpen = true"
@@ -85,12 +85,13 @@
               </nav>
 
               <div class="p-6 bg-black/30 space-y-3">
-                <NuxtLink to="/public/auth/Login" @click="isMobileOpen = false"
+                <NuxtLink to="/public/formulario" @click="isMobileOpen = false"
                   class="w-full py-4 text-white font-black text-center text-[11px] tracking-widest block border border-white/20 rounded-xl hover:bg-white/5">
                   INICIAR SESIÓN</NuxtLink>
-                <NuxtLink to="/public/auth/Register" @click="isMobileOpen = false"
+                <NuxtLink to="/public/formulario" @click="isMobileOpen = false"
                   class="w-full py-4 bg-[#00B140] text-white font-black rounded-xl text-center text-[11px] tracking-widest block shadow-lg shadow-[#00B140]/20 active:scale-[0.98] transition-transform">
                   REGISTRARSE</NuxtLink>
+                  
               </div>
             </div>
           </Transition>
