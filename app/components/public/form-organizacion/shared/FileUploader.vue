@@ -1,3 +1,18 @@
+<!--
+  Componente: FileUploader.vue
+  Descripción:
+  Este componente permite la carga de archivos en formularios, mostrando los archivos seleccionados y permitiendo quitarlos.
+  Props:
+    - modelValue: archivo o arreglo de archivos seleccionado(s).
+    - accept: tipos de archivo permitidos (ejemplo: .pdf,.doc).
+    - multiple: permite seleccionar varios archivos.
+    - maxFiles: cantidad máxima de archivos permitidos.
+    - maxSize: tamaño máximo por archivo (MB).
+  Emits:
+    - update:modelValue: actualiza el valor de los archivos seleccionados en el componente padre.
+  Uso:
+    Se utiliza en formularios para subir documentos, imágenes, etc. Valida tipo, cantidad y tamaño de archivos.
+-->
 <template>
   <div>
     <input
@@ -18,9 +33,20 @@
   </div>
 </template>
 
+<!--
+  Script:
+  - Utiliza la API Composition de Vue 3.
+  - Maneja archivos seleccionados y errores de validación.
+  - watch para sincronizar archivos si modelValue cambia externamente.
+  - onFileChange valida tipo, cantidad y tamaño antes de actualizar los archivos.
+  - removeFile permite quitar archivos seleccionados.
+-->
 <script setup>
+
+// Importa las funciones ref y watch de Vue para manejo reactivo
 import { ref, watch } from 'vue'
 
+// Define las propiedades recibidas por el componente
 const props = defineProps({
   modelValue: { type: [File, Array], default: null },
   accept: { type: String, default: '' },
@@ -28,12 +54,16 @@ const props = defineProps({
   maxFiles: { type: Number, default: 1 },
   maxSize: { type: Number, default: 10 } // MB
 })
+
+// Define los eventos que puede emitir el componente
 const emit = defineEmits(['update:modelValue'])
 
+// files almacena los archivos seleccionados
 const files = ref([])
+// error almacena el mensaje de error de validación
 const error = ref('')
 
-// Inicializa los archivos si modelValue cambia externamente
+// Sincroniza los archivos si modelValue cambia externamente
 watch(
   () => props.modelValue,
   (val) => {
@@ -46,6 +76,7 @@ watch(
   { immediate: true }
 )
 
+// Maneja el cambio de archivos seleccionados y valida tipo, cantidad y tamaño
 function onFileChange(e) {
   error.value = ''
   let selected = Array.from(e.target.files)
@@ -68,7 +99,7 @@ function onFileChange(e) {
       return
     }
   }
-  // Agregar archivos
+  // Agregar archivos seleccionados
   if (props.multiple) {
     files.value = [...files.value, ...selected].slice(0, props.maxFiles)
     emit('update:modelValue', files.value)
@@ -79,6 +110,7 @@ function onFileChange(e) {
   e.target.value = ''
 }
 
+// Permite quitar archivos seleccionados
 function removeFile(idx) {
   files.value.splice(idx, 1)
   if (props.multiple) {

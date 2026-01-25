@@ -1,3 +1,17 @@
+<!--
+  Componente: ContactoOrganizacion.vue
+  Descripción:
+  Este componente es una sección de formulario para capturar los datos de contacto de la organización.
+  Permite ingresar teléfono, correo electrónico, página web y enlaces de redes sociales.
+  Props:
+    - modelValue: objeto reactivo que contiene los datos del formulario.
+  Emits:
+    - update:modelValue: actualiza el valor del formulario en el componente padre.
+    - next: avanza al siguiente paso del formulario.
+    - prev: regresa al paso anterior del formulario.
+  Uso:
+    Se utiliza dentro de un formulario mayor y se comunica con el padre mediante v-model y eventos.
+-->
 <template>
   <form @submit.prevent="nextStep">
     <div class="mb-4">
@@ -31,19 +45,32 @@
   </form>
 </template>
 
+<!--
+  Script:
+  - Utiliza la API Composition de Vue 3.
+  - Computed localValue para manejar el v-model bidireccional.
+  - nextStep emite el evento 'next' para avanzar en el formulario.
+-->
 <script setup>
+
+// Importa la función computed de Vue para crear una propiedad reactiva localValue
 import { computed } from 'vue'
 
+// Define las propiedades recibidas por el componente
 const props = defineProps({
   modelValue: { type: Object, required: true }
 })
+
+// Define los eventos que puede emitir el componente
 const emit = defineEmits(['update:modelValue', 'next', 'prev'])
 
+// Computed para manejar el v-model bidireccional
 const localValue = computed({
   get: () => props.modelValue,
   set: (val) => emit('update:modelValue', val)
 })
 
+// Función para avanzar al siguiente paso del formulario
 function nextStep() {
   emit('next')
 }

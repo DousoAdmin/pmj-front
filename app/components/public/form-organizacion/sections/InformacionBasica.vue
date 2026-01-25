@@ -1,5 +1,19 @@
+<!--
+  Componente: InformacionBasica.vue
+  Descripción:
+  Este componente es una sección de formulario para capturar la información básica del proceso o práctica organizativa.
+  Permite ingresar nombre, tipo de conformación, documento de constitución (si es informal), fecha de conformación, número de miembros, objetivo, dirección de la sede y tipo de experiencia.
+  Props:
+    - modelValue: objeto reactivo que contiene los datos del formulario.
+  Emits:
+    - update:modelValue: actualiza el valor del formulario en el componente padre.
+    - next: avanza al siguiente paso del formulario.
+  Uso:
+    Se utiliza dentro de un formulario mayor y se comunica con el padre mediante v-model y eventos.
+    Utiliza el componente FileUploader para la carga de archivos.
+-->
 <template>
-  <form @submit.prevent="nextStep">
+  <form @submit.prevent="nextStep" class="text-white">
     <div class="mb-4">
       <label class="block font-medium mb-1">Nombre del proceso o práctica organizativa *</label>
       <input v-model="localValue.nombre" type="text" class="w-full border rounded px-3 py-2" required />
@@ -66,23 +80,35 @@
   </form>
 </template>
 
+<!--
+  Script:
+  - Utiliza la API Composition de Vue 3.
+  - Computed localValue para manejar el v-model bidireccional.
+  - nextStep emite el evento 'next' para avanzar en el formulario.
+  - Importa el componente FileUploader para la carga de archivos.
+-->
 <script setup>
+// Importa el componente FileUploader para la carga de archivos
 import FileUploader from '../shared/FileUploader.vue'
 
+// Define las propiedades recibidas por el componente
 const props = defineProps({
   modelValue: {
     type: Object,
     required: true
   }
 })
+
+// Define los eventos que puede emitir el componente
 const emit = defineEmits(['update:modelValue', 'next'])
 
-// Creamos una copia local reactiva para editar los datos
+// Computed para manejar el v-model bidireccional
 const localValue = computed({
   get: () => props.modelValue,
   set: (val) => emit('update:modelValue', val)
 })
 
+// Función para avanzar al siguiente paso del formulario
 function nextStep() {
   emit('next')
 }

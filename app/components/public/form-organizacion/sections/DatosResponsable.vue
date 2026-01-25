@@ -1,3 +1,17 @@
+<!--
+  Componente: DatosResponsable.vue
+  Descripción:
+  Este componente es una sección de formulario para capturar los datos de contacto del responsable del proceso o práctica organizativa.
+  Permite ingresar nombre, tipo y número de documento, profesión, cargo, edad, sexo, teléfono, correo, dirección y barrio.
+  Props:
+    - modelValue: objeto reactivo que contiene los datos del formulario.
+  Emits:
+    - update:modelValue: actualiza el valor del formulario en el componente padre.
+    - submit: envía los datos del formulario.
+    - prev: regresa al paso anterior del formulario.
+  Uso:
+    Se utiliza dentro de un formulario mayor y se comunica con el padre mediante v-model y eventos.
+-->
 <template>
   <form @submit.prevent="nextStep">
     <h3 class="text-lg font-bold mb-4">Datos de contacto del responsable del proceso o práctica organizativa</h3>
@@ -68,19 +82,32 @@
   </form>
 </template>
 
+<!--
+  Script:
+  - Utiliza la API Composition de Vue 3.
+  - Computed localValue para manejar el v-model bidireccional.
+  - nextStep emite el evento 'submit' para enviar los datos del formulario.
+-->
 <script setup>
+
+// Importa la función computed de Vue para crear una propiedad reactiva localValue
 import { computed } from 'vue'
 
+// Define las propiedades recibidas por el componente
 const props = defineProps({
   modelValue: { type: Object, required: true }
 })
+
+// Define los eventos que puede emitir el componente
 const emit = defineEmits(['update:modelValue', 'submit', 'prev'])
 
+// Computed para manejar el v-model bidireccional
 const localValue = computed({
   get: () => props.modelValue,
   set: (val) => emit('update:modelValue', val)
 })
 
+// Función para enviar los datos del formulario
 function nextStep() {
   emit('submit')
 }
