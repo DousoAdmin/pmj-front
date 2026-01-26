@@ -8,8 +8,9 @@
             :key="filter.id"
             type="button"
             @click="filtro = filter.id"
+            
             class="px-6 py-3 rounded-full font-bold text-sm md:text-base transition-all duration-300
-                   hover:shadow-md active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#038C33]/30"
+                   hover:shadow-md active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#038C33]/30 uppercase"
             :class="filtro === filter.id
               ? 'bg-[#038C33] text-white shadow-lg ring-4 ring-[#038C33]/20'
               : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
