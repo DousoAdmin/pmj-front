@@ -13,7 +13,7 @@
     Utiliza el componente FileUploader para la carga de archivos.
 -->
 <template>
-  <form @submit.prevent="nextStep" class="text-white">
+  <form @submit.prevent="nextStep">
     <div class="mb-4">
       <label class="block font-medium mb-1">Nombre del proceso o práctica organizativa *</label>
       <input v-model="localValue.nombre" type="text" class="w-full border rounded px-3 py-2" required />

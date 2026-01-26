@@ -65,12 +65,39 @@ const step = ref(1)
 // form almacena los datos de cada sección del formulario
 const form = ref({
   informacionBasica: {
-    tipoExperiencia: [], // Ejemplo de campo inicial
+    tipoExperiencia: [], 
   },
   documentos: {},
-  caracterizacion: {},
-  contacto: {},
-  responsable: {}
+  caracterizacion: {
+  jovenes: [],
+  jovenesOtros: '',
+  actividades: '',
+  tematicas: [],
+  tematicasOtros: ''
+  },
+  contacto: {
+    telefono: '',
+    email: '',
+    web: '',
+    facebook: '',
+    instagram: '',
+    otrosEnlaces: ''
+  },
+  responsable: {
+    nombre: '',
+    tipoDocumento: '',
+    tipoDocumentoOtro: '',
+    numeroDocumento: '',
+    profesion: '',
+    cargo: '',
+    edad: '',
+    sexo: '',
+    telefono: '',
+    email: '',
+    direccion: '',
+    barrio: ''
+
+  }
 })
 
 /**
