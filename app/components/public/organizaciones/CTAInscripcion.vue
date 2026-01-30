@@ -47,6 +47,20 @@
           </button>
           
           <NuxtLink 
+            to="/public/formulario"
+            class="group relative px-12 py-5 bg-[#038C33] text-white font-black text-lg rounded-2xl 
+                  hover:bg-[#026c28] transform hover:-translate-y-1 transition-all duration-300 
+                  shadow-[0_20px_40px_rgba(3,140,51,0.3)] active:scale-95"
+          >
+            <span class="flex items-center">
+              Formulario de Inscripción
+              <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+              </svg>
+            </span>
+          </NuxtLink>
+
+          <NuxtLink 
             to="/contacto"
             class="px-12 py-5 bg-white/10 backdrop-blur-md text-white font-black text-lg rounded-2xl 
                    hover:bg-white/20 transform hover:-translate-y-1 transition-all duration-300 

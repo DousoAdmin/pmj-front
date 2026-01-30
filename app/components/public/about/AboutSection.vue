@@ -49,7 +49,7 @@
             <h4 class="text-xl font-bold text-slate-800 mb-2">Ambientales</h4>
             <p class="text-slate-500 text-sm">Jornadas de siembra, limpieza y conciencia ecológica territorial.</p>
           </div>
-          <div class="p-8 rounded-4xl-slate-50 border-b-4 border-[#522178] hover:shadow-xl transition-all">
+          <div class="p-8 rounded-4xl bg-slate-50 border-b-4 border-[#522178] hover:shadow-xl transition-all">
             <span class="text-4xl mb-4 block">🤝</span>
             <h4 class="text-xl font-bold text-slate-800 mb-2">Sociales</h4>
             <p class="text-slate-500 text-sm">Veeduría, participación política y empoderamiento comunitario.</p>

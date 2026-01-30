@@ -50,15 +50,15 @@
 
             <div class="mt-8 md:mt-12 grid grid-cols-3 gap-2 md:gap-4 animate-fade-up" :style="{ animationDelay: '0.5s' }">
               <div class="text-center p-2 md:p-4 rounded-lg md:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#F2780C]/30 transition-colors">
-                <div class="text-lg md:text-xl lg:text-2xl font-bold text-[#F2780C]">500+</div>
+                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-[#F2780C]">500+</div>
                 <div class="text-xs md:text-sm text-gray-300">Jóvenes</div>
               </div>
               <div class="text-center p-2 md:p-4 rounded-lg md:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-colors">
-                <div class="text-lg md:text-xl lg:text-2xl font-bold text-white">50+</div>
+                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-white">50+</div>
                 <div class="text-xs md:text-sm text-gray-300">Organizaciones</div>
               </div>
               <div class="text-center p-2 md:p-4 rounded-lg md:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#F2780C]/30 transition-colors">
-                <div class="text-lg md:text-xl lg:text-2xl font-bold text-[#F2780C]">100+</div>
+                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-[#F2780C]">100+</div>
                 <div class="text-xs md:text-sm text-gray-300">Oportunidades</div>
               </div>
             </div>

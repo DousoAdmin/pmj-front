@@ -14,7 +14,7 @@
             ¡Es tu <br/>
             <span class="text-[#F2780C]">momento!</span>
           </h2>
-          <p class="text-xl opacity-90 leading-relaxed max-w-md mx-auto lg:mx-0 font-medium">
+          <p class="text-2xl opacity-90 leading-relaxed max-w-md mx-auto lg:mx-0 font-medium">
             Únete a la red juvenil más grande de Mosquera. Participa en proyectos 
             <span class="font-bold border-b-2 border-[#F2780C]">ambientales, deportivos y culturales</span>.
           </p>
@@ -22,11 +22,11 @@
           <div class="space-y-4 pt-4 hidden md:block text-left max-w-xs mx-auto lg:mx-0">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-full bg-[#F2780C] flex items-center justify-center text-white font-bold">✓</div>
-              <span class="font-bold">Certificación oficial</span>
+              <span class="font-bold text-xl">Certificación oficial</span>
             </div>
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-full bg-[#F2780C] flex items-center justify-center text-white font-bold">✓</div>
-              <span class="font-bold">Acceso a becas y talleres</span>
+              <span class="font-bold text-xl">Acceso a becas y talleres</span>
             </div>
           </div>
         </div>
