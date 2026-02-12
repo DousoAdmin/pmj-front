@@ -13,8 +13,7 @@
               <span class="text-[#522178]">Transforma.</span>
             </h1>
             <p class="text-xl md:text-2xl opacity-95 leading-relaxed max-w-2xl font-medium">
-              Somos el espacio oficial para que los jóvenes de Mosquera participen, se capaciten y lideren el cambio social, cultural y deportivo de nuestro municipio.
-            </p>
+Somos el espacio donde las organizaciones y procesos juveniles de Mosquera nos unimos para conectar ideas, impulsar proyectos y generar impacto real en lo social, cultural, educativo y deportivo del municipio.</p>
           </div>
 
           <div class="w-full lg:w-2/5">
