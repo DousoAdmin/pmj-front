@@ -25,7 +25,7 @@
       </div>
 
       <p class="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto font-medium leading-relaxed animate-fade-in-up delay-300">
-        Líderes comprometidos con la representación y el desarrollo de la juventud en todo el territorio mosqueruno.
+        Líderes comprometidos con la representación y el desarrollo de la juventud en todo el municipio.
       </p>
 
       <div class="mt-12 animate-fade-in-up delay-500">
