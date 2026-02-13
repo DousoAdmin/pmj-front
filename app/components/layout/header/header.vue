@@ -153,6 +153,16 @@ const OrgIcon = () =>
     }),
   ]);
 
+const DashboardIcon = () =>
+  h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
+    h("path", {
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: "2",
+      d: "M3 3h7v7H3V3zm11 0h7v4h-7V3zM3 14h7v7H3v-7zm11 6h7v1h-7v-1z",
+    }),
+  ]);
+
 const navItems = [
   {
     name: "Inicio",
@@ -184,6 +194,12 @@ const navItems = [
     icon: OrgIcon,
     staticColor: "bg-[#00B140]",
   },
+  {
+    name: "Dashboard",
+    path: "/private/dashboard",
+    icon: DashboardIcon,
+    staticColor: "bg-[#522178]",
+  },
 ];
 
 const handleScroll = () => {
@@ -204,7 +220,8 @@ onUnmounted(() => {
 });
 </script>
 <style scoped>
-/* Estilos ajustados */
+
+
 .active-nav-link {
   background-color: #f2780c !important;
   color: white !important;
