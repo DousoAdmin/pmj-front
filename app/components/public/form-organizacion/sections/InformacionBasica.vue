@@ -15,12 +15,12 @@
 <template>
   <form @submit.prevent="nextStep">
     <div class="mb-4">
-      <label class="block font-medium mb-1">Nombre del proceso o práctica organizativa *</label>
-      <input v-model="localValue.nombre" type="text" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Nombre del proceso o práctica organizativa *</label>
+      <input v-model="localValue.nombre" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Tipo de conformación *</label>
-      <select v-model="localValue.tipoConformacion" class="w-full border rounded px-3 py-2" required>
+      <label class="block font-normal text-gray-600 mb-1">Tipo de conformación *</label>
+      <select v-model="localValue.tipoConformacion" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required>
         <option value="" disabled>Seleccione una opción</option>
         <option value="Formalmente Constituida">Formalmente Constituida</option>
         <option value="No formalmente Constituida">No formalmente Constituida</option>
@@ -29,7 +29,7 @@
        </div>
     <!-- Mostrar solo si es Informal -->
     <div class="mb-4" v-if="localValue.tipoConformacion === 'Informal'">
-      <label class="block font-medium mb-1">Documento de Constitución como acta de constitución *</label>
+      <label class="block font-normal text-gray-600 mb-1">Documento de Constitución como acta de constitución *</label>
       <FileUploader
         v-model="localValue.constitucion"
         accept=".pdf,.doc,.docx"
@@ -38,23 +38,23 @@
       />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Fecha de conformación *</label>
-      <input v-model="localValue.fechaConformacion" type="date" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Fecha de conformación *</label>
+      <input v-model="localValue.fechaConformacion" type="date" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">N° de Miembros *</label>
-      <input v-model="localValue.numeroMiembros" type="number" min="1" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">N° de Miembros *</label>
+      <input v-model="localValue.numeroMiembros" type="number" min="1" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Objetivo principal *</label>
-      <textarea v-model="localValue.objetivo" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Objetivo principal *</label>
+      <textarea v-model="localValue.objetivo" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Dirección de la sede *</label>
-      <input v-model="localValue.direccionSede" type="text" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Dirección de la sede *</label>
+      <input v-model="localValue.direccionSede" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Tipo de experiencia</label>
+      <label class="block font-normal text-gray-600 mb-1">Tipo de experiencia</label>
       <div>
         <label class="inline-flex items-center mr-4">
           <input type="checkbox" value="Entidades privadas o públicas" v-model="localValue.tipoExperiencia" />

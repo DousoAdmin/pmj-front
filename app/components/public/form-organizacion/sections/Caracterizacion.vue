@@ -15,7 +15,7 @@
 <template>
   <form @submit.prevent="nextStep">
     <div class="mb-4">
-      <label class="block font-medium mb-1">
+      <label class="block font-normal text-gray-600 mb-1">
         Marque las siguientes casillas según corresponda a los Jóvenes (14 - 28 años) que pertenecen al proceso o práctica organizativa: *
       </label>
       <div class="flex flex-wrap gap-4">
@@ -50,7 +50,7 @@
             v-if="localValue.jovenes.includes('Otros')"
             v-model="localValue.jovenesOtros"
             type="text"
-            class="ml-2 border rounded px-2 py-1"
+            class="ml-2 border rounded px-2 py-1 text-gray-600 font-normal focus:text-gray-800"
             placeholder="Especifique"
           />
         </label>
@@ -58,12 +58,12 @@
     </div>
 
     <div class="mb-4">
-      <label class="block font-medium mb-1">Actividades que desarrollan *</label>
-      <textarea v-model="localValue.actividades" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Actividades que desarrollan *</label>
+      <textarea v-model="localValue.actividades" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
 
     <div class="mb-4">
-      <label class="block font-medium mb-1">
+      <label class="block font-normal text-gray-600 mb-1">
         Marque las temáticas descritas a continuación que se adapten a las actividades que desarrollan: *
       </label>
       <div class="flex flex-wrap gap-4">
@@ -118,7 +118,7 @@
             v-if="localValue.tematicas.includes('Otros')"
             v-model="localValue.tematicasOtros"
             type="text"
-            class="ml-2 border rounded px-2 py-1"
+            class="ml-2 border rounded px-2 py-1 text-gray-600 font-normal focus:text-gray-800"
             placeholder="Especifique"
           />
         </label>

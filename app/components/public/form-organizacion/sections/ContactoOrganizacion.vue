@@ -15,28 +15,28 @@
 <template>
   <form @submit.prevent="nextStep">
     <div class="mb-4">
-      <label class="block font-medium mb-1">Teléfono de contacto *</label>
-      <input v-model="localValue.telefono" type="text" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Teléfono de contacto *</label>
+      <input v-model="localValue.telefono" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Correo electrónico *</label>
-      <input v-model="localValue.email" type="email" class="w-full border rounded px-3 py-2" required />
+      <label class="block font-normal text-gray-600 mb-1">Correo electrónico *</label>
+      <input v-model="localValue.email" type="email" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Página web</label>
-      <input v-model="localValue.web" type="text" class="w-full border rounded px-3 py-2" />
+      <label class="block font-normal text-gray-600 mb-1">Página web</label>
+      <input v-model="localValue.web" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Facebook</label>
-      <input v-model="localValue.facebook" type="text" class="w-full border rounded px-3 py-2" />
+      <label class="block font-normal text-gray-600 mb-1">Facebook</label>
+      <input v-model="localValue.facebook" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Instagram</label>
-      <input v-model="localValue.instagram" type="text" class="w-full border rounded px-3 py-2" />
+      <label class="block font-normal text-gray-600 mb-1">Instagram</label>
+      <input v-model="localValue.instagram" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Otros enlaces de redes sociales</label>
-      <input v-model="localValue.otrosEnlaces" type="text" class="w-full border rounded px-3 py-2" />
+      <label class="block font-normal text-gray-600 mb-1">Otros enlaces de redes sociales</label>
+      <input v-model="localValue.otrosEnlaces" type="text" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" />
     </div>
     <div class="flex justify-between">
       <button type="button" @click="emit('prev')" class="bg-gray-300 px-6 py-2 rounded">Atrás</button>

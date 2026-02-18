@@ -1,12 +1,12 @@
 <template>
   <div class="mb-4">
-    <label v-if="label" class="block font-medium mb-1">{{ label }}<span v-if="required" class="text-red-500">*</span></label>
+    <label v-if="label" class="block font-normal text-gray-600 mb-1">{{ label }}<span v-if="required" class="text-red-500">*</span></label>
     <template v-if="type === 'textarea'">
       <textarea
         v-model="inputValue"
         :placeholder="placeholder"
         :required="required"
-        class="w-full border rounded px-3 py-2"
+        class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800"
         :rows="rows"
       />
     </template>
@@ -14,7 +14,7 @@
       <select
         v-model="inputValue"
         :required="required"
-        class="w-full border rounded px-3 py-2"
+        class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800"
       >
         <option value="" disabled>Seleccione una opción</option>
         <option v-for="option in options" :key="option.value || option" :value="option.value || option">
@@ -28,7 +28,7 @@
         :type="type"
         :placeholder="placeholder"
         :required="required"
-        class="w-full border rounded px-3 py-2"
+        class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800"
         :min="min"
         :max="max"
       />
