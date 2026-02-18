@@ -146,7 +146,7 @@
         <div class="mb-8">
           <div class="flex justify-between text-sm text-gray-600 mb-2">
             <span class="font-bold">Progreso</span>
-            <span class="font-bold">{{ Math.round((step / 5) * 100) }}%</span>
+            <span class="font-bold">{{ Math.round((step / 6) * 100) }}%</span>
           </div>
           <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
             <div 

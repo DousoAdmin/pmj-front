@@ -1,12 +1,20 @@
 <template>
   <div>
     <input
+      ref="fileInput"
       type="file"
       :accept="accept"
       :multiple="multiple"
       @change="onFileChange"
-      class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-[#F2780C]/10 file:text-[#F2780C] hover:file:bg-[#F2780C]/20"
+      class="hidden"
     />
+    <button
+      type="button"
+      @click="$refs.fileInput.click()"
+      class="px-4 py-2 rounded text-sm font-semibold bg-[#F2780C]/10 text-[#F2780C] hover:bg-[#F2780C]/20"
+    >
+      Elegir archivo{{ multiple ? 's' : '' }}
+    </button>
     
     <!-- Mensaje de error -->
     <div v-if="error" class="mt-2 text-sm text-red-600">
