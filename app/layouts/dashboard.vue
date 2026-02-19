@@ -8,62 +8,23 @@
     />
 
     <main class="flex-1 flex flex-col w-full min-w-0">
-      
-      <div class="lg:hidden p-4 bg-white/5 border-b border-white/10">
-        <button
-          type="button"
-          class="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition-colors"
-          @click="isSidebarOpen = !isSidebarOpen"
-          aria-label="Abrir menú"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-      </div>
+      <TopHeader
+        :username="'Usuario Demo'"
+        :organization="'Organización Demo'"
+        :notifCount="4"
+        :msgCount="1"
+        :sidebarOpen="isSidebarOpen"
+        @toggleSidebar="isSidebarOpen = true"
+        @search="onSearch"
+        @openNotifications="onNotifications"
+        @openMessages="onMessages"
+        @openProfile="onProfile"
+      />
 
       <div class="flex-1">
         <slot />
       </div>
     </main>
-
-    <button
-      v-if="!isSidebarOpen"
-      type="button"
-      @click="openWithFly()"
-      class="flex lg:flex items-center gap-3 fixed left-0 top-24 z-50
-             py-3 pr-4 pl-0 rounded-r-3xl shadow-xl
-             bg-gradient-to-b from-[#522178] to-[#3d1958]
-             border border-white/10 transition-all duration-300 group hover:pr-6"
-      aria-label="Ir al menú"
-      title="Ir al menú"
-    >
-      <!--Asomar logo -->
-      <span class="w-10 h-16 overflow-hidden flex items-center">
-        <img
-          ref="handleLogo"
-          src="/images/favicon.webp"
-          alt="logo"
-          class="w-16 h-16 object-contain opacity-95
-                 -ml-6 rotate-[18deg]
-                 transition-all duration-300
-                 group-hover:-ml-3 group-hover:rotate-[10deg]"
-        />
-      </span>
-
-      <span class="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 text-white
-                   transition-all duration-300 group-hover:bg-white/20 group-hover:scale-105">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-      </span>
-
-      <span class="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-        <span class="px-3 py-1.5 rounded-xl text-xs font-black text-white bg-black/60 backdrop-blur border border-white/10 shadow-lg whitespace-nowrap">
-          Ir al menú
-        </span>
-      </span>
-    </button>
 
     <div v-if="fly.show" class="fixed pointer-events-none z-[9999]" :style="fly.style">
       <img src="/images/favicon.webp" class="w-full h-full object-contain" />
@@ -74,11 +35,28 @@
 <script setup>
 import { ref, reactive, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import Sidebar from '~/components/private/dashboard/Sidebar.vue'
+import TopHeader from '~/components/private/dashboard/TopHeader.vue'
 
 const isSidebarOpen = ref(false)
 const sidebarRef = ref(null)
 const handleLogo = ref(null)
 const hideBrandLogo = ref(false)
+
+function onSearch(query) {
+  console.log('Buscar texto:', query)
+}
+
+function onNotifications() {
+  console.log('Abrir notificaciones')
+}
+
+function onMessages() {
+  console.log('Abrir mensajes')
+}
+
+function onProfile() {
+  console.log('Abrir perfil')
+}
 
 const fly = reactive({
   show: false,
@@ -111,21 +89,28 @@ function rectOf(el) {
 const px = (n) => `${Math.round(n)}px`
 
 function finishFlyAtLogo(to) {
-  // 1) SNAP (sin transición, clava exacto al logo)
+  // SNAP exacto al logo
   fly.style.transition = 'none'
   fly.style.left = px(to.x)
   fly.style.top = px(to.y)
   fly.style.width = px(to.w)
   fly.style.height = px(to.h)
   fly.style.transform = 'translate3d(0,0,0) rotate(0deg)'
+  fly.style.opacity = 1
 
-  // 2) Espera 1 frame → prende el logo real
   requestAnimationFrame(() => {
+    // prende el logo real
     hideBrandLogo.value = false
 
-    // 3) Espera 1 frame → apaga el fly
+    // fade out del fly para evitar parpadeo
     requestAnimationFrame(() => {
-      fly.show = false
+      fly.style.transition = 'opacity 140ms ease-out'
+      fly.style.opacity = 0
+
+      setTimeout(() => {
+        fly.show = false
+        fly.style.opacity = 1 // reset para próxima vez
+      }, 150)
     })
   })
 }
@@ -137,7 +122,6 @@ async function openWithFly() {
     return
   }
 
-  // mostrar logo volador EN ORIGEN sin animación (gap zero)
   fly.show = true
   fly.opacity = 1
   fly.style = {
@@ -146,6 +130,7 @@ async function openWithFly() {
     width: px(from.w),
     height: px(from.h),
     transform: 'translate3d(0,0,0) rotate(18deg)',
+    opacity: 1,
     transition: 'none',
   }
 
@@ -157,7 +142,7 @@ async function openWithFly() {
   await new Promise(r => setTimeout(r, 320))
 
   const toEl = sidebarRef.value?.brandLogo
-  const to = rectOf(toEl?.value || toEl)
+  const to = rectOf(toEl)
   if (!to) return
 
   fly.style = {
