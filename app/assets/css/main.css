@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Prevenir layout shift por scrollbar */
+html {
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
+}
+
+body {
+  overflow-x: hidden;
+}
