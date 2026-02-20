@@ -38,10 +38,10 @@
 </nav>
 
         <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
-          <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
+          <!-- <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
             <NuxtLink to="/public/auth/Login" class="px-4 py-2 text-[11px] font-black tracking-widest text-white rounded-xl hover:bg-white/5 transition-colors">LOGIN</NuxtLink>
             <NuxtLink to="/public/auth/Login" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
-          </div>
+          </div> -->
 
           <button @click="isMobileOpen = true"
             class="xl:hidden flex flex-col justify-center items-end space-y-1.5 w-10 h-10 group z-50">
@@ -84,7 +84,7 @@
                 </NuxtLink>
               </nav>
 
-              <div class="p-6 bg-black/30 space-y-3">
+              <!-- <div class="p-6 bg-black/30 space-y-3">
                 <NuxtLink to="/public/auth/Login" @click="isMobileOpen = false"
                   class="w-full py-4 text-white font-black text-center text-[11px] tracking-widest block border border-white/20 rounded-xl hover:bg-white/5">
                   INICIAR SESIÓN</NuxtLink>
@@ -92,7 +92,7 @@
                   class="w-full py-4 bg-[#00B140] text-white font-black rounded-xl text-center text-[11px] tracking-widest block shadow-lg shadow-[#00B140]/20 active:scale-[0.98] transition-transform">
                   REGISTRARSE</NuxtLink>
                   
-              </div>
+              </div> -->
             </div>
           </Transition>
         </div>
@@ -166,12 +166,12 @@ const navItems = [
     icon: UsersIcon,
     staticColor: "bg-[#F2780C]",
   },
-  {
-    name: "Noticias",
-    path: "/public/noticias",
-    icon: NewsIcon,
-    staticColor: "bg-[#522178]",
-  },
+  // {
+  //   name: "Noticias",
+  //   path: "/public/noticias",
+  //   icon: NewsIcon,
+  //   staticColor: "bg-[#522178]",
+  // },
   {
     name: "Galería",
     path: "/public/galeria",

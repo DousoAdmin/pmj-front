@@ -78,35 +78,18 @@ const photos = ref([
   { title: 'Lanzamiento Plan Incentivos', date: '05 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Capacitación Liderazgo', date: '01 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Foro Juventud y Política', date: '25 Sep', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Torneo Deportivo', date: '20 Sep', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'Concierto Joven', date: '18 Sep', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]' },
-  { title: 'Expo Arte Urbano', date: '12 Sep', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Salida de cine con Chikara', date: '08 Sep', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'SOFA 2025', date: '13 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]' },
-  { title: 'Feria del Libro PMJ', date: '26 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Yaya Fest: Música y Artes', date: '24 May', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'SOFA 2025: Pabellón Interactivo', date: '12 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]' },
-  { title: 'Feria del Libro: Taller Escritura', date: '25 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Yaya Fest: Stands', date: '24 May', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
-
+  
   // === REUNIONES (7 fotos) ===
   { title: 'Reunión Mesa Directiva', date: '27 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Planeación 2026', date: '22 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#F2780C] to-[#64278C]' },
   { title: 'Consejo de Juventud', date: '18 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Actividades Mosquera Pila', date: '09 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Comité de Comunicaciones', date: '04 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'Sesión con Gobernación', date: '30 Sep', category: 'Reunión', type: 'reunion', gradient: 'from-[#038C33] to-[#F2780C]' },
-  { title: 'Balance Trimestral', date: '26 Sep', category: 'Reunión', type: 'reunion', gradient: 'from-[#F2780C] to-[#64278C]' },
 
   // === FIESTAS (8 fotos) ===
   { title: 'Fiesta de Integración', date: '21 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#F2780C] to-[#64278C]' },
   { title: 'Celebración +1.200 Inscritos', date: '16 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Halloween Juvenil', date: '31 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Cumpleaños Plataforma', date: '11 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Noche de Talentos', date: '07 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'Karaoke Juvenil', date: '03 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#038C33] to-[#F2780C]' },
-  { title: 'Fiesta de Fin de Mes', date: '29 Sep', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Baile Temático', date: '24 Sep', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#64278C] to-[#038C33]' },
 
   // === MOMENTOS (10 fotos) ===
   { title: 'YayaFest 2025', date: '26 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' },
@@ -114,11 +97,7 @@ const photos = ref([
   { title: 'Firma de Convenio', date: '19 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Visita a CDI La Cumbre', date: '13 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Premiación Concurso', date: '06 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Foto Grupal Directiva', date: '02 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'Voluntariado Comunitario', date: '28 Sep', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' },
-  { title: 'Entrevista Local', date: '22 Sep', category: 'Momento', type: 'momento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  { title: 'Día del Joven', date: '12 Ago', category: 'Momento', type: 'momento', gradient: 'from-[#64278C] to-[#038C33]' },
-  { title: 'Primer Evento 2025', date: '15 Ene', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' }
+ { title: 'Primer Evento 2025', date: '15 Ene', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' }
 ])
 
 /* =============================================== */
