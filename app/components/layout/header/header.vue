@@ -38,17 +38,10 @@
 </nav>
 
         <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
-<<<<<<< HEAD
           <!-- <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
             <NuxtLink to="/public/auth/Login" class="px-4 py-2 text-[11px] font-black tracking-widest text-white rounded-xl hover:bg-white/5 transition-colors">LOGIN</NuxtLink>
             <NuxtLink to="/public/auth/Login" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
           </div> -->
-=======
-          <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
-            <NuxtLink to="/private/auth/login" class="px-4 py-2 text-[11px] font-black tracking-widest text-white rounded-xl hover:bg-white/5 transition-colors">LOGIN</NuxtLink>
-            <NuxtLink to="/private/auth/register" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
-          </div>
->>>>>>> a3904245433e40273cecdad10c55afd4a5f091bc
 
           <button @click="isMobileOpen = true"
             class="xl:hidden flex flex-col justify-center items-end space-y-1.5 w-10 h-10 group z-50">
@@ -91,13 +84,8 @@
                 </NuxtLink>
               </nav>
 
-<<<<<<< HEAD
               <!-- <div class="p-6 bg-black/30 space-y-3">
                 <NuxtLink to="/public/auth/Login" @click="isMobileOpen = false"
-=======
-              <div class="p-6 bg-black/30 space-y-3">
-                <NuxtLink to="/private/auth/login" @click="isMobileOpen = false"
->>>>>>> a3904245433e40273cecdad10c55afd4a5f091bc
                   class="w-full py-4 text-white font-black text-center text-[11px] tracking-widest block border border-white/20 rounded-xl hover:bg-white/5">
                   INICIAR SESIÓN</NuxtLink>
                 <NuxtLink to="/private/auth/register" @click="isMobileOpen = false"
