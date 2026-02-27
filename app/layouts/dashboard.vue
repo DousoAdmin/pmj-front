@@ -1,19 +1,23 @@
 <template>
   <div class="min-h-screen flex relative">
+    <!-- Sidebar con prop isFlying -->
     <Sidebar
       ref="sidebarRef"
       :open="isSidebarOpen"
       :hideBrandLogo="hideBrandLogo"
-      @toggle="isSidebarOpen = !isSidebarOpen"
+      :isFlying="isFlying"
+      @toggle="onToggleSidebar"
     />
 
     <main class="flex-1 flex flex-col w-full min-w-0">
       <TopHeader
+        ref="topHeaderRef"
         :username="'Usuario Demo'"
         :organization="'Organización Demo'"
         :notifCount="4"
         :msgCount="1"
         :sidebarOpen="isSidebarOpen"
+        @openMenuFly="openWithFly"
         @toggleSidebar="isSidebarOpen = true"
         @search="onSearch"
         @openNotifications="onNotifications"
@@ -26,7 +30,7 @@
       </div>
     </main>
 
-    <div v-if="fly.show" class="fixed pointer-events-none z-[9999]" :style="fly.style">
+    <div v-if="fly.show" class="fixed pointer-events-none z-[9999]" :style="{ ...fly.style, willChange: 'left, top, width, height, transform' }">
       <img src="/images/favicon.webp" class="w-full h-full object-contain" />
     </div>
   </div>
@@ -39,8 +43,9 @@ import TopHeader from '~/components/private/dashboard/TopHeader.vue'
 
 const isSidebarOpen = ref(false)
 const sidebarRef = ref(null)
-const handleLogo = ref(null)
+const topHeaderRef = ref(null)
 const hideBrandLogo = ref(false)
+const isFlying = ref(false)
 
 function onSearch(query) {
   console.log('Buscar texto:', query)
@@ -73,7 +78,7 @@ function handleResize() {
 
 onMounted(() => {
   window.addEventListener('resize', handleResize)
-  handleResize() // ejecutar al montar
+  handleResize() 
 })
 
 onBeforeUnmount(() => {
@@ -89,7 +94,6 @@ function rectOf(el) {
 const px = (n) => `${Math.round(n)}px`
 
 function finishFlyAtLogo(to) {
-  // SNAP exacto al logo
   fly.style.transition = 'none'
   fly.style.left = px(to.x)
   fly.style.top = px(to.y)
@@ -99,31 +103,42 @@ function finishFlyAtLogo(to) {
   fly.style.opacity = 1
 
   requestAnimationFrame(() => {
-    // prende el logo real
     hideBrandLogo.value = false
 
-    // fade out del fly para evitar parpadeo
     requestAnimationFrame(() => {
       fly.style.transition = 'opacity 140ms ease-out'
       fly.style.opacity = 0
 
       setTimeout(() => {
         fly.show = false
-        fly.style.opacity = 1 // reset para próxima vez
+        fly.style.opacity = 1 
       }, 150)
     })
   })
 }
 
+
+
 async function openWithFly() {
-  const from = rectOf(handleLogo.value)
+  if (isFlying.value) return
+
+  const fromEl = topHeaderRef.value?.yayaBtn
+  const from = rectOf(fromEl)
   if (!from) {
     isSidebarOpen.value = true
     return
   }
 
+  isFlying.value = true // ✅ ANTES de abrir sidebar
+
+  // hide header button immediately (no transition) to avoid visual duplication
+  const btn = topHeaderRef.value?.yayaBtn
+  if (btn) {
+    btn.style.transition = 'none'
+    btn.style.opacity = '0'
+  }
+
   fly.show = true
-  fly.opacity = 1
   fly.style = {
     left: px(from.x),
     top: px(from.y),
@@ -138,37 +153,127 @@ async function openWithFly() {
 
   isSidebarOpen.value = true
   await nextTick()
-
-  await new Promise(r => setTimeout(r, 320))
+  await new Promise(r => setTimeout(r, 50))
 
   const toEl = sidebarRef.value?.brandLogo
   const to = rectOf(toEl)
-  if (!to) return
+  if (!to) {
+    if (btn) {
+      btn.style.transition = ''
+      btn.style.opacity = ''
+    }
+    fly.show = false
+    hideBrandLogo.value = false
+    isFlying.value = false
+    return
+  }
 
+  requestAnimationFrame(() => {
+    fly.style = {
+      ...fly.style,
+      transition:
+        'left 520ms cubic-bezier(.2,.9,.2,1), top 520ms cubic-bezier(.2,.9,.2,1), width 520ms, height 520ms, transform 520ms',
+    }
+
+    requestAnimationFrame(() => {
+      fly.style = {
+        ...fly.style,
+        left: px(to.x),
+        top: px(to.y),
+        width: px(to.w),
+        height: px(to.h),
+        transform: 'translate3d(0,0,0) rotate(0deg)',
+      }
+    })
+  })
+
+  setTimeout(() => {
+    hideBrandLogo.value = false
+    fly.show = false
+    if (btn) {
+      btn.style.transition = ''
+      btn.style.opacity = ''
+    }
+    isFlying.value = false
+  }, 540)
+}
+
+async function closeWithFly() {
+  if (isFlying.value) return
+
+  const fromEl = sidebarRef.value?.brandLogo
+  const from = rectOf(fromEl)
+
+  if (!from) {
+    isSidebarOpen.value = false
+    hideBrandLogo.value = false
+    return
+  }
+
+  isFlying.value = true 
+
+  hideBrandLogo.value = true
+  fly.show = true
   fly.style = {
     left: px(from.x),
     top: px(from.y),
     width: px(from.w),
     height: px(from.h),
-    transform: 'translate3d(0,0,0) rotate(18deg)',
-    transition:
-      'left 520ms cubic-bezier(.2,.9,.2,1), top 520ms cubic-bezier(.2,.9,.2,1), width 520ms, height 520ms, transform 520ms',
+    transform: 'translate3d(0,0,0) rotate(0deg)',
+    opacity: 1,
+    transition: 'none',
   }
 
+  // cierro sidebar para que el header vuelva a su layout normal
+  isSidebarOpen.value = false
+  await nextTick()
   await new Promise(r => requestAnimationFrame(r))
 
-  fly.style = {
-    ...fly.style,
-    left: px(to.x),
-    top: px(to.y),
-    width: px(to.w),
-    height: px(to.h),
-    transform: 'translate3d(0,0,0) rotate(0deg)',
+  const toEl = topHeaderRef.value?.yayaBtn
+  const to = rectOf(toEl)
+
+  if (!to) {
+    fly.show = false
+    hideBrandLogo.value = false
+    isFlying.value = false
+    return
   }
 
+  // inicio transición al botón del header
+  requestAnimationFrame(() => {
+    fly.style = {
+      ...fly.style,
+      transition:
+        'left 520ms cubic-bezier(.2,.9,.2,1), top 520ms cubic-bezier(.2,.9,.2,1), width 520ms, height 520ms, transform 520ms',
+    }
+
+    requestAnimationFrame(() => {
+      fly.style = {
+        ...fly.style,
+        left: px(to.x),
+        top: px(to.y),
+        width: px(to.w),
+        height: px(to.h),
+        transform: 'translate3d(0,0,0) rotate(18deg)',
+      }
+    })
+  })
+
   setTimeout(() => {
-    finishFlyAtLogo(to)
+    fly.show = false
+    isFlying.value = false
   }, 540)
+}
+
+function onToggleSidebar() {
+  if (isSidebarOpen.value) {
+    // Cerrar sin animación (inmediato)
+    isSidebarOpen.value = false
+    hideBrandLogo.value = false
+  } else {
+    // Abrir con animación fly
+    openWithFly()
+  }
 }
 </script>
 

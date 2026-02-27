@@ -31,7 +31,6 @@ defineProps({
 </script>
 
 <style scoped>
-/* Active state styling */
 a.router-link-active {
   background: linear-gradient(90deg, rgba(0, 177, 64, 0.15), rgba(0, 177, 64, 0.05));
   color: #00B140;
@@ -42,7 +41,6 @@ a.router-link-active .group-hover\:scale-110 {
   transform: scale(1.1);
 }
 
-/* Hover effects */
 a:hover {
   background-color: rgba(255, 255, 255, 0.05);
 }

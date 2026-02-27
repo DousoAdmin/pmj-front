@@ -8,15 +8,16 @@
   />
 
   <nav
-    class="fixed lg:static top-0 left-0 z-50 h-screen
-           flex flex-col bg-gradient-to-b from-[#522178] to-[#3d1958]
-           overflow-hidden will-change-transform
-           transition-[transform,width] duration-300 ease-in-out"
-    :class="
-      open
-        ? 'w-64 translate-x-0 border-r border-white/10'
-        : 'w-64 -translate-x-full border-r-0 lg:w-0 lg:translate-x-0'
-    "
+        class="fixed lg:static top-0 left-0 z-50 h-screen
+          flex flex-col bg-gradient-to-b from-[#522178] to-[#3d1958]
+          overflow-hidden"
+        style="will-change: transform, width;"
+        :class="[
+          props.isFlying ? 'transition-none' : 'transition-all duration-700 ease-in-out',
+          open
+            ? 'w-64 translate-x-0 border-r border-white/10'
+            : 'w-64 -translate-x-full border-r-0 lg:w-0 lg:translate-x-0'
+        ]"
   >
 
     <div class="h-1 flex flex-shrink-0">
@@ -146,6 +147,7 @@ const brandLogo = ref(null)
 const props = defineProps({
   open: { type: Boolean, default: true },
   hideBrandLogo: { type: Boolean, default: false },
+  isFlying: { type: Boolean, default: false }, // ✅ nuevo
 })
 
 defineEmits(['toggle'])
