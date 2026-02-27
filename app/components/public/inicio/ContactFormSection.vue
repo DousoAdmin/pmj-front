@@ -1,7 +1,7 @@
 <template>
   <section 
     class="py-20 md:py-32 bg-[#522178] text-white relative overflow-hidden"
-    aria-labelledby="contact-title"
+    aria-labelledby="contact-title" id="formulario"
   >
     <div class="absolute -top-24 -left-24 w-96 h-96 bg-white/5 rounded-full"></div>
     <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-[#F2780C]/10 rounded-full"></div>
@@ -11,22 +11,23 @@
         
         <div class="w-full lg:w-2/5 space-y-8 text-center lg:text-left">
           <h2 id="contact-title" class="text-5xl md:text-7xl font-black tracking-tighter leading-none text-white">
-            ¡Es tu <br/>
-            <span class="text-[#F2780C]">momento!</span>
+            ¡Sé parte  
+<br/>
+            <span class="text-[#F2780C]">del cambio!</span>
           </h2>
           <p class="text-2xl opacity-90 leading-relaxed max-w-md mx-auto lg:mx-0 font-medium">
-            Únete a la red juvenil más grande de Mosquera. Participa en proyectos 
-            <span class="font-bold border-b-2 border-[#F2780C]">ambientales, deportivos y culturales</span>.
+           Si te apasiona trabajar con y para las juventudes, únete como voluntario a la Plataforma de Juventudes de Mosquera y aporta a proyectos
+            <span class="font-bold border-b-2 border-[#F2780C]">ambientales, deportivos y culturales y más</span>.
           </p>
           
           <div class="space-y-4 pt-4 hidden md:block text-left max-w-xs mx-auto lg:mx-0">
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-full bg-[#F2780C] flex items-center justify-center text-white font-bold">✓</div>
-              <span class="font-bold text-xl">Certificación oficial</span>
+              <span class="font-bold text-xl">¡Conviertete en un líder!</span>
             </div>
             <div class="flex items-center gap-3">
               <div class="w-8 h-8 rounded-full bg-[#F2780C] flex items-center justify-center text-white font-bold">✓</div>
-              <span class="font-bold text-xl">Acceso a becas y talleres</span>
+              <span class="font-bold text-xl">¡Desarrolla tus habilidades!</span>
             </div>
           </div>
         </div>

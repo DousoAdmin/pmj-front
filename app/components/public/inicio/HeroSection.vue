@@ -26,21 +26,29 @@
               <span class="block bg-[#F2780C] bg-clip-text text-transparent mt-1 md:mt-2">Mosquera</span>
             </h1>
 
-            <p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 md:mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-up" :style="{ animationDelay: '0.3s' }">
-              Conectamos jóvenes, organizaciones y oportunidades para el desarrollo 
-              <span class="text-[#F2780C] font-semibold">social, cultural y educativo</span> de nuestro municipio.
-            </p>
+<p class="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 md:mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-up"
+    :style="{ animationDelay: '0.3s' }">
+  Conectamos
+  <span class="text-[#F2780C] font-semibold">organizaciones juveniles</span>,
+  fortalecemos
+  <span class="text-[#00ae3a] font-semibold">el liderazgo joven</span>
+  y convertimos
+  <span class="text-[#F2780C] font-semibold">ideas en acciones reales</span>
+  que promueven
+  <span class="text-[#00ae3a] font-semibold">inclusión y participación activa</span>
+  en Mosquera.
+</p>
 
             <div class="flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-up" :style="{ animationDelay: '0.4s' }">
               <NuxtLink to="/public/nosotros" class="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-[#00A036] text-white font-bold text-sm md:text-base lg:text-lg rounded-lg md:rounded-xl shadow-lg hover:shadow-xl hover:shadow-[#F2780C]/40 transform hover:-translate-y-0.5 md:hover:-translate-y-1 transition-all duration-300 overflow-hidden">
                 <div class="absolute inset-0 bg-linear-to-r from-[#00A036] to-[#00ae3a] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <span class="relative z-10 flex items-center">
-                  Explorar Plataforma
+                  ¡Conócenos!
                   <svg class="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                 </span>
               </NuxtLink>
 
-              <button @click="$emit('open-modal')" class="group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white text-white font-bold text-sm md:text-base lg:text-lg rounded-lg md:rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300 overflow-hidden">
+              <button @click="scrollToForm" class="cursor-pointer group relative inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-transparent border border-white text-white font-bold text-sm md:text-base lg:text-lg rounded-lg md:rounded-xl backdrop-blur-sm hover:bg-white/10 transition-all duration-300 overflow-hidden">
                 <span class="relative z-10 flex items-center justify-center">
                   <svg class="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
                   Unirse Ahora
@@ -54,12 +62,12 @@
                 <div class="text-xs md:text-sm text-gray-300">Jóvenes</div>
               </div>
               <div class="text-center p-2 md:p-4 rounded-lg md:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/30 transition-colors">
-                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-white">50+</div>
+                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-white">35+</div>
                 <div class="text-xs md:text-sm text-gray-300">Organizaciones</div>
               </div>
               <div class="text-center p-2 md:p-4 rounded-lg md:rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#F2780C]/30 transition-colors">
-                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-[#F2780C]">100+</div>
-                <div class="text-xs md:text-sm text-gray-300">Oportunidades</div>
+                <div class="text-lg md:text-2xl lg:text-3xl font-bold text-[#F2780C]">50+</div>
+                <div class="text-xs md:text-sm text-gray-300">Líderes</div>
               </div>
             </div>
           </div>
@@ -126,6 +134,12 @@ const updateMotivation = () => {
 
 const scrollToNextSection = () => {
   window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
+}
+const scrollToForm = () => {
+  const section = document.getElementById('formulario')
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 </script>
 

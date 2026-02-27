@@ -13,8 +13,7 @@
               <span class="text-[#522178]">Transforma.</span>
             </h1>
             <p class="text-xl md:text-2xl opacity-95 leading-relaxed max-w-2xl font-medium">
-              Somos el espacio oficial para que los jóvenes de Mosquera participen, se capaciten y lideren el cambio social, cultural y deportivo de nuestro municipio.
-            </p>
+Somos el espacio donde las organizaciones y procesos juveniles de Mosquera nos unimos para conectar ideas, impulsar proyectos y generar impacto real en lo social, cultural, educativo y deportivo del municipio.</p>
           </div>
 
           <div class="w-full lg:w-2/5">
@@ -52,7 +51,7 @@
           <div class="p-8 rounded-4xl bg-slate-50 border-b-4 border-[#522178] hover:shadow-xl transition-all">
             <span class="text-4xl mb-4 block">🤝</span>
             <h4 class="text-xl font-bold text-slate-800 mb-2">Sociales</h4>
-            <p class="text-slate-500 text-sm">Veeduría, participación política y empoderamiento comunitario.</p>
+            <p class="text-slate-500 text-sm">Veeduría, participación política y empoderamiento juvenil.</p>
           </div>
         </div>
       </div>
@@ -80,12 +79,12 @@
             </h3>
             
             <p class="text-slate-600 leading-relaxed text-lg md:text-xl mb-10 font-medium">
-              Promover el encuentro y la interlocución de las juventudes, fortaleciendo la participación activa para garantizar los derechos y el desarrollo territorial en Mosquera.
+              Promover la articulación e interlocución de las juventudes de Mosquera, velando por la inclusión en la toma de decisiones públicas y privadas para garantizar sus derechos y el desarrollo del territorio.
             </p>
 
             <div class="relative h-72 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
               <div class="absolute inset-0 bg-linear-to-t from-[#038C33]/40 to-transparent z-10"></div>
-              <NuxtImg src="/images/pmjsofa.webp" alt="Misión PMJ" class="w-full h-full object-cover" />
+              <NuxtImg src="/images/pmjsofa.webp" alt="Misión PMJ Mosquera" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -107,12 +106,12 @@
               </h3>
               
               <p class="text-white/90 leading-relaxed text-lg md:text-xl mb-10 font-medium">
-                Ser el referente nacional en innovación y gestión juvenil, liderando proyectos de alto impacto que fortalezcan la inclusión y el liderazgo efectivo.
+                Seremos reconocidos como líderes nacionales en procesos de gestión, apalancamiento y apoyo a los jóvenes y sus diversas prácticas organizativas en el territorio.
               </p>
 
               <div class="relative h-72 rounded-[3rem] overflow-hidden shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
                 <div class="absolute inset-0 bg-linear-to-t from-[#F2780C]/40 to-transparent z-10"></div>
-                <NuxtImg src="/images/vision.webp" alt="Visión PMJ" class="w-full h-full object-cover" />
+                <NuxtImg src="/images/vision.webp" alt="Visión PMJ Mosquera 2027" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@
 <template>
   <form @submit.prevent="nextStep">
     <div class="mb-4" v-if="tipoConformacion === 'Informal'">
-      <label class="block font-medium mb-1">Documento de Constitución como acta de constitución *</label>
+      <label class="block font-normal text-gray-600 mb-1">Documento de Constitución como acta de constitución *</label>
       <FileUploader
         v-model="localValue.constitucion"
         accept=".pdf,.doc,.docx"
@@ -26,7 +26,7 @@
       />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Propuesta de trabajo de la organización (anual) *</label>
+      <label class="block font-normal text-gray-600 mb-1">Propuesta de trabajo de la organización (anual) *</label>
       <FileUploader
         v-model="localValue.propuesta"
         accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg"
@@ -35,7 +35,7 @@
       />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Base de datos *</label>
+      <label class="block font-normal text-gray-600 mb-1">Base de datos *</label>
       <FileUploader
         v-model="localValue.baseDatos"
         accept=".pdf,.doc,.docx,.xls,.xlsx"
@@ -44,7 +44,7 @@
       />
     </div>
     <div class="mb-4">
-      <label class="block font-medium mb-1">Logo (hasta 5 archivos)</label>
+      <label class="block font-normal text-gray-600 mb-1">Logo (hasta 5 archivos)</label>
       <FileUploader
         v-model="localValue.logo"
         accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg"

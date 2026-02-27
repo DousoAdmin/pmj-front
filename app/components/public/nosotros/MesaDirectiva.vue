@@ -35,9 +35,13 @@
             :key="'top-' + index"
             :member="member"
             :index="index"
-            class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(35%-2rem)] animate-card-entry"
+            class="w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(35%-2rem)] animate-card-entry overflow-hidden group relative"
             :style="{ animationDelay: (index * 200) + 'ms' }"
-          />
+          >
+            <template #default>
+               <div class="absolute bottom-0 left-0 w-full h-1.5 bg-[#F2780C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+            </template>
+          </MesaDirectivaCard>
         </div>
 
         <div class="flex items-center justify-center gap-4 opacity-30">
@@ -52,9 +56,13 @@
             :key="'rest-' + index"
             :member="member"
             :index="index + 2"
-            class="animate-card-entry"
+            class="animate-card-entry overflow-hidden group relative"
             :style="{ animationDelay: ((index + 2) * 150) + 'ms' }"
-          />
+          >
+            <template #default>
+               <div class="absolute bottom-0 left-0 w-full h-1.5 bg-[#F2780C] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></div>
+            </template>
+          </MesaDirectivaCard>
         </div>
       </div>
     </div>
@@ -133,6 +141,7 @@ const team = ref([
 }
 
 .animate-fade-in-up {
+  opacity: 0;
   animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -145,8 +154,4 @@ const team = ref([
 .delay-300 { animation-delay: 0.3s; }
 
 h2 { line-height: 0.85; }
-
-.animate-fade-in-up, .animate-card-entry {
-  opacity: 0;
-}
 </style>

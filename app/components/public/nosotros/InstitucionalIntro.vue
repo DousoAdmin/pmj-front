@@ -9,45 +9,68 @@
 
       <div class="space-y-12 mb-32 animate-fade-in-up delay-400">
         
-        <div class="bg-slate-50 border-l-8 border-[#038C33] p-8 md:p-12 rounded-r-[3rem] shadow-sm">
-          <h3 class="text-3xl font-black text-[#038C33] uppercase mb-6 tracking-tighter">¿Qué es la Plataforma Municipal de Juventudes?</h3>
-          <div class="grid md:grid-cols-2 gap-8 text-slate-600">
-            <p class="leading-relaxed text-lg font-medium">
-              La Plataforma es el **escenario máximo de participación, concertación y vigilancia** de la juventud en Mosquera. Es un espacio autónomo mandatado por la Ley 1622 de 2013, donde convergen organizaciones, colectivos y jóvenes independientes.
-            </p>
-            <p class="leading-relaxed text-lg">
-              Funcionamos como el puente directo entre la base juvenil y la institucionalidad, transformando las necesidades de los jóvenes en propuestas técnicas que el gobierno municipal debe atender.
-            </p>
-          </div>
-        </div>
+<div class="bg-slate-50 border-l-8 border-[#038C33] p-8 md:p-12 rounded-r-[3rem] shadow-sm">
+  <h3 class="text-3xl font-black text-[#038C33] uppercase mb-6 tracking-tighter">
+    ¿Qué es la Plataforma Municipal de Juventudes?
+  </h3>
+  <div class="grid md:grid-cols-2 gap-8 text-slate-600">
+    <p class="leading-relaxed text-lg font-medium">
+      La Plataforma es el espacio donde las organizaciones, colectivos y jóvenes de Mosquera nos unimos para trabajar juntos por más oportunidades y bienestar para la juventud.
+    </p>
+    <p class="leading-relaxed text-lg">
+      Es un espacio autónomo reconocido por la ley que conecta las ideas y necesidades de los jóvenes con las decisiones del municipio, convirtiéndolas en propuestas concretas que buscan generar cambios reales.
+    </p>
+  </div>
+</div>
 
-        <div class="bg-slate-50 border-l-8 border-[#F2780C] p-8 md:p-12 rounded-r-[3rem] shadow-sm">
-          <h3 class="text-3xl font-black text-[#F2780C] uppercase mb-8 tracking-tighter">Nuestra labor por el territorio</h3>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div class="space-y-3">
-              <div class="text-4xl font-black text-[#F2780C]/20">01</div>
-              <h4 class="text-[#522178] font-bold text-xl uppercase">Veeduría Ciudadana</h4>
-              <p class="text-slate-500 text-sm">Vigilamos la inversión de recursos públicos en programas que impacten el desarrollo juvenil real.</p>
-            </div>
-            <div class="space-y-3">
-              <div class="text-4xl font-black text-[#F2780C]/20">02</div>
-              <h4 class="text-[#522178] font-bold text-xl uppercase">Agenda Pública</h4>
-              <p class="text-slate-500 text-sm">Priorizamos temas como salud mental, empleo joven, cultura y protección ambiental.</p>
-            </div>
-            <div class="space-y-3">
-              <div class="text-4xl font-black text-[#F2780C]/20">03</div>
-              <h4 class="text-[#522178] font-bold text-xl uppercase">Concertación</h4>
-              <p class="text-slate-500 text-sm">Llevamos las propuestas de los jóvenes ante el Consejo Municipal de Juventudes y la Administración.</p>
-            </div>
-          </div>
-        </div>
+
+<div class="bg-slate-50 border-l-8 border-[#F2780C] p-8 md:p-12 rounded-r-[3rem] shadow-sm">
+  <h3 class="text-3xl font-black text-[#F2780C] uppercase mb-8 tracking-tighter">
+    Nuestra labor por el territorio
+  </h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    
+    <div class="space-y-3">
+      <div class="text-4xl font-black text-[#F2780C]/20">01</div>
+      <h4 class="text-[#522178] font-bold text-xl uppercase">
+        Control Social Juvenil
+      </h4>
+      <p class="text-slate-500 text-sm">
+        Hacemos seguimiento a las políticas y programas que impactan a la juventud del municipio.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <div class="text-4xl font-black text-[#F2780C]/20">02</div>
+      <h4 class="text-[#522178] font-bold text-xl uppercase">
+        Agenda Juvenil
+      </h4>
+      <p class="text-slate-500 text-sm">
+        Construimos una agenda colectiva priorizando temas como salud mental, educación, cultura y medio ambiente.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      <div class="text-4xl font-black text-[#F2780C]/20">03</div>
+      <h4 class="text-[#522178] font-bold text-xl uppercase">
+        Incidencia y Articulación
+      </h4>
+      <p class="text-slate-500 text-sm">
+        Impulsamos propuestas ante la Administración Municipal para lograr cambios concretos en la juventud del municipio.
+      </p>
+    </div>
+
+  </div>
+</div>
+
 
         <div class="bg-[#522178] text-white p-8 md:p-12 rounded-[3rem] shadow-xl">
           <h3 class="text-3xl font-black text-[#F2780C] uppercase mb-8 tracking-tighter">¿Cómo te beneficia participar?</h3>
           <ul class="grid md:grid-cols-2 gap-8">
             <li class="flex gap-4 items-start">
               <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
-              <p><strong class="text-white">Gestión de Espacios:</strong> Abrimos puertas para tus proyectos culturales o deportivos.</p>
+              <p><strong class="text-white">Gestión de Espacios:</strong> Abrimos puertas para tus proyectos como organización</p>
             </li>
             <li class="flex gap-4 items-start">
               <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
@@ -55,7 +78,7 @@
             </li>
             <li class="flex gap-4 items-start">
               <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>
-              <p><strong class="text-white">Red de Contactos:</strong> Conectamos tu parche con otros colectivos del municipio.</p>
+              <p><strong class="text-white">Red de Contactos:</strong> Conectamos tu organización con otros instancias del municipio.</p>
             </li>
             <li class="flex gap-4 items-start">
               <div class="w-8 h-8 rounded-full bg-[#038C33] shrink-0 flex items-center justify-center text-white font-bold">✓</div>

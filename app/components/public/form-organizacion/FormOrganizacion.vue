@@ -146,12 +146,12 @@
         <div class="mb-8">
           <div class="flex justify-between text-sm text-gray-600 mb-2">
             <span class="font-bold">Progreso</span>
-            <span class="font-bold">{{ Math.round((step / 5) * 100) }}%</span>
+            <span class="font-bold">{{ Math.min(Math.round((step / 5) * 100), 100) }}%</span>
           </div>
           <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
             <div 
               class="h-full bg-[#522178] rounded-full transition-all duration-300"
-              :style="{ width: `${(step / 5) * 100}%` }"
+              :style="{ width: `${Math.min((step / 5) * 100, 100)}%` }"
             ></div>
           </div>
         </div>
