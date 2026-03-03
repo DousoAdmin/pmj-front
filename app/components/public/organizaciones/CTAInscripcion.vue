@@ -47,7 +47,7 @@
           </button>
           
           <NuxtLink 
-            to="/public/formulario"
+            to="/private/formulario"
             class="group relative px-12 py-5 bg-[#038C33] text-white font-black text-lg rounded-2xl 
                   hover:bg-[#026c28] transform hover:-translate-y-1 transition-all duration-300 
                   shadow-[0_20px_40px_rgba(3,140,51,0.3)] active:scale-95"
