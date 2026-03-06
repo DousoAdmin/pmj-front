@@ -70,6 +70,7 @@ const filters = [
 /* =============================================== */
 /* FOTOS OFICIALES 2025 - DATOS REALES */
 /* =============================================== */
+/* DATOS ANTERIORES (descomentar cuando se necesiten)
 const photos = ref([
   // === EVENTOS (16 fotos) ===
   { title: 'Taller de Emprendimiento 2025', date: '28 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
@@ -78,26 +79,33 @@ const photos = ref([
   { title: 'Lanzamiento Plan Incentivos', date: '05 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Capacitación Liderazgo', date: '01 Oct', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Foro Juventud y Política', date: '25 Sep', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]' },
-  
-  // === REUNIONES (7 fotos) ===
   { title: 'Reunión Mesa Directiva', date: '27 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Planeación 2026', date: '22 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#F2780C] to-[#64278C]' },
   { title: 'Consejo de Juventud', date: '18 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Actividades Mosquera Pila', date: '09 Oct', category: 'Reunión', type: 'reunion', gradient: 'from-[#F2780C] to-[#64278C]' },
-
-  // === FIESTAS (8 fotos) ===
   { title: 'Fiesta de Integración', date: '21 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#F2780C] to-[#64278C]' },
   { title: 'Celebración +1.200 Inscritos', date: '16 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Halloween Juvenil', date: '31 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Cumpleaños Plataforma', date: '11 Oct', category: 'Fiesta', type: 'fiesta', gradient: 'from-[#F2780C] to-[#64278C]' },
-
-  // === MOMENTOS (10 fotos) ===
   { title: 'YayaFest 2025', date: '26 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Entrega de Certificados', date: '23 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#F2780C] to-[#64278C]' },
   { title: 'Firma de Convenio', date: '19 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#64278C] to-[#038C33]' },
   { title: 'Visita a CDI La Cumbre', date: '13 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' },
   { title: 'Premiación Concurso', date: '06 Oct', category: 'Momento', type: 'momento', gradient: 'from-[#F2780C] to-[#64278C]' },
- { title: 'Primer Evento 2025', date: '15 Ene', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' }
+  { title: 'Primer Evento 2025', date: '15 Ene', category: 'Momento', type: 'momento', gradient: 'from-[#038C33] to-[#F2780C]' }
+])
+*/
+
+const photos = ref([
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', url: '/images/galeria/foto-01.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', url: '/images/galeria/foto-02.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', url: '/images/galeria/foto-03.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', url: '/images/galeria/foto-04.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', url: '/images/galeria/foto-05.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', url: '/images/galeria/foto-06.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', url: '/images/galeria/foto-07.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', url: '/images/galeria/foto-08.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', url: '/images/galeria/foto-09.webp' },
 ])
 
 /* =============================================== */
