@@ -6,7 +6,7 @@
         v-model="inputValue"
         :placeholder="placeholder"
         :required="required"
-        class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800"
+        class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400"
         :rows="rows"
       />
     </template>
@@ -14,7 +14,7 @@
       <select
         v-model="inputValue"
         :required="required"
-        class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800"
+        class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400"
       >
         <option value="" disabled>Seleccione una opción</option>
         <option v-for="option in options" :key="option.value || option" :value="option.value || option">
@@ -28,7 +28,7 @@
         :type="type"
         :placeholder="placeholder"
         :required="required"
-        class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800"
+        class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400"
         :min="min"
         :max="max"
       />

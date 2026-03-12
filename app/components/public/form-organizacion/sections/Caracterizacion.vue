@@ -50,7 +50,7 @@
             v-if="localValue.jovenes.includes('Otros')"
             v-model="localValue.jovenesOtros"
             type="text"
-            class="ml-2 border rounded px-2 py-1 text-gray-600 font-normal focus:text-gray-800"
+            class="ml-2 border border-gray-300 rounded px-2 py-1 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400"
             placeholder="Especifique"
           />
         </label>
@@ -59,7 +59,7 @@
 
     <div class="mb-4">
       <label class="block font-normal text-gray-600 mb-1">Actividades que desarrollan *</label>
-      <textarea v-model="localValue.actividades" class="w-full border rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800" required />
+      <textarea v-model="localValue.actividades" class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400" required />
     </div>
 
     <div class="mb-4">
@@ -118,7 +118,7 @@
             v-if="localValue.tematicas.includes('Otros')"
             v-model="localValue.tematicasOtros"
             type="text"
-            class="ml-2 border rounded px-2 py-1 text-gray-600 font-normal focus:text-gray-800"
+            class="ml-2 border border-gray-300 rounded px-2 py-1 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400"
             placeholder="Especifique"
           />
         </label>
