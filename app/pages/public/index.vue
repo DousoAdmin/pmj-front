@@ -1,7 +1,7 @@
 <template>
     <section>
       <HeroSection />
-      <Carousel />
+      <!-- <Carousel /> -->
       <LazyAboutSection />
       <LazyContactFormSection />
     </section>
