@@ -17,8 +17,8 @@
           </h2>
           
           <p class="text-xl text-white mb-10 max-w-xl leading-relaxed font-medium animate-reveal-up" style="animation-delay: 0.2s">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam ratione veniam suscipit fugit odio inventore quas, molestias, tenetur voluptas cupiditate quis aut deserunt tempore. Atque culpa debitis accusamus praesentium maiores? 
-            <span class="inline-block px-2 bg-white text-[#64278C] font-black rounded-md shadow-sm">proyectos reales</span>. 
+            El 2025 fue un año de crecimiento, reconocimiento e impacto para la PMJ. Terminamos el año celebrando logros
+            <span class="inline-block px-2 bg-white text-[#64278C] font-black rounded-md shadow-sm">a nivel nacional</span>.
             Conoce cómo estamos construyendo el futuro de Mosquera día a día.
           </p>
 
@@ -54,10 +54,10 @@
 
 <script setup>
 const stats = [
-  { value: '000', label: 'logro 1' },
-  { value: '000', label: 'Logro 2' },
-  { value: '000', label: 'Logro 3' },
-  { value: '000', label: 'Logro 4' }
+  { value: '#1', label: 'Premios Colombia Participa 2025 — Líderes y Lideresas Sociales Jóvenes' },
+  { value: '+300', label: 'Personas en nuestra primera versión del Yaya Fest' },
+  { value: '32', label: 'Organizaciones activas — una de las plataformas de juventudes más grandes de Cundinamarca' },
+  { value: '1.328', label: 'Seguidores en Instagram · 21 publicaciones · 15 reels' },
 ]
 </script>
 
