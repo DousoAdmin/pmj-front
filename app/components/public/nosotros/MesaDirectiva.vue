@@ -14,7 +14,7 @@
           <div class="flex items-center gap-4 animate-fade-in-up delay-200">
             <div class="h-10 w-1.5 bg-[#038C33]"></div>
             <p class="text-xl md:text-2xl text-white/80 font-bold uppercase tracking-widest">
-              Mesa Directiva 2025 — 2026
+              Mesa Directiva 2026
             </p>
           </div>
         </div>
@@ -73,32 +73,24 @@
 import { ref } from 'vue'
 const team = ref([
   {
-    name: 'Johana Chavarro',
-    role: 'Presidenta',
+    name: 'Andres Felipe Castilla Ávila',
+    role: 'Presidente',
     committee: 'Mesa Directiva',
     initials: 'JC',
-    org: 'De Vuelta a la Vida',
-    photo: 'Joha.webp',
+    org: 'Moravia',
+    photo: 'Andres.webp',
     gradient: 'bg-gradient-to-br from-[#64278C] to-[#038C33]'
   },
   {
-    name: 'Juan Esteban Parra',
-    role: 'Vicepresidente',
+    name: 'David Santiago Cantor Vargas',
+    role: 'Vicepresidente y Delegado Departamental',
     committee: 'Mesa Directiva',
     initials: 'JE',
-    org: 'Los Meseros',
-    photo: 'juanes.webp',
-    gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]'
-  },
-  {
-    name: 'David Cantor',
-    role: 'Delegado Departamental y Provincial',
-    committee: 'Representación',
-    initials: 'DC',
     org: 'Hijos del Zipa',
     photo: 'David.webp',
-    gradient: 'bg-gradient-to-br from-[#64278C] to-[#038C33]'
+    gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]'
   },
+
   {
     name: 'Nikhol Puerto',
     role: 'Delegada Provincial',

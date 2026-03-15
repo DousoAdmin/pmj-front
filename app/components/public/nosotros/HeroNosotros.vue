@@ -5,11 +5,6 @@
     <div class="absolute bottom-1/4 right-10 w-48 h-48 bg-[#522178]/20 rounded-full animate-float-delayed"></div>
 
     <div class="relative z-10 container mx-auto px-4 text-center">
-      
-      <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/30 bg-white/10 mb-8 animate-fade-in-down">
-        <span class="w-2 h-2 rounded-full bg-[#F2780C] animate-pulse"></span>
-        <span class="text-xs font-black uppercase tracking-[0.3em] text-white">Gestión Institucional</span>
-      </div>
 
       <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 leading-[0.9] tracking-tighter animate-fade-in-up">
         Nuestra <br/>
@@ -19,7 +14,7 @@
       <div class="flex items-center justify-center gap-6 mb-8 animate-fade-in-up delay-200">
         <div class="h-0.5 w-12 bg-white/30"></div>
         <p class="text-2xl md:text-4xl font-black text-white italic tracking-tight">
-          2025 <span class="text-[#F2780C]">—</span> 2026
+          2026
         </p>
         <div class="h-0.5 w-12 bg-white/30"></div>
       </div>
