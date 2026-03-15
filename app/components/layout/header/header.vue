@@ -198,12 +198,12 @@ const navItems = [
     icon: OrgIcon,
     staticColor: "bg-[#00B140]",
   },
-  {
-    name: "Dashboard",
-    path: "/private/dashboard",
-    icon: DashboardIcon,
-    staticColor: "bg-[#522178]",
-  },
+  // {
+  //   name: "Dashboard",
+  //   path: "/private/dashboard",
+  //   icon: DashboardIcon,
+  //   staticColor: "bg-[#522178]",
+  // },
 ];
 
 const handleScroll = () => {
