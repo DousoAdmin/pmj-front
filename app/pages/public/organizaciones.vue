@@ -1,7 +1,7 @@
 <template>
   <section>
     <HeroOrganizaciones />
-    <CTAInscripcion />
+    <!-- <CTAInscripcion /> -->
     <FiltrosOrganizaciones />
   </section>
 </template>
