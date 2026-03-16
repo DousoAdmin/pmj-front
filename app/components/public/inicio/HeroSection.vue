@@ -19,7 +19,7 @@
               Plataforma Municipal
             </span>
             <h1 id="hero-title" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
-              Juventudes <br /> de
+              <span class="text-[#00ae3a]">Juventudes</span> <br /> de
               <span class="text-transparent bg-[#F2780C] bg-clip-text">Mosquera</span>
             </h1>
           </div>

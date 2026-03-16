@@ -78,5 +78,5 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['nuxt-security', '@nuxt/image']
+  modules: ['nuxt-security', '@nuxt/image', 'nuxt-swiper']
 });
