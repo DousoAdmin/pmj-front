@@ -1,3 +1,29 @@
+<!--
+  CTAInscripcion.vue
+  ==================
+  Sección CTA al final de la página de Organizaciones.
+  Título principal: "¿Tu organización aún no es parte?"
+
+  ESTRUCTURA:
+  - Badge animado "Convocatoria Abierta 2026" (pill con punto parpadeante)
+  - Título grande (h2) con highlight verde sobre fondo blanco
+  - Párrafo con fechas de inscripción: 15 Ene – 15 Feb (badge morado)
+  - 3 botones de acción:
+      1. "Inscribir Organización"  → sin ruta asignada aún (button sin href)
+      2. "Formulario de Inscripción" → /private/formulario
+      3. "Más Información" → /contacto
+  - Badge inferior "Activa en Mosquera"
+
+  COLORES:
+  - Fondo: naranja #F2780C
+  - Botón 1: morado #64278C
+  - Botón 2: verde #038C33
+  - Botón 3: blanco semitransparente
+
+  PENDIENTE:
+  - Conectar el botón "Inscribir Organización" (actualmente sin ruta/acción)
+  - Actualizar fechas de convocatoria cuando cambien
+-->
 <template>
   <section class="relative py-24 bg-[#F2780C] overflow-hidden">
     <div class="absolute top-0 left-0 w-96 h-96 bg-white opacity-10 blur-[120px] -translate-x-1/2 -translate-y-1/2"></div>
