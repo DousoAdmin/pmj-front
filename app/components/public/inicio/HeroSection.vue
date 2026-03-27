@@ -1,67 +1,73 @@
 <template>
   <section 
-    class="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden bg-[#522178] py-20 md:py-32"
+    class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#522178] py-12 md:py-24"
     role="banner"
     aria-labelledby="hero-title"
   >
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute inset-0 opacity-[0.07]" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2240%22 viewBox=%220 0 80 40%22%3E%3Cpath d=%22M0 40 L40 0 L80 40%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221.5%22/%3E%3C/svg%3E'); background-size: 80px 40px;"></div>
-      <div class="absolute top-1/4 -left-20 w-64 md:w-96 h-64 md:h-96 rounded-full bg-linear-to-br from-[#F2780C]/20 to-white/5 blur-3xl"></div>
-      <div class="absolute bottom-1/4 -right-20 w-64 md:w-96 h-64 md:h-96 rounded-full bg-linear-to-tr from-white/5 to-[#00A036]/20 blur-3xl"></div>
+      <div class="absolute inset-0 opacity-[0.05] texture-pattern"></div>
+      
+      <div class="absolute top-1/4 -left-20 w-64 md:w-[30rem] h-64 md:h-[30rem] rounded-full bg-[#F2780C]/20 blur-[100px] will-change-transform"></div>
+      <div class="absolute bottom-1/4 -right-20 w-64 md:w-[30rem] h-64 md:h-[30rem] rounded-full bg-[#00A036]/20 blur-[100px] will-change-transform"></div>
     </div>
 
-    <div class="relative z-10 container mx-auto px-6 sm:px-8 lg:px-12">
-      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
+    <div class="relative z-10 container mx-auto px-4 sm:px-8 lg:px-12 mt-16 md:mt-0">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
         
         <div class="w-full lg:w-3/5 text-center lg:text-left order-2 lg:order-1">
-          <div class="inline-block animate-fade-up">
-            <span class="inline-block text-[#F2780C] text-[10px] md:text-xs font-black uppercase tracking-[0.5em] mb-4 border-b-2 border-[#F2780C] pb-1">
+          <div class="animate-fade-up">
+            <span class="inline-block text-[#F2780C] text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 border-b-2 border-[#F2780C] pb-1">
               Plataforma Municipal
             </span>
-            <h1 id="hero-title" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tighter mb-8">
-              Juventudes <br />
-              <span class="text-transparent bg-[#F2780C] bg-clip-text">Mosquera</span>
+            <h1 id="hero-title" class="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[0.95] tracking-tighter mb-6 md:mb-8">
+              <span class="text-[#00ae3a]">Juventudes</span> <br class="hidden sm:block" /> de
+              <span class="text-[#F2780C]">Mosquera</span>
             </h1>
           </div>
 
-          <div class="max-w-2xl mx-auto lg:mx-0 animate-fade-up" :style="{ animationDelay: '0.2s' }">
-            <p class="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed font-medium">
+          <div class="max-w-2xl mx-auto lg:mx-0 animate-fade-up animation-delay-200">
+            <p class="text-base md:text-xl lg:text-2xl text-white/90 leading-relaxed font-medium px-2 sm:px-0">
               Conectamos 
-              <span class="inline-block px-3 py-0.5 bg-white text-[#522178] rounded-full font-bold shadow-lg transform -rotate-1">organizaciones</span>, 
+              <span class="inline-block px-2 sm:px-3 py-0.5 bg-white text-[#522178] rounded-full font-bold shadow-lg -rotate-1">organizaciones</span>, 
               fortalecemos el 
               <span class="text-[#00ae3a] font-black">liderazgo joven</span> 
               y transformamos ideas en 
-              <span class="inline-block px-3 py-0.5 bg-[#F2780C] text-white rounded-md font-bold shadow-md transform rotate-1">acciones reales</span> 
-              que impulsan a Mosquera.
+              <span class="inline-block px-2 sm:px-3 py-0.5 bg-[#F2780C] text-white rounded-md font-bold shadow-md rotate-1">acciones reales</span>.
             </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-12 animate-fade-up" :style="{ animationDelay: '0.3s' }">
-            <NuxtLink to="/public/nosotros" class="w-full sm:w-auto px-10 py-4 bg-[#00A036] hover:bg-[#00ae3a] text-white font-bold text-lg rounded-2xl shadow-xl transition-all hover:-translate-y-1 flex items-center justify-center gap-2">
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8 md:mt-12 animate-fade-up animation-delay-300">
+            <NuxtLink to="/public/nosotros" class="w-full sm:w-auto px-8 py-4 bg-[#00A036] hover:bg-[#00ae3a] text-white font-bold text-lg rounded-2xl shadow-xl transition-all active:scale-95 flex items-center justify-center gap-2">
               ¡Conócenos!
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </NuxtLink>
 
-            <button @click="scrollToForm" class="w-full sm:w-auto px-10 py-4 bg-white text-[#522178] hover:bg-gray-100 font-bold text-lg rounded-2xl shadow-xl transition-all hover:-translate-y-1">
+            <button @click="scrollToForm" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-lg rounded-2xl shadow-xl transition-all active:scale-95">
               Unirse Ahora
             </button>
           </div>
 
-          <div class="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 animate-fade-up" :style="{ animationDelay: '0.4s' }">
-            <div v-for="(stat, i) in stats" :key="i" class="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col items-center lg:items-start">
-              <span class="text-3xl font-black text-white" :class="{'text-[#F2780C]': i === 1}">{{ stat.value }}</span>
-              <span class="text-xs font-bold text-gray-400 uppercase tracking-widest">{{ stat.label }}</span>
+          <div class="mt-12 md:mt-16 grid grid-cols-3 gap-3 sm:gap-6 animate-fade-up animation-delay-500">
+            <div v-for="(stat, i) in stats" :key="i" class="p-3 sm:p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm flex flex-col items-center lg:items-start transition-colors hover:bg-white/10">
+              <span class="text-xl sm:text-3xl font-black text-white" :class="{'text-[#F2780C]': i === 1}">{{ stat.value }}</span>
+              <span class="text-[8px] sm:text-xs font-bold text-gray-400 uppercase tracking-widest text-center lg:text-left">{{ stat.label }}</span>
             </div>
           </div>
         </div>
 
-        <div class="w-full lg:w-2/5 flex justify-center items-center order-1 lg:order-2 mb-8 lg:mb-0">
-          <div class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-110 lg:h-110 group">
-            <div class="absolute inset-0 bg-linear-to-tr from-[#F2780C]/20 to-[#038C33]/10 rounded-full blur-[80px] animate-pulse-glow"></div>
+        <div class="w-full lg:w-2/5 flex justify-center items-center order-1 lg:order-2 mb-4 lg:mb-0">
+          <div 
+            class="relative w-44 h-44 sm:w-64 sm:h-64 lg:w-96 lg:h-96 group cursor-pointer"
+            @mouseenter="showMotivation"
+            @mouseleave="hideMotivation"
+          >
+            <div class="absolute inset-0 bg-gradient-to-tr from-[#F2780C]/30 to-[#038C33]/20 rounded-full blur-[60px] animate-pulse-glow will-change-transform group-hover:scale-125 transition-transform duration-700"></div>
             
             <Transition name="pop">
-              <div v-if="currentMessage" class="absolute -top-12 md:-top-16 left-0 right-0 flex justify-center z-30 pointer-events-none">
-                <div class="bg-white text-[#522178] px-4 py-1.5 md:px-6 md:py-2 rounded-2xl font-black text-[10px] md:text-xs shadow-2xl uppercase italic border-2 border-[#F2780C]">
+              <div v-if="currentMessage" class="absolute -top-12 left-0 right-0 flex justify-center z-30 pointer-events-none">
+                <div class="bg-white text-[#522178] px-4 py-2 rounded-xl font-black text-[10px] sm:text-xs shadow-2xl uppercase border-2 border-[#F2780C] whitespace-nowrap">
                   {{ currentMessage }}
                 </div>
               </div>
@@ -69,8 +75,10 @@
 
             <NuxtImg 
               src="/images/favicon.webp" 
-              alt="Logo" 
-              class="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] animate-float-slow transition-transform duration-500 hover:scale-105" 
+              alt="Logo Juventudes" 
+              loading="eager"
+              fetchpriority="high"
+              class="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] animate-float-slow will-change-transform group-hover:rotate-3 transition-transform duration-500" 
             />
 
             <div class="hidden lg:block absolute top-0 right-0 w-4 h-4 bg-[#F2780C] rounded-full animate-orbit"></div>
@@ -85,16 +93,30 @@
 
 <script setup>
 import { ref } from 'vue'
+
 const currentMessage = ref('')
+const motivations = [
+  "¡El futuro es tuyo!", 
+  "¡Haz que tu voz cuente!", 
+  "¡Mosquera cree en ti!",
+  "¡Liderazgo que transforma!",
+  "¡Únete al cambio!",
+  "¡Tu idea tiene poder!"
+]
+
 const stats = [
   { value: '500+', label: 'Jóvenes' },
   { value: '33+', label: 'Organizaciones' },
   { value: '50+', label: 'Líderes' }
 ]
-const motivations = ["¡El futuro es tuyo!", "¡Haz que tu voz cuente!", "¡Mosquera cree en ti!"]
 
-const updateMotivation = () => {
-  currentMessage.value = motivations[Math.floor(Math.random() * motivations.length)]
+const showMotivation = () => {
+  const filtered = motivations.filter(m => m !== currentMessage.value)
+  currentMessage.value = filtered[Math.floor(Math.random() * filtered.length)]
+}
+
+const hideMotivation = () => {
+  currentMessage.value = ''
 }
 
 const scrollToForm = () => {
@@ -103,24 +125,55 @@ const scrollToForm = () => {
 </script>
 
 <style scoped>
-.texture-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+.texture-pattern {
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-@keyframes fade-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.animate-fade-up { opacity: 0; animation: fade-up 0.8s ease-out forwards; }
+/* Animaciones con aceleración de Hardware */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px) translateZ(0); }
+  to { opacity: 1; transform: translateY(0) translateZ(0); }
+}
 
-.pop-enter-active { animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-.pop-leave-active { transition: opacity 0.2s ease-in; opacity: 0; }
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) translateZ(0); }
+  50% { transform: translateY(-15px) translateZ(0); }
+}
 
-@keyframes pop-in { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-@keyframes float-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-@keyframes pulse-glow { 0%, 100% { transform: scale(1); opacity: 0.2; } 50% { transform: scale(1.3); opacity: 0.4; } }
-@keyframes orbit { from { transform: rotate(0deg) translateX(110px); } to { transform: rotate(360deg) translateX(110px); } }
-@keyframes orbit-slow { from { transform: rotate(360deg) translateX(130px); } to { transform: rotate(0deg) translateX(130px); } }
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1) translateZ(0); opacity: 0.3; }
+  50% { transform: scale(1.15) translateZ(0); opacity: 0.5; }
+}
 
-.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 6s ease-in-out infinite; }
-.animate-orbit { animation: orbit 15s linear infinite; }
-.animate-orbit-slow { animation: orbit-slow 20s linear infinite; }
+.animate-fade-up { opacity: 0; animation: fade-up 0.6s cubic-bezier(0.215, 0.61, 0.355, 1) forwards; }
+.animate-float-slow { animation: float-slow 5s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }
+.animation-delay-500 { animation-delay: 0.5s; }
+
+/* Transición del Mensaje Pop */
+.pop-enter-active { 
+  animation: pop-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; 
+}
+.pop-leave-active { 
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.5) translateZ(0); opacity: 0; }
+  100% { transform: scale(1) translateZ(0); opacity: 1; }
+}
+
+/* Orbits */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+.animate-orbit { animation: orbit 12s linear infinite; }
+.animate-orbit-slow { animation: orbit 18s linear infinite reverse; }
 </style>

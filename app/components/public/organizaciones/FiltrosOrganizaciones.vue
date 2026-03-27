@@ -4,7 +4,6 @@
     <section class="py-8 bg-white shadow-sm  top-0 z-40 border-b border-gray-100">
       <div class="container mx-auto px-4">
         <div class="flex flex-wrap justify-center gap-3">
-          <!-- Botón de filtro -->
           <button 
             v-for="filter in filters" 
             :key="filter.value"
@@ -79,6 +78,9 @@ const filters = [
   { label: 'Todas', value: 'all' },
   { label: 'Sociales', value: 'social' },
   { label: 'Culturales', value: 'cultural' },
+  { label: 'Deportivas', value: 'deportiva' },
+  { label: 'Educativas', value: 'educativa' },
+  { label: 'Ambientales', value: 'ambiental' },
   { label: 'Fundaciones', value: 'fundacion' }
 ]
 
@@ -92,29 +94,76 @@ interface Organizacion {
   initials: string
   desc: string
   type: string
-  gradient: string
   link: string
   photo?: string
 }
 
 const orgs = ref<Organizacion[]>([
-  // === SOCIALES (6) ===
-  { name: 'Los Meseros', initials: 'OSJ1', desc: 'Juegos de mesa y dinámicas grupales', type: 'social', gradient: 'bg-gradient-to-br from-[#64278C] to-[#038C33]', link: '#' },
-  { name: 'Selah', initials: 'OSJ2', desc: 'Prevención de violencia escolar y bullying', type: 'social', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
-  { name: 'Psicovibes', initials: 'OSJ5', desc: 'Salud mental y perspectiva de género', type: 'social', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
-  { name: 'Zafic', initials: 'OSJ8', desc: 'Cine foro y análisis audiovisual', type: 'social', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
-  { name: 'Comunidad M&F', initials: 'OSJ9', desc: 'Cultura asiática, anime y KPOP', type: 'social', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
+  { name: 'Al Ritmo que nos mueve', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/al ritmo que nos mueve.png' },
+  
+  { name: 'Asociación Parceros por Colombia', initials: 'OSJ5', desc: 'Ambiental', type: 'ambiental',  link: 'https://www.instagram.com/parcerosxcol/', photo: '/images/organizaciones/parceros.jpg' },
+  
+  { name: 'Asociación SELAH', initials: 'OSJ5', desc: 'Social', type: 'fundacion',  link: 'https://www.instagram.com/selah_organizacion/', photo: '/images/organizaciones/Logos (7) - SELAH Organización.png' },
+  
+  { name: 'Asociación sin ánimo de Lucro De Vuelta a la Vida', initials: 'DVV', desc: 'Salud mental y prevención del suicidio', type: 'fundacion',  link: 'https://www.instagram.com/devueltaalavidaorg/', photo: '/images/organizaciones/de vuelta a la vida.png' },
+  
+  { name: 'Chikara', initials: 'OCJ1', desc: 'Cultura e idioma japonés', type: 'cultural',  link: 'https://www.instagram.com/chikaraoficial/', photo: '/images/organizaciones/chikara_slogan - ChikaraOficial.png' },
+  
+  { name: 'Ciudadanía Robertista', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/LOGO CIUDADANIA ROBERTISTA - Andrea Rodriguez.jpeg' },
+  
+  { name: 'Club halcones de mosquera', initials: 'OSJ5', desc: 'Deportivo', type: 'deportiva',  link: 'https://www.instagram.com/halcones20_20/', photo: '/images/organizaciones/logo halcones Image 2021-08-20 at 21.23.44 (1) (1) - JOSE AGUIRRE.jpeg' },
+  
+  { name: 'Colectiva Aluna', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/Aluna logo - Paula Andrea Peña Sanchez.png' },
+  
+  { name: 'Colectivo Popular Juvenil ', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/cpjmosquera/', photo: '/images/organizaciones/logo cpj - Diego Escandon.jpg' },
+  
+  { name: 'Compañía de Danza Fizcaue', initials: 'OSJ5', desc: 'Social', type: 'deportiva',  link: 'https://www.instagram.com/fizcaue/', photo: '/images/organizaciones/Logo_Fizcaue - Manuela Alfonso.jpg' },
+  
+  { name: 'Comunidad M&F', initials: 'OSJ9', desc: 'Cultura asiática, anime y KPOP', type: 'cultural',  link: 'https://www.instagram.com/comunidad.mxf/', photo: '/images/organizaciones/Comunidad MF.png' },
+  
+  { name: 'Fundación Ecos Colombia', initials: 'ECO', desc: 'Educación ambiental y reciclaje', type: 'ambiental',  link: 'https://www.instagram.com/fundaecoscol/', photo: '/images/organizaciones/7 Logo ECOS - negro,verde (1) - ECO-S COLOMBIA.png' },
+  
+  { name: 'Fundacion Dale Color a mi Vida', initials: 'OSJ5', desc: 'Cultural', type: 'fundacion',  link: 'https://www.instagram.com/fundaciondalecoloramivida/', photo: '/images/organizaciones/dale color a mi vida.jpeg' },
+  
+  { name: 'Fundación La Cruz', initials: 'OSJ5', desc: 'Social', type: 'fundacion',  link: 'https://www.instagram.com/fundacionlacruz', photo: '/images/organizaciones/cruz.png' },
+  
+  { name: 'Fundación Tallos Vivos', initials: 'OSJ5', desc: 'Ambiental', type: 'ambiental',  link: 'https://www.instagram.com/tallosvivos/', photo: '/images/organizaciones/11 - Fundacion Tallos Vivos.png' },
+  
+  { name: 'Fundisua', initials: 'OSJ5', desc: 'Social', type: 'fundacion',  link: 'https://www.instagram.com/fundisua_ong/', photo: '/images/organizaciones/fundisua.jpg' },
+  
+  { name: 'Hijos del Zipa', initials: 'OCJ2', desc: 'Educación cultural y organizacional', type: 'cultural', link: 'https://www.instagram.com/hijos_del_zipa/', photo: '/images/organizaciones/Logo de Hijos del Zipa sin fondo - David Cantor.png' },
+  
+  { name: 'Insart', initials: 'OSJ5', desc: 'Social', type: 'cultural',  link: 'https://www.instagram.com/ins_art._/', photo: '/images/organizaciones/insart.png' },
+  
+  { name: 'Juventud Agrícola Urbana (JAU)', initials: 'OSJ5', desc: 'Ambiental', type: 'ambiental',  link: 'https://www.instagram.com/jaumosquera/', photo: '/images/organizaciones/LOGO COMPLETO - Juventud Agricola Urbana.png' },
+  
+  { name: 'Los Meseros', initials: 'OSJ1', desc: 'Juegos de mesa y dinámicas grupales', type: 'social',  link: 'https://www.instagram.com/losmeserosbg/', photo:'/images/organizaciones/meseros.png' },
+  
+  { name: 'M180° MOSQUERA', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/m180mosquera/', photo: '/images/organizaciones/m180.png' },
+  
+  { name: 'Malas Hierbas', initials: 'Logo', desc: 'Salud mental y perspectiva de género', type: 'fundacion',  link: 'https://www.instagram.com/malashierbas_org/' },
+  
+  { name: 'Mesa de Rock y Metal de Mosquera', initials: 'OSJ5', desc: 'Social', type: 'cultural',  link: 'https://www.instagram.com/mesaderockymetalmosquera/', photo: '/images/organizaciones/LOGOMESA (1)(4) - mesa de rock y metal mosquera.png' },
+  
+  { name: 'Milpa', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/milpa.jpeg' },
+  
+  { name: 'Mos-krea', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/mos_krea/', photo: '/images/organizaciones/Logo MOS-KREA - Ingrid Katerinne Robayo Sánchez.jpeg' },
+  
+  { name: 'Mosquera Verde', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/Mosquera Verde.jpg - Tatiana Cuitiva.jpeg' },
+  
+  { name: 'Moravia', initials: 'OCJ4', desc: 'Teatro, arte y cultura', type: 'cultural',  link: 'https://www.instagram.com/moravia.organizacion/', photo: '/images/organizaciones/moravia.png' },
+  
+  { name: 'Psicovibes', initials: 'OSJ5', desc: 'Salud mental', type: 'social',  link: 'https://www.instagram.com/psicovibes__/', photo: '/images/organizaciones/logo 2 psicoivibes - PsicoVibes.png' },
 
-  // === CULTURALES (5) ===
-  { name: 'Chikara', initials: 'OCJ1', desc: 'Cultura e idioma japonés', type: 'cultural', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
-  { name: 'Hijos del Zipa', initials: 'OCJ2', desc: 'Educación ambiental y artística', type: 'cultural', gradient: 'bg-gradient-to-br from-[#F2780C] to-[#64278C]', link: '#' },
-  { name: 'Moravia', initials: 'OCJ4', desc: 'Danza urbana y hip hop', type: 'cultural', gradient: 'bg-gradient-to-br from-[#F2780C] to-[#64278C]', link: '#' },
-
-  // === FUNDACIONES (5) ===
-  { name: 'Fundación De Vuelta a la Vida', initials: 'DVV', desc: 'Salud mental y prevención del suicidio', type: 'fundacion', gradient: 'bg-gradient-to-br from-[#F2780C] to-[#64278C]', link: '#' },
-  { name: 'Fundación Ecos Colombia', initials: 'ECO', desc: 'Educación ambiental y reciclaje', type: 'fundacion', gradient: 'bg-gradient-to-br from-[#64278C] to-[#038C33]', link: '#' },
-  { name: 'Fundación Paloma', initials: 'FLP', desc: 'Apoyo a madres adolescentes', type: 'fundacion', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
-  { name: 'Alternativa', initials: 'ALT', desc: 'Emprendimiento juvenil rural', type: 'fundacion', gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]', link: '#' },
+  { name: 'Quinta esencia', initials: 'OSJ5', desc: 'Educacion sexual y cultural', type: 'educativa',  link: '#', photo: '/images/organizaciones/QuintaEsencia.png' },
+  
+  { name: 'SINPAREDES TEATRO', initials: 'OSJ5', desc: 'Social', type: 'cultural',  link: 'https://www.instagram.com/sinparedesteatro/', photo: '/images/organizaciones/SINPAREDES TEATRO.png' },
+  
+  { name: 'Sua', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/suamosquera/', photo: '/images/organizaciones/LOGO SUA  - santiago castillo - Gabriela Antonio.webp' },
+  
+  { name: 'Ventus', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/ventusmosquera/', photo: '/images/organizaciones/Ventus.png' },
+  
+  { name: 'Zafic', initials: 'OSJ8', desc: 'Cine foro y análisis audiovisual', type: 'cultural',  link: 'https://www.instagram.com/zafic_festival/' },
 ])
 
 /* =============================================== */

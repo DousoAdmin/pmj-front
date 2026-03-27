@@ -20,10 +20,7 @@
 
     <div class="relative z-10 container mx-auto px-6 text-center">
       
-      <div class="inline-flex items-center space-x-2 bg-black/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 mb-8 animate-reveal-scale">
-        <span class="w-2 h-2 bg-[#F2780C] rounded-full animate-pulse"></span>
-        <span class="text-white text-xs font-bold uppercase tracking-[0.2em]">Red de Liderazgo</span>
-      </div>
+
 
       <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tighter py-2 overflow-hidden">
         <span class="block animate-reveal-up">Nuestras</span>

@@ -9,10 +9,7 @@
     <div class="absolute bottom-20 right-10 w-48 h-48 bg-[#038C33] rounded-full opacity-10"></div>
     
     <div class="relative z-10 container mx-auto px-4 text-center">
-      <div class="inline-flex items-center gap-3 px-4 py-2 bg-[#522178] rounded-lg mb-8 animate-fade-in-up">
-        <div class="w-2 h-2 rounded-full bg-[#038C33]"></div>
-        <span class="text-white text-xs font-black uppercase tracking-[0.3em]">Memoria Visual</span>
-      </div>
+ 
 
       <h1 class="text-6xl md:text-8xl lg:text-9xl font-black text-white mb-6 leading-[0.8] tracking-tighter animate-fade-in-up delay-100">
         Nuestra <br/>
