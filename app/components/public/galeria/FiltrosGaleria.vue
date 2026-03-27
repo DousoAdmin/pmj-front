@@ -97,15 +97,15 @@ const photos = ref([
 */
 
 const photos = ref([
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', url: '/images/galeria/foto-01.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', url: '/images/galeria/foto-02.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', url: '/images/galeria/foto-03.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', url: '/images/galeria/foto-04.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', url: '/images/galeria/foto-05.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', url: '/images/galeria/foto-06.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', url: '/images/galeria/foto-07.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', url: '/images/galeria/foto-08.webp' },
-  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', url: '/images/galeria/foto-09.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', image: '/images/galeria/foto-01.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', image: '/images/galeria/foto-02.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', image: '/images/galeria/foto-03.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', image: '/images/galeria/foto-04.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', image: '/images/galeria/foto-05.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', image: '/images/galeria/foto-06.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#64278C] to-[#038C33]', image: '/images/galeria/foto-07.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#038C33] to-[#F2780C]', image: '/images/galeria/foto-08.webp' },
+  { title: '', date: '', category: 'Evento', type: 'evento', gradient: 'from-[#F2780C] to-[#64278C]', image: '/images/galeria/foto-09.webp' },
 ])
 
 /* =============================================== */
