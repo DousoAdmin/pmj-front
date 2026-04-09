@@ -109,27 +109,27 @@ const orgs = ref<Organizacion[]>([
   
   { name: 'Chikara', initials: 'OCJ1', desc: 'Cultura e idioma japonés', type: 'cultural',  link: 'https://www.instagram.com/chikaraoficial/', photo: '/images/organizaciones/chikara_slogan - ChikaraOficial.png' },
   
-  { name: 'Ciudadanía Robertista', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/LOGO CIUDADANIA ROBERTISTA - Andrea Rodriguez.jpeg' },
+  { name: 'Ciudadanía Robertista', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/LOGO CIUDADANIA ROBERTISTA - Andrea Rodriguez.png' },
   
-  { name: 'Club halcones de mosquera', initials: 'OSJ5', desc: 'Deportivo', type: 'deportiva',  link: 'https://www.instagram.com/halcones20_20/', photo: '/images/organizaciones/logo halcones Image 2021-08-20 at 21.23.44 (1) (1) - JOSE AGUIRRE.jpeg' },
+  { name: 'Club halcones de mosquera', initials: 'OSJ5', desc: 'Deportivo', type: 'deportiva',  link: 'https://www.instagram.com/halcones20_20/', photo: '/images/organizaciones/logo halcones Image 2021-08-20 at 21.23.44 (1) (1) - JOSE AGUIRRE.png' },
   
   { name: 'Colectiva Aluna', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/Aluna logo - Paula Andrea Peña Sanchez.png' },
   
   { name: 'Colectivo Popular Juvenil ', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/cpjmosquera/', photo: '/images/organizaciones/logo cpj - Diego Escandon.jpg' },
   
-  { name: 'Compañía de Danza Fizcaue', initials: 'OSJ5', desc: 'Social', type: 'deportiva',  link: 'https://www.instagram.com/fizcaue/', photo: '/images/organizaciones/Logo_Fizcaue - Manuela Alfonso.jpg' },
+  { name: 'Compañía de Danza Fizcaue', initials: 'OSJ5', desc: 'Social', type: 'deportiva',  link: 'https://www.instagram.com/fizcaue/', photo: '/images/organizaciones/Logo_Fizcaue - Manuela Alfonso.png' },
   
   { name: 'Comunidad M&F', initials: 'OSJ9', desc: 'Cultura asiática, anime y KPOP', type: 'cultural',  link: 'https://www.instagram.com/comunidad.mxf/', photo: '/images/organizaciones/Comunidad MF.png' },
   
   { name: 'Fundación Ecos Colombia', initials: 'ECO', desc: 'Educación ambiental y reciclaje', type: 'ambiental',  link: 'https://www.instagram.com/fundaecoscol/', photo: '/images/organizaciones/7 Logo ECOS - negro,verde (1) - ECO-S COLOMBIA.png' },
   
-  { name: 'Fundacion Dale Color a mi Vida', initials: 'OSJ5', desc: 'Cultural', type: 'fundacion',  link: 'https://www.instagram.com/fundaciondalecoloramivida/', photo: '/images/organizaciones/dale color a mi vida.jpeg' },
+  { name: 'Fundacion Dale Color a mi Vida', initials: 'OSJ5', desc: 'Cultural', type: 'fundacion',  link: 'https://www.instagram.com/fundaciondalecoloramivida/', photo: '/images/organizaciones/dale color a mi vida.png' },
   
   { name: 'Fundación La Cruz', initials: 'OSJ5', desc: 'Social', type: 'fundacion',  link: 'https://www.instagram.com/fundacionlacruz', photo: '/images/organizaciones/cruz.png' },
   
   { name: 'Fundación Tallos Vivos', initials: 'OSJ5', desc: 'Ambiental', type: 'ambiental',  link: 'https://www.instagram.com/tallosvivos/', photo: '/images/organizaciones/11 - Fundacion Tallos Vivos.png' },
   
-  { name: 'Fundisua', initials: 'OSJ5', desc: 'Social', type: 'fundacion',  link: 'https://www.instagram.com/fundisua_ong/', photo: '/images/organizaciones/fundisua.jpg' },
+  { name: 'Fundisua', initials: 'OSJ5', desc: 'Social', type: 'fundacion',  link: 'https://www.instagram.com/fundisua_ong/', photo: '/images/organizaciones/fundisua.png' },
   
   { name: 'Hijos del Zipa', initials: 'OCJ2', desc: 'Educación cultural y organizacional', type: 'cultural', link: 'https://www.instagram.com/hijos_del_zipa/', photo: '/images/organizaciones/Logo de Hijos del Zipa sin fondo - David Cantor.png' },
   
@@ -145,11 +145,11 @@ const orgs = ref<Organizacion[]>([
   
   { name: 'Mesa de Rock y Metal de Mosquera', initials: 'OSJ5', desc: 'Social', type: 'cultural',  link: 'https://www.instagram.com/mesaderockymetalmosquera/', photo: '/images/organizaciones/LOGOMESA (1)(4) - mesa de rock y metal mosquera.png' },
   
-  { name: 'Milpa', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/milpa.jpeg' },
+  { name: 'Milpa', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/milpa.png' },
   
-  { name: 'Mos-krea', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/mos_krea/', photo: '/images/organizaciones/Logo MOS-KREA - Ingrid Katerinne Robayo Sánchez.jpeg' },
+  { name: 'Mos-krea', initials: 'OSJ5', desc: 'Social', type: 'social',  link: 'https://www.instagram.com/mos_krea/', photo: '/images/organizaciones/Logo MOS-KREA - Ingrid Katerinne Robayo Sánchez.png' },
   
-  { name: 'Mosquera Verde', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/Mosquera Verde.jpg - Tatiana Cuitiva.jpeg' },
+  { name: 'Mosquera Verde', initials: 'OSJ5', desc: 'Social', type: 'social',  link: '#', photo: '/images/organizaciones/MosqueraVerde.png' },
   
   { name: 'Moravia', initials: 'OCJ4', desc: 'Teatro, arte y cultura', type: 'cultural',  link: 'https://www.instagram.com/moravia.organizacion/', photo: '/images/organizaciones/moravia.png' },
   
