@@ -30,6 +30,17 @@
           </NuxtLink>
         </nav>
 
+<div class="hidden xl:flex items-center bg-white/10 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 gap-2 shadow-inner">
+  <NuxtLink to="/private/auth/login" 
+    class="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest text-white hover:bg-white/10 transition-all duration-300">
+    Iniciar Sesión
+  </NuxtLink>
+  <NuxtLink to="/private/auth/register" 
+    class="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest text-white bg-[#00B140] hover:bg-[#009235] shadow-lg shadow-[#00B140]/20 transition-all duration-300">
+    Regístrate
+  </NuxtLink>
+</div>
+
         <div class="flex items-center xl:hidden z-110">
           <button @click="isMobileOpen = !isMobileOpen"
             class="flex flex-col justify-center items-end space-y-1.5 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-2.5 group transition-all active:scale-90"
@@ -42,146 +53,124 @@
       </div>
     </div>
 
-    <Teleport to="body">
-      <Transition name="fade">
-        <div v-if="isMobileOpen" class="fixed inset-0 z-200 xl:hidden">
-          <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" @click="isMobileOpen = false"></div>
+<Teleport to="body">
+  <Transition name="fade">
+    <div v-if="isMobileOpen" class="fixed inset-0 z-200 xl:hidden">
+      <div class="absolute inset-0 bg-[#2D1244]/80 backdrop-blur-md" @click="isMobileOpen = false"></div>
+      
+      <Transition name="slide-custom">
+        <div v-if="isMobileOpen"
+          class="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-[#522178]/95 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col border-l border-white/20">
           
-          <Transition name="slide-custom">
-            <div v-if="isMobileOpen"
-              class="absolute right-0 top-0 bottom-0 w-70 sm:w-87.5 bg-[#522178] shadow-2xl flex flex-col border-l border-white/10">
+<div class="p-6 flex items-center justify-between border-b border-white/10 relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-50"></div>
+  
+  <div class="flex items-center space-x-4 relative z-10">
+    <div class="flex items-center justify-center transition-transform duration-300">
+      <NuxtImg 
+        src="/images/favicon.webp" 
+        alt="Logo" 
+        class="w-14 h-14 sm:w-16 sm:h-16 object-contain" 
+      />
+    </div>
+
+    <div class="flex flex-col justify-center">
+      <h2 class="font-black text-white uppercase tracking-tighter text-sm sm:text-base leading-none">
+        <span>Plataforma</span>
+        <span class="text-[#00B140] ml-1.5">Municipal</span>
+      </h2>
+      <p class="text-[9px] sm:text-[10px] text-[#F2780C] font-black uppercase tracking-[0.15em] mt-1.5 leading-tight">
+        Juventudes de Mosquera
+      </p>
+    </div>
+  </div>
+
+  <button @click="isMobileOpen = false" 
+    class="relative z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 active:scale-90 transition-all">
+    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+</div>ñ
+
+          <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto custom-scrollbar">
+            <div class="px-4 mb-4">
+              <p class="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Explorar</p>
+            </div>
+            
+            <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path" @click="isMobileOpen = false"
+              class="group flex items-center justify-between p-3.5 rounded-2xl transition-all duration-300 border border-transparent hover:bg-white/10 hover:border-white/10 hover:translate-x-1"
+              active-class="mobile-active-link-enhanced">
               
-              <div class="p-6 flex items-center justify-between border-b border-white/10 bg-black/10">
-                <div class="flex items-center space-x-3">
-                  <NuxtImg src="/images/favicon.webp" alt="Logo" class="w-10 h-10 object-contain bg-white rounded-lg p-1" />
-                  <span class="font-black text-white uppercase tracking-widest text-sm">Menú</span>
+              <div class="flex items-center space-x-4">
+                <div class="w-11 h-11 rounded-xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-110" :class="item.staticColor">
+                  <component :is="item.icon" class="w-5.5 h-5.5 text-white" />
                 </div>
-                <button @click="isMobileOpen = false" class="text-white/60 hover:text-white p-2">
-                  <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
+                <span class="font-black text-white uppercase tracking-widest text-[11px]">{{ item.name }}</span>
               </div>
 
-              <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto">
-                <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path" @click="isMobileOpen = false"
-                  class="group flex items-center space-x-4 p-4 rounded-2xl transition-all duration-300 hover:bg-white/5 border border-transparent hover:border-white/10"
-                  active-class="mobile-active-link">
-                  <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg" :class="item.staticColor">
-                    <component :is="item.icon" class="w-5 h-5 text-white" />
-                  </div>
-                  <span class="font-black text-white uppercase tracking-widest text-xs">{{ item.name }}</span>
+              <svg class="w-4 h-4 text-white/20 group-hover:text-[#F2780C] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+              </svg>
+            </NuxtLink>
+          </nav>
+
+          <div class="p-6 space-y-4 bg-black/30 backdrop-blur-xl border-t border-white/10">
+             <div class="flex flex-col gap-3">
+               <NuxtLink to="/private/auth/login" @click="isMobileOpen = false"
+                  class="group flex items-center justify-center w-full p-4 rounded-2xl bg-white/5 border border-white/10 text-white font-black uppercase tracking-widest text-[11px] hover:bg-white/10 transition-all active:scale-[0.98]">
+                  <span class="group-hover:mr-2 transition-all">Iniciar Sesión</span>
                 </NuxtLink>
-              </nav>
-            </div>
-          </Transition>
+
+                <NuxtLink to="/private/auth/register" @click="isMobileOpen = false"
+                  class="flex items-center justify-center w-full p-4 rounded-2xl bg-[#00B140] text-white font-black uppercase tracking-widest text-[11px] shadow-[0_10px_20px_rgba(0,177,64,0.3)] hover:bg-[#009235] transition-all active:scale-[0.98]">
+                  Regístrate
+                </NuxtLink>
+             </div>
+             
+             <p class="text-center text-[9px] text-white/30 uppercase tracking-[0.2em]">Mosquera • 2026</p>
+          </div>
         </div>
       </Transition>
-    </Teleport>
+    </div>
+  </Transition>
+</Teleport>
   </header>
 </template>
+
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch, h } from "vue";
 
 const isScrolled = ref(false);
 const isMobileOpen = ref(false);
 
-// Iconos (Mantenidos de tu original)
+// --- Iconos ---
 const HomeIcon = () =>
   h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
-    h("path", {
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      strokeWidth: "2",
-      d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
-    }),
+    h("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" }),
   ]);
 const UsersIcon = () =>
   h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
-    h("path", {
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      strokeWidth: "2",
-      d: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z",
-    }),
-  ]);
-const NewsIcon = () =>
-  h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
-    h("path", {
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      strokeWidth: "2",
-      d: "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z",
-    }),
+    h("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" }),
   ]);
 const PhotoIcon = () =>
   h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
-    h("path", {
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      strokeWidth: "2",
-      d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z",
-    }),
+    h("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" }),
   ]);
 const OrgIcon = () =>
   h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
-    h("path", {
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      strokeWidth: "2",
-      d: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
-    }),
+    h("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" }),
   ]);
 
-const DashboardIcon = () =>
-  h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
-    h("path", {
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      strokeWidth: "2",
-      d: "M3 3h7v7H3V3zm11 0h7v4h-7V3zM3 14h7v7H3v-7zm11 6h7v1h-7v-1z",
-    }),
-  ]);
-
+// --- Items de Navegación Principal ---
 const navItems = [
-  {
-    name: "Inicio",
-    path: "/",
-    icon: HomeIcon,
-    staticColor: "bg-[#00B140]",
-  },
-  {
-    name: "Nosotros",
-    path: "/public/nosotros",
-    icon: UsersIcon,
-    staticColor: "bg-[#F2780C]",
-  },
-  // {
-  //   name: "Noticias",
-  //   path: "/public/noticias",
-  //   icon: NewsIcon,
-  //   staticColor: "bg-[#522178]",
-  // },
-  {
-    name: "Galería",
-    path: "/public/galeria",
-    icon: PhotoIcon,
-    staticColor: "bg-[#F2780C]",
-  },
-  {
-    name: "Organizaciones",
-    path: "/public/organizaciones",
-    icon: OrgIcon,
-    staticColor: "bg-[#00B140]",
-  },
-  // {
-  //   name: "Dashboard",
-  //   path: "/private/dashboard",
-  //   icon: DashboardIcon,
-  //   staticColor: "bg-[#522178]",
-  // },
+  { name: "Inicio", path: "/", icon: HomeIcon, staticColor: "bg-[#00B140]" },
+  { name: "Nosotros", path: "/public/nosotros", icon: UsersIcon, staticColor: "bg-[#F2780C]" },
+  { name: "Galería", path: "/public/galeria", icon: PhotoIcon, staticColor: "bg-[#F2780C]" },
+  { name: "Organizaciones", path: "/public/organizaciones", icon: OrgIcon, staticColor: "bg-[#00B140]" },
 ];
 
+// --- Lógica de Scroll y Body Lock ---
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 20;
 };
@@ -199,6 +188,7 @@ onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
 </script>
+
 <style scoped>
 .active-nav-link {
   background-color: #f2780c !important;
