@@ -1,14 +1,13 @@
 <template>
   <section 
-    class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-[#522178] py-12 md:py-24"
+    class="relative min-h-svh flex-col justify-center overflow-hidden bg-[#522178] py-12 md:py-34"
     role="banner"
     aria-labelledby="hero-title"
   >
     <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute inset-0 opacity-[0.05] texture-pattern"></div>
       
-      <div class="absolute top-1/4 -left-20 w-64 md:w-[30rem] h-64 md:h-[30rem] rounded-full bg-[#F2780C]/20 blur-[100px] will-change-transform"></div>
-      <div class="absolute bottom-1/4 -right-20 w-64 md:w-[30rem] h-64 md:h-[30rem] rounded-full bg-[#00A036]/20 blur-[100px] will-change-transform"></div>
+      <div class="absolute top-1/4 -left-20 w-64 md:w-120 h-64 md:h-120 rounded-full bg-[#F2780C]/20 blur-[100px] will-change-transform"></div>
+      <div class="absolute bottom-1/4 -right-20 w-64 md:w-120 h-64 md:h-120 rounded-full bg-[#00A036]/20 blur-[100px] will-change-transform"></div>
     </div>
 
     <div class="relative z-10 container mx-auto px-4 sm:px-8 lg:px-12 mt-16 md:mt-0">
@@ -62,8 +61,9 @@
             class="relative w-44 h-44 sm:w-64 sm:h-64 lg:w-96 lg:h-96 group cursor-pointer"
             @mouseenter="showMotivation"
             @mouseleave="hideMotivation"
+            @click="nextYaya"
           >
-            <div class="absolute inset-0 bg-gradient-to-tr from-[#F2780C]/30 to-[#038C33]/20 rounded-full blur-[60px] animate-pulse-glow will-change-transform group-hover:scale-125 transition-transform duration-700"></div>
+            <div class="absolute inset-0 bg-linear-to-tr from-[#F2780C]/30 to-[#038C33]/20 rounded-full blur-[60px] animate-pulse-glow will-change-transform group-hover:scale-125 transition-transform duration-700"></div>
             
             <Transition name="pop">
               <div v-if="currentMessage" class="absolute -top-12 left-0 right-0 flex justify-center z-30 pointer-events-none">
@@ -73,13 +73,16 @@
               </div>
             </Transition>
 
-            <NuxtImg 
-              src="/images/favicon.webp" 
-              alt="Logo Juventudes" 
-              loading="eager"
-              fetchpriority="high"
-              class="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] animate-float-slow will-change-transform group-hover:rotate-3 transition-transform duration-500" 
-            />
+            <Transition name="playful" mode="out-in">
+              <NuxtImg 
+                :src="currentYayaImage" 
+                alt="Imagen de Yaya" 
+                loading="eager"
+                fetchpriority="high"
+                class="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.3)] animate-float-slow will-change-transform group-hover:rotate-3 transition-transform duration-500" 
+                :key="currentIndex"
+              />
+            </Transition>
 
             <div class="hidden lg:block absolute top-0 right-0 w-4 h-4 bg-[#F2780C] rounded-full animate-orbit"></div>
             <div class="hidden lg:block absolute bottom-10 left-0 w-3 h-3 bg-[#00A036] rounded-full animate-orbit-slow"></div>
@@ -109,6 +112,23 @@ const stats = [
   { value: '33+', label: 'Organizaciones' },
   { value: '50+', label: 'Líderes' }
 ]
+
+const yayaImages = [
+  '/images/favicon.webp',
+  '/images/yayafeliz.webp',
+  '/images/yayafuego.webp',
+  '/images/yayapensando.webp',
+  '/images/yayasaludo.webp',
+  '/images/yayatriste.webp'
+]
+
+const currentIndex = ref(0)
+
+const currentYayaImage = computed(() => yayaImages[currentIndex.value])
+
+const nextYaya = () => {
+  currentIndex.value = (currentIndex.value + 1) % yayaImages.length
+}
 
 const showMotivation = () => {
   const filtered = motivations.filter(m => m !== currentMessage.value)
@@ -176,4 +196,23 @@ const scrollToForm = () => {
 }
 .animate-orbit { animation: orbit 12s linear infinite; }
 .animate-orbit-slow { animation: orbit 18s linear infinite reverse; }
+
+/* Transición juguetona para imágenes de Yaya */
+.playful-enter-active {
+  animation: playful-in 0.5s ease-out;
+}
+.playful-leave-active {
+  animation: playful-out 0.5s ease-in;
+}
+
+@keyframes playful-in {
+  0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+  50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes playful-out {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  100% { transform: scale(0.5) rotate(10deg); opacity: 0; }
+}
 </style>

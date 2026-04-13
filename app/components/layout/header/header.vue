@@ -63,7 +63,7 @@
           class="absolute right-0 top-0 bottom-0 w-[85%] max-w-sm bg-[#522178]/95 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] flex flex-col border-l border-white/20">
           
 <div class="p-6 flex items-center justify-between border-b border-white/10 relative overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-50"></div>
+  <div class="absolute inset-0 bg-linear-to-r from-white/5 to-transparent opacity-50"></div>
   
   <div class="flex items-center space-x-4 relative z-10">
     <div class="flex items-center justify-center transition-transform duration-300">
@@ -91,7 +91,7 @@
       <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
     </svg>
   </button>
-</div>ñ
+</div>
 
           <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto custom-scrollbar">
             <div class="px-4 mb-4">
