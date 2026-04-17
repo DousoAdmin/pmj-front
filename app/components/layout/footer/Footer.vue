@@ -55,7 +55,7 @@
           </ul>
         </div>
 
-        <div class="lg:col-span-4">
+        <!-- <div class="lg:col-span-4">
           <div class="bg-gray-50 rounded-4xl p-8 border border-gray-100 relative">
             <div class="absolute -top-4 -right-4 w-20 h-20 bg-[#F2780C]/5 rounded-full -z-10"></div>
             
@@ -73,7 +73,7 @@
               </svg>
             </NuxtLink>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="pt-10 border-t border-gray-100 flex flex-col lg:flex-row justify-between items-center gap-6">

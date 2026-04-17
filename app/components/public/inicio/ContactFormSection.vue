@@ -33,7 +33,7 @@
         </div>
 
         <div class="w-full lg:w-3/5">
-          <form 
+          <!-- <form 
             @submit.prevent="submitForm" 
             class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border-b-8 border-[#038C33]"
             novalidate
@@ -111,7 +111,17 @@
             <p v-if="message" class="mt-6 text-center font-bold text-[#522178]" role="alert">
               {{ message }}
             </p>
-          </form>
+          </form> -->
+
+            <button
+              type="button"
+              class="w-full py-6 bg-[#F2780C] text-white font-black text-xl rounded-2xl shadow-lg hover:bg-[#d66a0a] transition-all duration-300 transform hover:scale-[1.02] active:scale-95 disabled:opacity-50"
+              @click="redirectToDocs"
+              :disabled="isSubmitting"
+            >
+              <span v-if="!isSubmitting">INSCRIBIRME</span>
+              <span v-else>PROCESANDO...</span>
+            </button>
         </div>
 
       </div>
@@ -134,5 +144,9 @@ const submitForm = async () => {
   emit('open-modal')
   form.value = { nombre: '', email: '', edad: '', interes: '', mensaje: '' }
   isSubmitting.value = false
+}
+
+const redirectToDocs = () => {
+  window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScPTBA-8nPWmXdHAQUBMa6rHdRl1-ivLDr2nvARnxbBAnfLhQ/viewform'
 }
 </script>
