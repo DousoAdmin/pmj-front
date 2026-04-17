@@ -1,89 +1,152 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-[#f7f0fb] py-12">
-    <div class="w-full max-w-lg p-8 bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-[#f0e8f8]">
-      <div class="flex items-center gap-4 mb-6">
-        <div class="w-14 h-14 rounded-xl flex items-center justify-center bg-gradient-to-br from-[#522178] to-[#6a3aa6] text-white shadow-lg">
-          <svg class="w-10 h-10 text-white" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g>
-              <path d="M30,49c0,18.7,15.3,34,34,34s34-15.3,34-34S82.7,15,64,15S30,30.3,30,49z M90,49c0,14.3-11.7,26-26,26S38,63.3,38,49   s11.7-26,26-26S90,34.7,90,49z" />
-              <path d="M24.4,119.4C35,108.8,49,103,64,103s29,5.8,39.6,16.4l5.7-5.7C97.2,101.7,81.1,95,64,95s-33.2,6.7-45.3,18.7L24.4,119.4z" />
-            </g>
-          </svg>
+  <div class="min-h-screen flex items-center justify-center px-4 sm:px-6 pt-28 sm:pt-32 pb-10 bg-[#522178] relative overflow-hidden login-texture">
+    <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-24 items-center relative z-10">
+      
+      <div class="flex flex-col items-center lg:items-start space-y-8 lg:space-y-12 animate-fade-in-down">
+        <div class="space-y-4 lg:space-y-6 text-center lg:text-left">
+          <div class="inline-block bg-[#F2780C] text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-sm shadow-lg transform -rotate-1">
+            <h3 class="font-black tracking-[0.2em] sm:tracking-[0.4em] uppercase text-[10px] sm:text-xs italic">Tu espacio, tu voz</h3>
+          </div>
+          
+          <h2 class="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.85] uppercase">
+            BIENVENIDO <br/> 
+            <span class="text-[#F2780C] bg-white px-2 sm:px-4 inline-block transform -skew-x-6 mt-2">DE NUEVO</span>
+          </h2>
+          
+          <p class="text-white/80 font-bold text-base sm:text-lg max-w-md leading-relaxed border-l-4 border-[#00A036] pl-4 sm:pl-6 mx-auto lg:mx-0">
+            Continúa construyendo el futuro de <span class="text-white underline decoration-[#F2780C]">Mosquera</span>. Tu liderazgo es la clave.
+          </p>
         </div>
-        <div>
-          <h1 class="text-2xl font-extrabold text-[#522178]">Iniciar sesión</h1>
-          <p class="text-sm text-gray-500">Accede para tener mas privilegios en la plataforma</p>
+
+        <div 
+          class="w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] drop-shadow-[0_25px_30px_rgba(0,0,0,0.5)] relative animate-float"
+          :class="{
+            'scale-105 -rotate-6 translate-x-4 lg:translate-x-8': llamaState === 'curious',
+            'scale-110 -translate-y-4 lg:-translate-y-8': llamaState === 'happy'
+          }"
+        >
+          <NuxtImg src="/images/favicon.webp" alt="Mascota Llama" class="w-full h-full object-contain" />
+          
+          <Transition name="pop">
+            <div v-if="currentMessage" class="absolute -top-8 -right-2 lg:right-auto lg:-top-16 lg:left-0 bg-white text-[#522178] px-4 py-2 sm:px-6 sm:py-3 rounded-2xl rounded-bl-none font-black text-[10px] sm:text-xs shadow-2xl uppercase italic whitespace-nowrap z-20 border-2 border-[#F2780C]">
+              {{ currentMessage }}
+              <div class="absolute -bottom-2 left-4 w-3 h-3 sm:w-4 sm:h-4 bg-white border-r-2 border-b-2 border-[#F2780C] rotate-45"></div>
+            </div>
+          </Transition>
         </div>
       </div>
 
-      <form @submit.prevent="doLogin" class="space-y-4" v-if="!success">
-        <div>
-          <label class="text-xs font-bold text-gray-600 mb-1 block">Correo electrónico o usuario</label>
-          <input v-model="identifier" type="text" placeholder="correo@ejemplo.com o usuario"
-            class="w-full p-3 border border-gray-200 rounded-xl shadow-sm focus:outline-none focus:border-[#522178] focus:ring-2 focus:ring-[#522178]/10" />
-        </div>
-
-        <div>
-          <label class="text-xs font-bold text-gray-600 mb-1 block">Contraseña</label>
-          <input v-model="password" type="password" placeholder="********"
-            class="w-full p-3 border border-gray-200 rounded-xl shadow-sm focus:outline-none focus:border-[#522178] focus:ring-2 focus:ring-[#522178]/10" />
-        </div>
-        <div class="flex-1">
-            <label class="text-xs font-bold text-gray-600 mb-1 block">¿Eres parte de una organización?</label>
-            <select v-model="selectedOrg" class="w-full p-3 border border-gray-200 rounded-xl shadow-sm bg-white text-gray-700 focus:outline-none focus:border-[#522178] focus:ring-2 focus:ring-[#522178]/10">
-              <option value="">No pertenezco a una organización</option>
-              <option value="Org A">Organización A</option>
-              <option value="Org B">Organización B</option>
-              <option value="Otra">Otra organización</option>
-            </select>
-          </div>
-
-        <div class="flex items-center gap-4">
-          <label class="inline-flex items-center cursor-pointer">
-            <input type="checkbox" v-model="remember" class="form-checkbox w-4 h-4 text-[#00B140] mr-3" />
-            <span>Recordarme</span>
-          </label>
-
+      <div class="flex justify-center lg:justify-end animate-fade-in-right w-full">
+        <div class="max-w-md w-full bg-white rounded-[30px] sm:rounded-[50px] shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-6 py-10 sm:p-10 sm:py-16 lg:py-20 border-b-10 sm:border-b-15 border-[#F2780C]">
+          <h4 class="text-center font-black text-[#522178] text-xl sm:text-2xl mb-8 sm:mb-10 tracking-tighter uppercase italic">Ingreso Líder</h4>
           
+          <form @submit.prevent="handleLogin" class="space-y-4 sm:space-y-6">
+            <div class="group space-y-1">
+              <label class="text-[10px] sm:text-[11px] font-black text-gray-400 ml-5 uppercase tracking-widest group-focus-within:text-[#F2780C] transition-colors">Identificación</label>
+              <input 
+                v-model="form.email"
+                @input="handleTyping('email')"
+                @focus="setLlamaStatus('curious', 'SIEMPRE ME DA RISA TU CORREO XD')" 
+                @blur="setLlamaStatus('idle')"
+                type="email" 
+                class="w-full px-6 py-4 sm:px-8 sm:py-5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none focus:ring-4 focus:ring-[#F2780C]/10 font-bold text-gray-700 transition-all border-2 border-transparent focus:border-gray-200" 
+                placeholder="CORREO" 
+              />
+            </div>
 
-          <NuxtLink to="/private/auth/register" class="ml-auto text-[#522178] font-bold">Crear cuenta</NuxtLink>
+            <div class="group space-y-1">
+              <label class="text-[10px] sm:text-[11px] font-black text-gray-400 ml-5 uppercase tracking-widest group-focus-within:text-[#F2780C] transition-colors">Clave Privada</label>
+              <input 
+                v-model="form.password"
+                @input="handleTyping('password')"
+                @focus="setLlamaStatus('curious', 'No miraré, ¡lo prometo!🥰')" 
+                @blur="setLlamaStatus('idle')"
+                type="password" 
+                class="w-full px-6 py-4 sm:px-8 sm:py-5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none focus:ring-4 focus:ring-[#F2780C]/10 font-bold text-gray-700 transition-all border-2 border-transparent focus:border-gray-200" 
+                placeholder="••••••••" 
+              />
+            </div>
+
+            <button 
+              @mouseenter="setLlamaStatus('happy', '¡A CHAMBEAR MANIT@! 🚀')" 
+              @mouseleave="setLlamaStatus('idle')"
+              type="submit" 
+              class="w-full py-5 sm:py-6 bg-[#522178] hover:bg-[#00A036] text-white font-black rounded-xl sm:rounded-2xl shadow-xl transition-all tracking-[0.2em] sm:tracking-[0.4em] uppercase active:scale-95 mt-2"
+            >
+              ENTRAR
+            </button>
+          </form>
+          
+          <div class="mt-8 sm:mt-12 text-center border-t border-gray-100 pt-6 sm:pt-8">
+            <NuxtLink to="/private/auth/register" class="text-gray-400 font-black text-[10px] sm:text-[11px] tracking-widest hover:text-[#F2780C]">
+              ¿NUEVO AQUÍ? <span class="text-[#522178] underline decoration-[#F2780C] decoration-2">REGÍSTRATE</span>
+            </NuxtLink>
+          </div>
         </div>
-
-        <button type="submit" class="w-full py-3 bg-[#522178] text-white font-extrabold rounded-xl shadow-lg transform active:scale-[0.995]">
-          Entrar
-        </button>
-      </form>
-
-      <div v-else class="text-center py-8">
-        <div class="mx-auto w-20 h-20 rounded-full bg-[#E6F9EE] flex items-center justify-center mb-4">
-          <svg class="w-8 h-8 text-[#038C33]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 class="text-lg font-extrabold text-[#038C33]">Sesión iniciada</h3>
-        <p class="text-sm text-gray-600 mt-2 mb-4">Redirigiendo a la pagina ...</p>
-        <NuxtLink to="/private/formulario" class="inline-block px-6 py-3 bg-[#00B140] text-white rounded-xl font-bold">Aqui no se que boton poner</NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useCookie } from '#imports'
-const identifier = ref('')
-const password = ref('')
-const remember = ref(false)
-const selectedOrg = ref('')
-const success = ref(false)
+definePageMeta({
+  hideFooter: true
+});
 
-async function doLogin() {
-  const cookie = useCookie('auth_token')
-  cookie.value = 'demo-token'
-  if (selectedOrg.value) {
-    try { localStorage.setItem('org_name', selectedOrg.value) } catch (e) { /* ignore */ }
-  } else {
-    try { localStorage.removeItem('org_name') } catch (e) { /* ignore */ }
+import { ref, reactive } from 'vue'
+
+const llamaState = ref('idle')
+const currentMessage = ref('')
+
+// Datos del formulario
+const form = reactive({
+  email: '',
+  password: ''
+})
+
+const setLlamaStatus = (state, message = '') => {
+  llamaState.value = state
+  currentMessage.value = message
+}
+
+// Reacción al escribir
+const handleTyping = (field) => {
+  llamaState.value = 'curious'
+  
+  const messages = {
+    email: 'apurale que la juventud te espera 🙄',
+    password: 'Se nota que confías en la humanidad. 😉'
   }
-  success.value = true
+
+  if (form[field].length > 0) {
+    currentMessage.value = messages[field]
+  }
+}
+
+const handleLogin = () => {
+  console.log("Login intent:", form)
 }
 </script>
+
+<style scoped>
+.login-texture {
+  background-color: #522178;
+  background-image: repeating-linear-gradient(45deg, #4c1e6e 25%, transparent 25%, transparent 50%, #4c1e6e 50%, #4c1e6e 75%, transparent 75%, transparent);
+  background-size: 80px 80px;
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-30px) rotate(5deg); } }
+
+.pop-enter-active { animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.pop-leave-active { animation: pop-in 0.2s reverse ease-in; }
+@keyframes pop-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-right { animation: fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+</style>
