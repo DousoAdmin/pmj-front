@@ -1,6 +1,32 @@
+<!--
+  ============================================================
+  COMPONENTE: SidebarItem
+  ============================================================
+  Una fila clickeable del Sidebar (un item de menú).
+  Es un componente pequeño y reutilizable: el Sidebar lo usa
+  9 veces (una por cada item: Inicio, Perfil, Mis Organizaciones,
+  Organizaciones, Inscripciones, Usuarios, Noticias, Galería,
+  Reportes).
+
+  Estructura:
+  - Cuadrito coloreado a la izquierda con el icono (SVG)
+  - Label del item (Inicio, Perfil, etc.)
+  - Se resalta automáticamente cuando la ruta actual coincide
+    (clase router-link-active aplicada por NuxtLink)
+
+  Props:
+  - to: la ruta a la que lleva (ej: '/private/menu-dashboard/perfil')
+  - label: el texto visible (ej: 'Perfil')
+  - itemClass: clases CSS extra opcionales
+  - iconColor: color de fondo del cuadrito del icono (ej: 'bg-[#00B140]')
+
+  Slot:
+  - 'icon': aquí el padre inserta el SVG del icono
+-->
+
 <template>
   <li>
-    <NuxtLink 
+    <NuxtLink
       :to="to" 
       :class="[
         'flex items-center gap-3 px-3 py-2.5 rounded-lg transition-all duration-200 group',

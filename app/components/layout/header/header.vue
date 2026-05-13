@@ -105,7 +105,6 @@ import { ref, onMounted, onUnmounted, watch, h } from "vue";
 const isScrolled = ref(false);
 const isMobileOpen = ref(false);
 
-// Iconos (Mantenidos de tu original)
 const HomeIcon = () =>
   h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
     h("path", {
@@ -175,12 +174,6 @@ const navItems = [
     icon: UsersIcon,
     staticColor: "bg-[#F2780C]",
   },
-  // {
-  //   name: "Noticias",
-  //   path: "/public/noticias",
-  //   icon: NewsIcon,
-  //   staticColor: "bg-[#522178]",
-  // },
   {
     name: "Galería",
     path: "/public/galeria",
@@ -219,8 +212,6 @@ onUnmounted(() => {
 });
 </script>
 <style scoped>
-
-
 .active-nav-link {
   background-color: #f2780c !important;
   color: white !important;
@@ -235,7 +226,6 @@ onUnmounted(() => {
   color: #f2780c !important;
 }
 
-/* Transiciones */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;

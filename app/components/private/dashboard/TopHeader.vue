@@ -1,3 +1,39 @@
+<!--
+  ============================================================
+  COMPONENTE: TopHeader (del dashboard)
+  ============================================================
+  Es la barra superior morada que aparece en todas las páginas
+  privadas. Está sticky (siempre visible al hacer scroll).
+
+  Estructura:
+  - Barra tricolor superior (verde / naranja / morado)
+  - Izquierda: botón con el yaya peeking (asomándose)
+    · Tiene un ref="yayaBtn" que el layout usa para medir su
+      posición y disparar la animación fly del yaya volando
+      al sidebar.
+    · Se oculta (opacity: 0) cuando el sidebar está abierto
+      o cuando la animación está corriendo.
+  - Centro: input de búsqueda
+  - Derecha: notificaciones, mensajes, avatar del usuario
+
+  Props:
+  - username, organization, avatarUrl: datos del usuario
+  - notifCount, msgCount: cuántas notificaciones/mensajes hay
+  - sidebarOpen: si el sidebar está abierto (controla la
+    visibilidad del botón yaya)
+
+  Eventos:
+  - 'toggleSidebar': cuando el usuario aprieta el botón yaya
+  - 'openMenuFly': señal alternativa para disparar la animación
+  - 'search': cuando aprieta Enter en el input (envía el query)
+  - 'openNotifications', 'openMessages', 'openProfile': clicks
+    en los botones derecha
+
+  Refs expuestos (defineExpose):
+  - yayaBtn: el botón del yaya, lo usa el layout para medir su
+    posición exacta y animar el yaya volando.
+-->
+
 <template>
     <header
         class="relative sticky top-0 z-30 lg:z-50 w-full
@@ -20,21 +56,22 @@
         <button
             ref="yayaBtn"
             type="button"
-            @click="$emit('openMenuFly')"
+            @click="$emit('toggleSidebar')"
             class="flex items-center group
                          h-12 sm:h-16 pl-1 pr-2 sm:pl-2 sm:pr-3 rounded-r-2xl
                          border-2 border-white/20 shadow-lg
                          transition-all duration-300 hover:scale-105
                          -ml-6 sm:-ml-7 absolute left-0 top-1/2 -translate-y-1/2"
             :class="sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'"
-            aria-label="Abrir menú"
-            title="Abrir menú"
+            :aria-label="sidebarOpen ? 'Ocultar menú' : 'Mostrar menú'"
+            :title="sidebarOpen ? 'Ocultar menú' : 'Mostrar menú'"
         >
             <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl grid place-items-center">
                 <img
                     src="/images/favicon.webp"
                     alt="Yaya"
-                    class="w-10 h-10 sm:w-12 sm:h-12 object-contain opacity-95 -translate-x-6 sm:-translate-x-8 rotate-[18deg] transition-transform duration-700 group-hover:-translate-x-4"
+                    class="w-10 h-10 sm:w-12 sm:h-12 object-contain opacity-95 transition-transform duration-700"
+                    :class="sidebarOpen ? '-translate-x-2 sm:-translate-x-3 rotate-0 group-hover:translate-x-0' : '-translate-x-6 sm:-translate-x-8 rotate-[18deg] group-hover:-translate-x-4'"
                     draggable="false"
                 />
             </span>
@@ -43,7 +80,8 @@
                    bg-black/20 border border-white/10">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
              stroke-width="2" stroke="currentColor"
-             class="w-4 h-4 sm:w-5 sm:h-5 text-white/90">
+             class="w-4 h-4 sm:w-5 sm:h-5 text-white/90 transition-transform duration-300"
+             :class="sidebarOpen ? 'rotate-180' : 'rotate-0'">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </span>

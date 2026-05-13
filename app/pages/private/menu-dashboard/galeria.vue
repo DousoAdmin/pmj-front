@@ -1,3 +1,12 @@
+<!--
+  ============================================================
+  PÁGINA: Galería (privada / dashboard)
+  Ruta: /private/menu-dashboard/galeria
+  ============================================================
+  Placeholder — todavía sin implementar.
+  Usa el layout "dashboard" (sidebar + TopHeader).
+-->
+
 <script setup>
 definePageMeta({ layout: 'dashboard' })
 </script>
