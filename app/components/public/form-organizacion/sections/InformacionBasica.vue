@@ -26,7 +26,17 @@
         <option value="No formalmente Constituida">No formalmente Constituida</option>
         <option value="Informal">Informal</option>
       </select>
-       </div>
+    </div>
+    <div class="mb-4">
+      <label class="block font-normal text-gray-600 mb-1">Tipo de organización *</label>
+      <select v-model="localValue.tipoOrganizacionId" class="w-full border border-gray-300 rounded px-3 py-2 text-gray-600 font-normal focus:text-gray-800 focus:border-gray-400" required>
+        <option value="" disabled>Seleccione una opción</option>
+        <option v-if="loadingTipos" disabled>Cargando tipos...</option>
+        <option v-for="tipo in tiposOrganizacion" :key="tipo.ORTP_PK" :value="tipo.ORTP_PK">
+          {{ tipo.ORTP_name }}
+        </option>
+      </select>
+    </div>
     <!-- Mostrar solo si es Informal -->
     <div class="mb-4" v-if="localValue.tipoConformacion === 'Informal'">
       <label class="block font-normal text-gray-600 mb-1">Documento de Constitución como acta de constitución *</label>
@@ -87,7 +97,7 @@
   - nextStep emite el evento 'next' para avanzar en el formulario.
   - Importa el componente FileUploader para la carga de archivos.
 -->
-<script setup>
+<script setup lang="ts">
 // Importa el componente FileUploader para la carga de archivos
 import FileUploader from '../shared/FileUploader.vue'
 
@@ -106,6 +116,21 @@ const emit = defineEmits(['update:modelValue', 'next'])
 const localValue = computed({
   get: () => props.modelValue,
   set: (val) => emit('update:modelValue', val)
+})
+
+// Tipos de organización desde el backend
+const api = useApi()
+const tiposOrganizacion = ref<{ ORTP_PK: number; ORTP_name: string }[]>([])
+const loadingTipos = ref(true)
+
+onMounted(async () => {
+  try {
+    tiposOrganizacion.value = await api.get('/organization-types/')
+  } catch {
+    // Si falla, el select queda vacío y el usuario no puede continuar sin tipo
+  } finally {
+    loadingTipos.value = false
+  }
 })
 
 // Función para avanzar al siguiente paso del formulario

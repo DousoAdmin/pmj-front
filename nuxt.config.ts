@@ -51,6 +51,12 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    public: {
+      apiBase: 'http://localhost:8000',
+    }
+  },
+
   compatibilityDate: "2025-07-15",
 
   devtools: {
@@ -78,10 +84,12 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['nuxt-security', '@nuxt/image', 'nuxt-swiper'],
-
- 
-  nitro: {
-    preset: 'static'
+  modules: ['nuxt-security', '@nuxt/image'],
+  
+  // ✅ Desactivar CSP para desarrollo
+  security: {
+    headers: {
+      contentSecurityPolicy: false
+    }
   }
 });

@@ -41,6 +41,7 @@
   </NuxtLink>
 </div>
 
+<<<<<<< HEAD
         <div class="flex items-center xl:hidden z-110">
           <button @click="isMobileOpen = !isMobileOpen"
             class="flex flex-col justify-center items-end space-y-1.5 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 px-2.5 group transition-all active:scale-90"
@@ -48,6 +49,19 @@
             <span class="h-1 w-8 rounded-full bg-white transition-all" :class="{'rotate-45 translate-y-2.5': isMobileOpen}"></span>
             <span class="h-1 w-6 rounded-full bg-[#F2780C] transition-all" :class="{'opacity-0': isMobileOpen}"></span>
             <span class="h-1 w-4 rounded-full bg-[#00B140] transition-all" :class="{'-rotate-45 -translate-y-2.5 w-8': isMobileOpen}"></span>
+=======
+        <div class="flex items-center space-x-2 sm:space-x-4 shrink-0">
+          <div class="hidden md:flex items-stretch p-1 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md">
+            <NuxtLink to="/private/auth/login" class="px-4 py-2 text-[11px] font-black tracking-widest text-white rounded-xl hover:bg-white/5 transition-colors">LOGIN</NuxtLink>
+            <NuxtLink to="/private/auth/register" class="px-5 py-2 bg-[#00B140] text-white text-[11px] font-black rounded-xl shadow-lg hover:bg-[#009235] transition-colors">REGISTRARSE</NuxtLink>
+          </div>
+
+          <button @click="isMobileOpen = true"
+            class="xl:hidden flex flex-col justify-center items-end space-y-1.5 w-10 h-10 group z-50">
+            <span class="h-1 w-8 rounded-full bg-white shadow-sm transition-all"></span>
+            <span class="h-1 w-5 rounded-full bg-[#F2780C] group-hover:w-8 transition-all shadow-sm"></span>
+            <span class="h-1 w-6 rounded-full bg-[#00B140] group-hover:w-8 transition-all shadow-sm"></span>
+>>>>>>> 8664dd391f28c8aa623d81af4fbb72f1dd177d93
           </button>
         </div>
       </div>
@@ -74,6 +88,7 @@
       />
     </div>
 
+<<<<<<< HEAD
     <div class="flex flex-col justify-center">
       <h2 class="font-black text-white uppercase tracking-tighter text-sm sm:text-base leading-none">
         <span>Plataforma</span>
@@ -96,6 +111,16 @@
           <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto custom-scrollbar">
             <div class="px-4 mb-4">
               <p class="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Explorar</p>
+=======
+              <div class="p-6 bg-black/30 space-y-3">
+                <NuxtLink to="/private/auth/login" @click="isMobileOpen = false"
+                  class="w-full py-4 text-white font-black text-center text-[11px] tracking-widest block border border-white/20 rounded-xl hover:bg-white/5">
+                  INICIAR SESIÓN</NuxtLink>
+                <NuxtLink to="/private/auth/register" @click="isMobileOpen = false"
+                  class="w-full py-4 bg-[#00B140] text-white font-black rounded-xl text-center text-[11px] tracking-widest block shadow-lg shadow-[#00B140]/20 active:scale-[0.98] transition-transform">
+                  REGISTRARSE</NuxtLink>
+              </div>
+>>>>>>> 8664dd391f28c8aa623d81af4fbb72f1dd177d93
             </div>
             
             <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path" @click="isMobileOpen = false"
@@ -144,7 +169,10 @@ import { ref, onMounted, onUnmounted, watch, h } from "vue";
 const isScrolled = ref(false);
 const isMobileOpen = ref(false);
 
+<<<<<<< HEAD
 // --- Iconos ---
+=======
+>>>>>>> 8664dd391f28c8aa623d81af4fbb72f1dd177d93
 const HomeIcon = () =>
   h("svg", { fill: "none", viewBox: "0 0 24 24", stroke: "currentColor" }, [
     h("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: "2", d: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" }),
@@ -164,10 +192,43 @@ const OrgIcon = () =>
 
 // --- Items de Navegación Principal ---
 const navItems = [
+<<<<<<< HEAD
   { name: "Inicio", path: "/", icon: HomeIcon, staticColor: "bg-[#00B140]" },
   { name: "Nosotros", path: "/public/nosotros", icon: UsersIcon, staticColor: "bg-[#F2780C]" },
   { name: "Galería", path: "/public/galeria", icon: PhotoIcon, staticColor: "bg-[#F2780C]" },
   { name: "Organizaciones", path: "/public/organizaciones", icon: OrgIcon, staticColor: "bg-[#00B140]" },
+=======
+  {
+    name: "Inicio",
+    path: "/",
+    icon: HomeIcon,
+    staticColor: "bg-[#00B140]",
+  },
+  {
+    name: "Nosotros",
+    path: "/public/nosotros",
+    icon: UsersIcon,
+    staticColor: "bg-[#F2780C]",
+  },
+  {
+    name: "Galería",
+    path: "/public/galeria",
+    icon: PhotoIcon,
+    staticColor: "bg-[#F2780C]",
+  },
+  {
+    name: "Organizaciones",
+    path: "/public/organizaciones",
+    icon: OrgIcon,
+    staticColor: "bg-[#00B140]",
+  },
+  {
+    name: "Dashboard",
+    path: "/private/dashboard",
+    icon: DashboardIcon,
+    staticColor: "bg-[#522178]",
+  },
+>>>>>>> 8664dd391f28c8aa623d81af4fbb72f1dd177d93
 ];
 
 // --- Lógica de Scroll y Body Lock ---
@@ -204,7 +265,6 @@ onUnmounted(() => {
   color: #f2780c !important;
 }
 
-/* Transiciones */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease;

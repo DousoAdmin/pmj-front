@@ -1,6 +1,42 @@
+<!--
+  ============================================================
+  COMPONENTE: TopHeader (del dashboard)
+  ============================================================
+  Es la barra superior morada que aparece en todas las páginas
+  privadas. Está sticky (siempre visible al hacer scroll).
+
+  Estructura:
+  - Barra tricolor superior (verde / naranja / morado)
+  - Izquierda: botón con el yaya peeking (asomándose)
+    · Tiene un ref="yayaBtn" que el layout usa para medir su
+      posición y disparar la animación fly del yaya volando
+      al sidebar.
+    · Se oculta (opacity: 0) cuando el sidebar está abierto
+      o cuando la animación está corriendo.
+  - Centro: input de búsqueda
+  - Derecha: notificaciones, mensajes, avatar del usuario
+
+  Props:
+  - username, organization, avatarUrl: datos del usuario
+  - notifCount, msgCount: cuántas notificaciones/mensajes hay
+  - sidebarOpen: si el sidebar está abierto (controla la
+    visibilidad del botón yaya)
+
+  Eventos:
+  - 'toggleSidebar': cuando el usuario aprieta el botón yaya
+  - 'openMenuFly': señal alternativa para disparar la animación
+  - 'search': cuando aprieta Enter en el input (envía el query)
+  - 'openNotifications', 'openMessages', 'openProfile': clicks
+    en los botones derecha
+
+  Refs expuestos (defineExpose):
+  - yayaBtn: el botón del yaya, lo usa el layout para medir su
+    posición exacta y animar el yaya volando.
+-->
+
 <template>
     <header
-        class="relative sticky top-0 z-50 w-full
+        class="relative sticky top-0 z-30 lg:z-50 w-full
             bg-gradient-to-r from-[#522178]/95 to-[#3d1958]/95
             backdrop-blur supports-[backdrop-filter]:backdrop-blur-xl
             border-b border-white/10"
@@ -16,63 +52,66 @@
 
                 <div class="relative px-4 sm:px-6 flex items-center gap-3" style="height:104px">
 
-                    <button
-                        v-if="!sidebarOpen"
-                        type="button"
-                        @click="$emit('toggleSidebar')"
-                        class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2
-                                     flex items-center group
-                                     h-16 pl-2 pr-3 rounded-r-2xl rounded-l-none
-                                     border-2 border-white/20 shadow-lg
-                                     transition-all duration-300 hover:scale-105"
-                        aria-label="Abrir menú"
-                        title="Abrir menú"
-                    >
-
-                        <span class="w-12 h-12 rounded-2xl grid place-items-center">
-                            <img
-                                src="/images/favicon.webp"
-                                alt="Yaya"
-                                class="w-12 h-12 object-contain opacity-95 -translate-x-8 rotate-[18deg] transition-transform duration-300 group-hover:-translate-x-4"
-                                style="position: relative;"
-                                draggable="false"
-                            />
-                        </span>
-
-                        <span class="ml-1 w-9 h-9 rounded-xl grid place-items-center
-                                                 bg-black/20 border border-white/10">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                     stroke-width="2" stroke="currentColor"
-                                     class="w-5 h-5 text-white/90">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </span>
-                    </button>
-
-        <div class="flex-1 min-w-0 flex justify-center">
-            <div class="relative w-full min-w-0 max-w-[520px] sm:max-w-[520px] md:max-w-xl">
-            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-white/60 pointer-events-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3m1.3-5.2a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
-                </svg>
+    <div class="shrink-0 w-[78px] sm:w-[92px] flex items-center relative">
+        <button
+            ref="yayaBtn"
+            type="button"
+            @click="$emit('toggleSidebar')"
+            class="flex items-center group
+                         h-12 sm:h-16 pl-1 pr-2 sm:pl-2 sm:pr-3 rounded-r-2xl
+                         border-2 border-white/20 shadow-lg
+                         transition-all duration-300 hover:scale-105
+                         -ml-6 sm:-ml-7 absolute left-0 top-1/2 -translate-y-1/2"
+            :class="sidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'"
+            :aria-label="sidebarOpen ? 'Ocultar menú' : 'Mostrar menú'"
+            :title="sidebarOpen ? 'Ocultar menú' : 'Mostrar menú'"
+        >
+            <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl grid place-items-center">
+                <img
+                    src="/images/favicon.webp"
+                    alt="Yaya"
+                    class="w-10 h-10 sm:w-12 sm:h-12 object-contain opacity-95 transition-transform duration-700"
+                    :class="sidebarOpen ? '-translate-x-2 sm:-translate-x-3 rotate-0 group-hover:translate-x-0' : '-translate-x-6 sm:-translate-x-8 rotate-[18deg] group-hover:-translate-x-4'"
+                    draggable="false"
+                />
             </span>
-            <input
-                v-model="q"
-                type="text"
-                placeholder="Buscar..."
-                class="w-full h-11 pl-10 pr-4 rounded-2xl
-                    bg-white/10 text-white placeholder:text-white/60
-                    border border-white/10
-                    shadow-[0_10px_30px_-18px_rgba(0,0,0,.65)]
-                    transition-all duration-300
-                    focus:outline-none focus:bg-white/15 focus:border-white/25
-                    focus:ring-2 focus:ring-[#00B140]/25"
-                @keydown.enter="$emit('search', q)"
-            />
-            </div>
-        </div>
 
-        <div class="flex items-center gap-2 sm:gap-3 justify-end flex-nowrap shrink-0">
+      <span class="ml-1 w-8 sm:w-9 h-8 sm:h-9 rounded-xl grid place-items-center
+                   bg-black/20 border border-white/10">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke-width="2" stroke="currentColor"
+             class="w-4 h-4 sm:w-5 sm:h-5 text-white/90 transition-transform duration-300"
+             :class="sidebarOpen ? 'rotate-180' : 'rotate-0'">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <div class="flex-1 min-w-0 flex justify-center">
+    <div class="relative w-full min-w-0 max-w-[520px] sm:max-w-[520px] md:max-w-xl">
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-white/60 pointer-events-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-4.3-4.3m1.3-5.2a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z" />
+        </svg>
+      </span>
+      <input
+        v-model="q"
+        type="text"
+        placeholder="Buscar..."
+        class="w-full h-11 pl-10 pr-4 rounded-2xl
+            bg-white/10 text-white placeholder:text-white/60
+            border border-white/10
+            shadow-[0_10px_30px_-18px_rgba(0,0,0,.65)]
+            transition-all duration-300
+            focus:outline-none focus:bg-white/15 focus:border-white/25
+            focus:ring-2 focus:ring-[#00B140]/25"
+        @keydown.enter="$emit('search', q)"
+      />
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2 sm:gap-3 justify-end flex-nowrap shrink-0">
 
             <button
                 type="button"
@@ -152,6 +191,9 @@
     import { ref } from 'vue'
 
     defineEmits(['toggleSidebar', 'openMenuFly', 'search', 'openNotifications', 'openMessages', 'openProfile'])
+
+    const yayaBtn = ref(null)
+    defineExpose({ yayaBtn })
 
     defineProps({
     username: { type: String, default: 'Usuario Demo' },

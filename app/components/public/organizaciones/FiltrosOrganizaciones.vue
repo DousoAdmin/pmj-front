@@ -69,7 +69,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+
+const api = useApi()
 
 /* =============================================== */
 /* 1. FILTROS DISPONIBLES */
@@ -167,7 +169,38 @@ const orgs = ref<Organizacion[]>([
 ])
 
 /* =============================================== */
-/* 3. FILTRO COMPUTADO - REACTIVIDAD */
+/* 3. CARGA DESDE BACKEND */
+/* =============================================== */
+const TYPE_MAP: Record<number, string> = {
+  1: 'social',
+  2: 'cultural',
+  3: 'deportiva',
+  4: 'educativa',
+  5: 'ambiental',
+  6: 'fundacion',
+}
+
+onMounted(async () => {
+  try {
+    const data = await api.get<{ ORGZ_PK: number; ORGZ_name: string; ORGZ_descriptions: string; ORGZ_FK_type: number | null }[]>('/organizations/organization')
+    const staticNames = new Set(orgs.value.map(o => o.name.toLowerCase()))
+    const nuevas = data
+      .filter(o => !staticNames.has(o.ORGZ_name.toLowerCase()))
+      .map(o => ({
+        name: o.ORGZ_name,
+        initials: o.ORGZ_name.substring(0, 3).toUpperCase(),
+        desc: o.ORGZ_descriptions,
+        type: TYPE_MAP[o.ORGZ_FK_type ?? 0] ?? 'social',
+        link: '#',
+      }))
+    orgs.value = [...orgs.value, ...nuevas]
+  } catch {
+    // Si el backend no responde, se muestran los datos estáticos
+  }
+})
+
+/* =============================================== */
+/* 4. FILTRO COMPUTADO - REACTIVIDAD */
 /* =============================================== */
 const filteredOrgs = computed(() => {
   if (activeFilter.value === 'all') return orgs.value
