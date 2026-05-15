@@ -261,6 +261,8 @@
 <script setup>
 import { ref } from 'vue'
 
+const api = useApi()
+
 // Importa los subcomponentes de cada paso del formulario
 import InformacionBasica from './sections/InformacionBasica.vue'
 import Documentos from './sections/Documentos.vue'
@@ -333,22 +335,17 @@ function handlePrev() {
 
 async function handleSubmit() {
   try {
-    // Mostrar estado de carga
-    // await $fetch('/api/inscripcion', {
-    //   method: 'POST',
-    //   body: form.value,
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   }
-    // })
-    
-    // Simular carga
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
+    await api.post('/organizations/New', {
+      ORGZ_name: form.value.informacionBasica.nombre,
+      ORGZ_descriptions: form.value.informacionBasica.objetivo,
+      ORGZ_nit: form.value.documentos.nit ?? '',
+      ORGZ_create_date: form.value.informacionBasica.fechaConformacion,
+      ORGZ_FK_status: 1,
+      ORGZ_FK_type: form.value.informacionBasica.tipoOrganizacionId,
+    })
     step.value = 6
   } catch (error) {
     console.error('Error al enviar el formulario:', error)
-    // Aquí puedes mostrar un mensaje de error al usuario
   }
 }
 
