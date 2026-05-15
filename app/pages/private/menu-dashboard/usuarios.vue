@@ -1,3 +1,11 @@
+<!--
+  ============================================================
+  PÁGINA: Usuarios (privada / dashboard)
+  Ruta: /private/menu-dashboard/usuarios
+  ============================================================
+  Placeholder — todavía sin implementar.
+-->
+
 <script setup>
 definePageMeta({ layout: 'dashboard' })
 </script>

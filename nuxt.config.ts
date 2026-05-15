@@ -84,5 +84,12 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['nuxt-security', '@nuxt/image']
+  modules: ['nuxt-security', '@nuxt/image'],
+  
+  // ✅ Desactivar CSP para desarrollo
+  security: {
+    headers: {
+      contentSecurityPolicy: false
+    }
+  }
 });

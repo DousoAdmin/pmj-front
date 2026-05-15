@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Disallow:
 
 
@@ -25,5 +26,7 @@ dfafasdasdasd
 
 
 
+=======
+>>>>>>> 8664dd391f28c8aa623d81af4fbb72f1dd177d93
 User-Agent: *
 Disallow:
