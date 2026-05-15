@@ -1,25 +1,27 @@
-export function useApi() {
-  const { public: { apiBase } } = useRuntimeConfig()
+export const useApi = () => {
+  const config = useRuntimeConfig()
 
-  function get<T>(path: string, opts?: Parameters<typeof $fetch>[1]) {
-    return $fetch<T>(path, { baseURL: apiBase, method: 'GET', ...opts })
+  const request = async <T>(
+    endpoint: string,
+    options: Record<string, any> = {}
+  ): Promise<T> => {
+    return await $fetch<T>(endpoint, {
+      baseURL: config.public.apiBase,
+      ...options
+    })
   }
 
-  function post<T>(path: string, body: unknown, opts?: Parameters<typeof $fetch>[1]) {
-    return $fetch<T>(path, { baseURL: apiBase, method: 'POST', body, ...opts })
-  }
+  return {
+    get: <T>(endpoint: string, query?: Record<string, any>) =>
+      request<T>(endpoint, { method: 'GET', query }),
 
-  function put<T>(path: string, body: unknown, opts?: Parameters<typeof $fetch>[1]) {
-    return $fetch<T>(path, { baseURL: apiBase, method: 'PUT', body, ...opts })
-  }
+    post: <T>(endpoint: string, body?: Record<string, any>) =>
+      request<T>(endpoint, { method: 'POST', body }),
 
-  function patch<T>(path: string, body?: unknown, opts?: Parameters<typeof $fetch>[1]) {
-    return $fetch<T>(path, { baseURL: apiBase, method: 'PATCH', body, ...opts })
-  }
+    put: <T>(endpoint: string, body?: Record<string, any>) =>
+      request<T>(endpoint, { method: 'PUT', body }),
 
-  function del<T>(path: string, opts?: Parameters<typeof $fetch>[1]) {
-    return $fetch<T>(path, { baseURL: apiBase, method: 'DELETE', ...opts })
+    delete: <T>(endpoint: string, query?: Record<string, any>) =>
+      request<T>(endpoint, { method: 'DELETE', query })
   }
-
-  return { get, post, put, patch, del }
 }

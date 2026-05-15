@@ -84,12 +84,17 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['nuxt-security', '@nuxt/image'],
-  
-  // ✅ Desactivar CSP para desarrollo
-  security: {
-    headers: {
-      contentSecurityPolicy: false
+  modules: ['nuxt-security', '@nuxt/image', 'nuxt-swiper'],
+
+ 
+  nitro: {
+    preset: 'static'
+  },
+
+   runtimeConfig: {
+    apiSecret: process.env.NUXT_API_SECRET,
+    public: {
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8000'
     }
   }
 });
