@@ -1,11 +1,11 @@
 <template>
   <section 
-    class="relative min-h-svh flex-col justify-center overflow-hidden bg-[#522178] py-12 md:py-34"
+    class="relative min-h-svh flex flex-col justify-center overflow-hidden bg-[#522178] py-12 md:py-34 login-texture"
     role="banner"
     aria-labelledby="hero-title"
   >
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      
+    <!-- Capa de desenfoque de fondo y luces ambientales -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
       <div class="absolute top-1/4 -left-20 w-64 md:w-120 h-64 md:h-120 rounded-full bg-[#F2780C]/20 blur-[100px] will-change-transform"></div>
       <div class="absolute bottom-1/4 -right-20 w-64 md:w-120 h-64 md:h-120 rounded-full bg-[#00A036]/20 blur-[100px] will-change-transform"></div>
     </div>
@@ -95,7 +95,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const currentMessage = ref('')
 const motivations = [
@@ -145,9 +145,21 @@ const scrollToForm = () => {
 </script>
 
 <style scoped>
-.texture-pattern {
-  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
-  background-size: 40px 40px;
+/* Estructura e integración del patrón de fondo institucional */
+.login-texture {
+  background-color: #522178;
+  background-image: repeating-linear-gradient(45deg, #4c1e6e 25%, transparent 25%, transparent 50%, #4c1e6e 50%, #4c1e6e 75%, transparent 75%, transparent);
+  background-size: 80px 80px;
+}
+
+/* Suaviza levemente la textura para asegurar que se fusione de forma orgánica con las luces glow */
+.login-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(82, 33, 120, 0.1) 0%, rgba(82, 33, 120, 0.4) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Animaciones con aceleración de Hardware */
