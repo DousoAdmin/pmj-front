@@ -31,9 +31,9 @@
                 <label class="text-[9px] sm:text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Tipo de Documento</label>
                 <select v-model="form.documentType" class="w-full px-5 py-3.5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none font-bold text-xs appearance-none border-2 border-transparent focus:border-gray-100">
                   <option value="" disabled>Seleccione...</option>
-                  <option value="CC">Cédula de Ciudadanía</option>
-                  <option value="TI">Tarjeta de Identidad</option>
-                  <option value="CE">Cédula de Extranjería</option>
+<option :value="1">Cédula de Ciudadanía</option>
+<option :value="2">Tarjeta de Identidad</option>
+<option :value="3">Cédula de Extranjería</option>
                 </select>
               </div>
 
@@ -71,10 +71,10 @@
               <div class="space-y-1">
                 <label class="text-[9px] sm:text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Etnia</label>
                 <select v-model="form.ethnicity" class="w-full px-5 py-3.5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none font-bold text-xs appearance-none">
-                  <option value="">No aplica</option>
-                  <option value="indigena">Indígena</option>
-                  <option value="afro">Afrocolombiano</option>
-                  <option value="mestizo">Mestizo</option>
+                  <option :value="1">No aplica</option>
+<option :value="2">Indígena</option>
+<option :value="3">Afrocolombiano</option>
+<option :value="4">Mestizo</option>
                 </select>
               </div>
 
@@ -82,10 +82,10 @@
               <div class="space-y-1">
                 <label class="text-[9px] sm:text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Discapacidad</label>
                 <select v-model="form.disability" class="w-full px-5 py-3.5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none font-bold text-xs appearance-none">
-                  <option value="ninguna">Ninguna</option>
-                  <option value="fisica">Física</option>
-                  <option value="auditiva">Auditiva</option>
-                  <option value="visual">Visual</option>
+                  <option :value="1">Ninguna</option>
+<option :value="2">Física</option>
+<option :value="3">Auditiva</option>
+<option :value="4">Visual</option>
                 </select>
               </div>
 
@@ -93,10 +93,10 @@
               <div class="space-y-1">
                 <label class="text-[9px] sm:text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Género</label>
                 <select v-model="form.gender" class="w-full px-5 py-3.5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none font-bold text-xs appearance-none">
-                  <option value="">Seleccione...</option>
-                  <option value="masculino">Masculino</option>
-                  <option value="femenino">Femenino</option>
-                  <option value="otro">Otro</option>
+                  <option :value="1">Seleccione...</option>
+                  <option :value="2">Masculino</option>
+                  <option :value="3">Femenino</option>
+                  <option :value="4">Otro</option>
                 </select>
               </div>
 
@@ -104,10 +104,10 @@
               <div class="space-y-1">
                 <label class="text-[9px] sm:text-[10px] font-black text-gray-400 ml-4 uppercase tracking-widest">Id. Sexual</label>
                 <select v-model="form.sexualIdentity" class="w-full px-5 py-3.5 bg-gray-50 rounded-xl sm:rounded-2xl outline-none font-bold text-xs appearance-none">
-                  <option value="">Seleccione...</option>
-                  <option value="hetero">Heterosexual</option>
-                  <option value="homo">Homosexual</option>
-                  <option value="bi">Bisexual</option>
+                  <option :value="1">Seleccione...</option>
+                  <option :value="2">Heterosexual</option>
+                  <option :value="3">Homosexual</option>
+                  <option :value="4">Bisexual</option>
                 </select>
               </div>
 
@@ -226,6 +226,7 @@
 <script setup>
 definePageMeta({ hideFooter: true });
 import { ref, reactive } from "vue";
+const api = useApi();
 
 const llamaState = ref("idle");
 const currentMessage = ref("");
@@ -255,7 +256,7 @@ const handleTyping = (field) => {
   }
 };
 
-const handleRegister = () => {
+const handleRegister = async () => {
   if (!form.acceptTerms) {
     setLlamaStatus('curious', '¡Acepta los términos primero! 📜');
     return;
@@ -264,6 +265,29 @@ const handleRegister = () => {
     setLlamaStatus('curious', 'Las claves no coinciden... 🙄');
     return;
   }
-  console.log("Datos enviados:", form);
+
+  const payload = {
+    FULL_NAME: form.name,
+    IDENTIFICATION: form.documentNumber,
+    TYPE_DOCUMENT: Number(form.documentType),
+    BIRTHDAY: form.birthdate,
+    EMAIL: form.email,
+    PHONE: form.phone,
+    LOCATION: form.address,
+    ETNIA: Number(form.ethnicity),
+    DISCAPACIDAD: Number(form.disability),
+    GENERO: Number(form.gender),
+    IDENTIDAD_SEXUAL: Number(form.sexualIdentity)
+  };
+
+  try {
+    const response = await api.post('/users/Create_User', payload);
+    console.log('Usuario creado:', response);
+    setLlamaStatus('happy', 'Usuario creado correctamente 🎉');
+    // Aquí podrías redirigir o limpiar el formulario
+  } catch (error) {
+    console.error('Error al crear usuario:', error);
+    setLlamaStatus('curious', 'No se pudo crear el usuario. Revisa la consola.');
+  }
 };
 </script>
