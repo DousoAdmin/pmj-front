@@ -10,24 +10,31 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-20">
         
         <div class="lg:col-span-5 space-y-8">
-          <NuxtLink to="/public/" class="inline-flex items-center space-x-4 group">
-  <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110">
-    <NuxtImg 
-      src="/images/favicon.webp" 
-      alt="Logo Juventudes Mosquera" 
-      class="w-full h-full object-contain -translate-x-1"
-    />
-  </div>
+          <!-- LOGO Y TÍTULO EN REPLICACIÓN DEL NAVBAR (SIN FONDO BLANCO EN LA SEGUNDA LÍNEA) -->
+          <NuxtLink to="/public/" class="inline-flex items-center group">
+            <div class="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110">
+              <NuxtImg 
+                src="/images/favicon.webp" 
+                alt="Logo Juventudes Mosquera" 
+                class="w-full h-full object-contain -translate-x-1"
+              />
+            </div>
 
-  <div>
-    <h2 class="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none">
-      PLATAFORMA <span class="text-[#00B140]">MUNICIPAL</span>
-    </h2>
-    <p class="text-[#F2780C] text-xs sm:text-sm font-black uppercase tracking-[0.3em] mt-1">
-      Juventudes de Mosquera
-    </p>
-  </div>
-</NuxtLink>
+            <!-- Contenedor de textos alineados y transparentes -->
+            <div class="flex flex-col justify-center items-start ml-3 sm:ml-4">
+              <!-- Primera línea: PLATAFORMA (Negro) -->
+              <h1 class="font-black leading-none tracking-tighter uppercase text-[18px] sm:text-[24px] lg:text-[28px] scale-y-105 origin-left select-none text-black mb-1 px-0.5">
+                PLATAFORMA
+              </h1>
+              
+              <!-- Segunda línea: de Juventudes - Mosquera (Totalmente transparente sin recuadro ni sombreado) -->
+              <p class="text-[8.5px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-wide flex items-center gap-x-1 whitespace-nowrap px-0.5">
+                <span class="text-[#00B140]">de Juventudes</span>
+                <span class="text-gray-400 font-normal">-</span>
+                <span class="text-[#F2780C]">Mosquera</span>
+              </p>
+            </div>
+          </NuxtLink>
           
           <p class="text-gray-500 text-lg leading-relaxed max-w-md font-medium">
             Construyendo el futuro de Mosquera a través del liderazgo, la participación y el cambio social.
@@ -54,26 +61,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- <div class="lg:col-span-4">
-          <div class="bg-gray-50 rounded-4xl p-8 border border-gray-100 relative">
-            <div class="absolute -top-4 -right-4 w-20 h-20 bg-[#F2780C]/5 rounded-full -z-10"></div>
-            
-            <h3 class="text-gray-900 font-black text-xl mb-4">¿Representas una organización?</h3>
-            <p class="text-gray-500 text-sm mb-6 leading-relaxed">
-              Registra tu grupo juvenil y haz parte de las decisiones que transforman nuestro territorio.
-            </p>
-            <NuxtLink
-              to="/public/formulario"
-              class="group w-full py-4 bg-[#522178] text-white rounded-2xl font-black text-xs tracking-widest uppercase hover:bg-gray-900 transition-all flex items-center justify-center space-x-3"
-            >
-              <span>Registrarse ahora</span>
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
-                <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </NuxtLink>
-          </div>
-        </div> -->
       </div>
 
       <div class="pt-10 border-t border-gray-100 flex flex-col lg:flex-row justify-between items-center gap-6">
@@ -113,7 +100,6 @@ const FacebookIcon = () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24'
 ])
 
 const InstagramIcon = () => h('svg', { fill: 'currentColor', viewBox: '0 0 24 24' }, [
-  // Path del cuerpo principal, el círculo central y el punto superior
   h('path', { d: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.698.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0z' }),
   h('path', { d: 'M12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8z' }),
   h('circle', { cx: '18.406', cy: '5.594', r: '1.44' })
@@ -125,12 +111,10 @@ const socials = [
 </script>
 
 <style scoped>
-/* Optimizamos el renderizado de fuentes */
-h2, h3, button {
+h3, button {
   letter-spacing: -0.02em;
 }
 
-/* Efecto suave para los enlaces */
 a {
   backface-visibility: hidden;
 }
