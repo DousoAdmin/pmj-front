@@ -6,22 +6,25 @@
     <div class="max-w-360 mx-auto px-4 sm:px-6 lg:px-12 relative">
       <div class="flex justify-between items-center gap-4">
 
+        <!-- LOGO Y TÍTULO ESCRITORIO (Corregido sin fondo blanco y tamaño adaptado) -->
         <NuxtLink to="/" class="flex items-center group z-10 shrink-0">
           <div class="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-110">
             <NuxtImg src="/images/favicon.webp" alt="Logo" class="w-full h-full object-contain" />
           </div>
 
-          <div class="flex flex-col justify-center bg-white p-2.5 px-4 rounded-2xl shadow-lg border-l-4 border-gray-100 ml-4">
-            <h1 class="font-black leading-none tracking-tighter uppercase text-[12px] sm:text-lg lg:text-xl">
-              <span class="text-black">Plataforma</span>
-              <span class="text-[#00B140] ml-1">Municipal</span>
+          <div class="flex flex-col justify-center ml-3 sm:ml-4">
+            <h1 class="font-black leading-none tracking-tighter uppercase text-[15px] sm:text-[22px] lg:text-[26px] scale-y-105 origin-left select-none text-white">
+              PLATAFORMA
             </h1>
-            <p class="text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-[#F2780C] mt-1">
-              Juventudes de Mosquera
+            <p class="text-[7.5px] sm:text-[10px] lg:text-[11px] font-bold uppercase tracking-wide mt-1 flex items-center gap-x-1 whitespace-nowrap">
+              <span class="text-[#00B140]">de Juventudes</span>
+              <span class="text-white/40">-</span>
+              <span class="text-[#F2780C]">Mosquera</span>
             </p>
           </div>
         </NuxtLink>
 
+        <!-- NAVEGACIÓN ESCRITORIO -->
         <nav class="hidden xl:flex items-center bg-white/10 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 mx-4 shadow-inner">
           <NuxtLink v-for="item in navItems" :key="item.path" :to="item.path"
             class="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 text-white hover:bg-white/10"
@@ -30,6 +33,7 @@
           </NuxtLink>
         </nav>
 
+        <!-- BOTONES ESCRITORIO -->
         <div class="hidden xl:flex items-center bg-white/10 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 gap-2 shadow-inner">
           <NuxtLink to="/private/auth/login" 
             class="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest text-white hover:bg-white/10 transition-all duration-300">
@@ -41,6 +45,7 @@
           </NuxtLink>
         </div>
 
+        <!-- MENÚ HAMBURGUESA MÓVIL -->
         <div class="flex items-center space-x-2 sm:space-x-4 shrink-0 xl:hidden">
           <button @click="isMobileOpen = true"
             class="flex flex-col justify-center items-end space-y-1.5 w-10 h-10 group z-50"
@@ -54,6 +59,7 @@
       </div>
     </div>
 
+    <!-- MENÚ LATERAL MÓVIL -->
     <Teleport to="body">
       <Transition name="fade">
         <div v-if="isMobileOpen" class="fixed inset-0 z-200 xl:hidden">
@@ -66,26 +72,29 @@
               <div class="p-6 flex items-center justify-between border-b border-white/10 relative overflow-hidden">
                 <div class="absolute inset-0 bg-linear-to-r from-white/5 to-transparent opacity-50"></div>
                 
-                <div class="flex items-center space-x-4 relative z-10">
+                <!-- LOGO Y TÍTULO MÓVIL (Corregido con la misma estructura y tamaño adaptado) -->
+                <div class="flex items-center space-x-3 sm:space-x-4 relative z-10">
                   <div class="flex items-center justify-center transition-transform duration-300">
                     <NuxtImg 
                       src="/images/favicon.webp" 
                       alt="Logo" 
-                      class="w-14 h-14 sm:w-16 sm:h-16 object-contain" 
+                      class="w-12 h-12 sm:w-14 sm:h-14 object-contain" 
                     />
                   </div>
 
                   <div class="flex flex-col justify-center">
-                    <h2 class="font-black text-white uppercase tracking-tighter text-sm sm:text-base leading-none">
-                      <span>Plataforma</span>
-                      <span class="text-[#00B140] ml-1.5">Municipal</span>
+                    <h2 class="font-black text-white uppercase tracking-tighter text-[14px] sm:text-[18px] leading-none scale-y-105 origin-left select-none">
+                      PLATAFORMA
                     </h2>
-                    <p class="text-[9px] sm:text-[10px] text-[#F2780C] font-black uppercase tracking-[0.15em] mt-1.5 leading-tight">
-                      Juventudes de Mosquera
+                    <p class="text-[7.5px] sm:text-[9px] font-medium uppercase tracking-wide mt-1 flex items-center gap-x-1 whitespace-nowrap">
+                      <span class="text-[#00B140]">de Juventudes</span>
+                      <span class="text-white/40">-</span>
+                      <span class="text-[#F2780C]">Mosquera</span>
                     </p>
                   </div>
                 </div>
 
+                <!-- BOTÓN CERRAR -->
                 <button @click="isMobileOpen = false" 
                   class="relative z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 active:scale-90 transition-all">
                   <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
@@ -94,6 +103,7 @@
                 </button>
               </div>
 
+              <!-- NAVEGACIÓN MÓVIL -->
               <nav class="flex-1 px-4 py-6 space-y-1.5 overflow-y-auto custom-scrollbar">
                 <div class="px-4 mb-4">
                   <p class="text-[10px] font-black uppercase tracking-[0.3em] text-white/40">Explorar</p>
@@ -116,6 +126,7 @@
                 </NuxtLink>
               </nav>
 
+              <!-- PIE DE MENÚ MÓVIL -->
               <div class="p-6 space-y-4 bg-black/30 backdrop-blur-xl border-t border-white/10">
                  <div class="flex flex-col gap-3">
                    <NuxtLink to="/private/auth/login" @click="isMobileOpen = false"
@@ -261,3 +272,6 @@ header {
   transform: translateZ(0);
 }
 </style>
+```eof
+
+He unificado la estructura para que los textos en dispositivos móviles mantengan exactamente la misma jerarquía estilizada, pero con un escalado proporcional adaptado para que se lea perfecto en pantallas pequeñas sin saturar el espacio de la barra superior.
