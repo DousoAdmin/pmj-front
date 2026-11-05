@@ -1,9 +1,9 @@
 <script setup lang="ts">
 interface Disability {
-  DSBT_PY: number
-  DSBT_name: string
-  DSBT_description: string
-  DSBT_state: boolean
+  id: number
+  nombre: string
+  descripcion: string
+  estado: boolean
 }
 definePageMeta({ layout: 'external' })
 const api = useApi()
@@ -16,12 +16,14 @@ const getDisabilities = async () => {
   try {
     loading.value = true
     error.value = ''
-    disabilities.value = await api.get<Disability[]>(
-  '/disabilitys/',
-  {
-    include_inactive: false
-  }
-)
+    disabilities.value = await api.publicGet<Disability[]>(
+      '/disabilitys/',
+      {
+        query: {
+          include_inactive: true
+        }
+      }
+    )
   } catch (err: any) {
     console.error(err)
 
@@ -52,14 +54,14 @@ onMounted(() => {
     <ul v-else>
       <li
         v-for="item in disabilities"
-        :key="item.DSBT_PY"
+        :key="item.id"
       >
-        <strong>{{ item.DSBT_name }}</strong>
+        <strong>{{ item.nombre }}</strong>
         <br>
-        <span>{{ item.DSBT_description }}</span>
+        <span>{{ item.descripcion }}</span>
         <br>
         <small>
-          Estado: {{ item.DSBT_state ? 'Activo' : 'Inactivo' }}
+          Estado: {{ item.estado ? 'Activo' : 'Inactivo' }}
         </small>
       </li>
     </ul>

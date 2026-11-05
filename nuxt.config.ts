@@ -51,12 +51,6 @@ export default defineNuxtConfig({
     }
   },
 
-  runtimeConfig: {
-    public: {
-      apiBase: 'http://localhost:8000',
-    }
-  },
-
   compatibilityDate: "2025-07-15",
 
   devtools: {
@@ -79,6 +73,11 @@ export default defineNuxtConfig({
   ],
 
   vite: {
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
     plugins: [
       tailwindcss(),
     ],

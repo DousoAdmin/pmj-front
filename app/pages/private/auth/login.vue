@@ -40,11 +40,25 @@
         <div class="max-w-md w-full bg-white rounded-[30px] sm:rounded-[50px] shadow-[0_30px_60px_rgba(0,0,0,0.4)] p-6 py-10 sm:p-10 sm:py-16 lg:py-20 border-b-10 sm:border-b-15 border-[#F2780C]">
           <h4 class="text-center font-black text-[#522178] text-xl sm:text-2xl mb-8 sm:mb-10 tracking-tighter uppercase italic">Ingreso Líder</h4>
           
-          <form @submit.prevent="handleLogin" class="space-y-4 sm:space-y-6">
+          <form @submit.prevent="submitLogin" class="space-y-4 sm:space-y-6">
+            <AlertMessage
+              v-if="authAlert"
+              :title="authAlert.title"
+              :message="authAlert.message"
+              :type="authAlert.type"
+              :visible="true"
+              class="mb-2"
+            />
+            <LoadingState
+              :visible="loading"
+              title="Iniciando sesión"
+              message="Validando tus datos de acceso"
+              :fullscreen="false"
+            />
             <div class="group space-y-1">
               <label class="text-[10px] sm:text-[11px] font-black text-gray-400 ml-5 uppercase tracking-widest group-focus-within:text-[#F2780C] transition-colors">Identificación</label>
               <input 
-                v-model="form.email"
+                v-model="username"
                 @input="handleTyping('email')"
                 @focus="setLlamaStatus('curious', 'SIEMPRE ME DA RISA TU CORREO XD')" 
                 @blur="setLlamaStatus('idle')"
@@ -57,7 +71,7 @@
             <div class="group space-y-1">
               <label class="text-[10px] sm:text-[11px] font-black text-gray-400 ml-5 uppercase tracking-widest group-focus-within:text-[#F2780C] transition-colors">Clave Privada</label>
               <input 
-                v-model="form.password"
+                v-model="password"
                 @input="handleTyping('password')"
                 @focus="setLlamaStatus('curious', 'No miraré, ¡lo prometo!🥰')" 
                 @blur="setLlamaStatus('idle')"
@@ -70,11 +84,14 @@
             <button 
               @mouseenter="setLlamaStatus('happy', '¡A CHAMBEAR MANIT@! 🚀')" 
               @mouseleave="setLlamaStatus('idle')"
-              type="submit" 
+              type="submit" :disabled="loading"
               class="w-full py-5 sm:py-6 bg-[#522178] hover:bg-[#00A036] text-white font-black rounded-xl sm:rounded-2xl shadow-xl transition-all tracking-[0.2em] sm:tracking-[0.4em] uppercase active:scale-95 mt-2"
-            >
+            >{{ loading ? 'Ingresando...' : 'Ingresar' }}
               ENTRAR
             </button>
+            <p v-if="errorMessage">
+        {{ errorMessage }}
+      </p>
           </form>
           
           <div class="mt-8 sm:mt-12 text-center border-t border-gray-100 pt-6 sm:pt-8">
@@ -94,7 +111,37 @@ definePageMeta({
 });
 
 import { ref, reactive } from 'vue'
+import AlertMessage from '~/components/ui/AlertMessage.vue'
+import LoadingState from '~/components/ui/LoadingState.vue'
+const username = ref('')
+const password = ref('')
+const loading = ref(false)
+const errorMessage = ref('')
 
+const { login, authAlert } = useAuth()
+
+const submitLogin = async () => {
+  loading.value = true
+  errorMessage.value = ''
+  const startedAt = Date.now()
+
+  try {
+    await login(username.value, password.value)
+    const elapsed = Date.now() - startedAt
+    if (elapsed < 3000) {
+      await new Promise((resolve) => setTimeout(resolve, 3000 - elapsed))
+    }
+    await navigateTo('/private/dashboard')
+  } catch (error) {
+    errorMessage.value = 'Usuario o contraseña incorrectos'
+    const elapsed = Date.now() - startedAt
+    if (elapsed < 3000) {
+      await new Promise((resolve) => setTimeout(resolve, 3000 - elapsed))
+    }
+  } finally {
+    loading.value = false
+  }
+}
 const llamaState = ref('idle')
 const currentMessage = ref('')
 
@@ -123,9 +170,6 @@ const handleTyping = (field) => {
   }
 }
 
-const handleLogin = () => {
-  console.log("Login intent:", form)
-}
 </script>
 
 <style scoped>

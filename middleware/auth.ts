@@ -1,7 +1,7 @@
-export default defineNuxtRouteMiddleware((to) => {
-  const token = useCookie('auth_token').value
-  if (!token) {
-    const redirectTo = to.fullPath || to.path
-    return navigateTo(`/private/auth/login?redirect=${encodeURIComponent(redirectTo)}`)
+export default defineNuxtRouteMiddleware(() => {
+  const token = useCookie<string | null>('access_token')
+
+  if (!token.value) {
+    return navigateTo('/prueba/loginPrueba')
   }
 })

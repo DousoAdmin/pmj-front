@@ -12,7 +12,11 @@
 -->
 
 <script setup>
-definePageMeta({ layout: 'dashboard' })
+definePageMeta({
+  layout: 'dashboard',
+  middleware: ['auth']
+})
+
 import DashboardHome from '~/components/private/dashboard/DashboardHome.vue'
 </script>
 

@@ -52,6 +52,13 @@
         children no se contraen para activar el scroll).
       - "overflow-y-auto" hace que SOLO esta sección scrollee.
     -->
+    <LoadingState
+      :visible="isLoading"
+      :title="loadingMessage || 'Procesando'"
+      message="Por favor espera un momento"
+      :fullscreen="true"
+    />
+
     <main
       ref="mainRef"
       class="flex w-full min-w-0 min-h-0 flex-1 flex-col overflow-y-auto overflow-x-hidden transition-[padding,margin,width] duration-300 ease-in-out"
@@ -59,8 +66,8 @@
       <!-- Header morado superior (siempre arriba) -->
       <TopHeader
         ref="topHeaderRef"
-        :username="'Usuario Demo'"
-        :organization="'Psicovibes'"
+        :username="currentUserName"
+        :organization="currentUserOrg"
         :avatarUrl="'/images/organizaciones/psicovibes/Logo_Psicovibes.png'"
         :notifCount="4"
         :msgCount="1"
@@ -71,6 +78,7 @@
         @openNotifications="onNotifications"
         @openMessages="onMessages"
         @openProfile="onProfile"
+        @logout="onLogout"
       />
 
       <!--
@@ -96,10 +104,15 @@
 </template>
 
 <script setup>
+
+
 import { ref, reactive, computed, nextTick, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRoute, useRouter } from '#imports'
+import { useAuth } from '~/composables/useAuth'
 import Sidebar from '~/components/private/dashboard/Sidebar.vue'
 import TopHeader from '~/components/private/dashboard/TopHeader.vue'
+import AlertMessage from '~/components/ui/AlertMessage.vue'
+import LoadingState from '~/components/ui/LoadingState.vue'
 
 // ============================================================
 // ESTADOS REACTIVOS
@@ -124,6 +137,21 @@ const isFlying = ref(false)
 
 const route = useRoute()
 const router = useRouter()
+const { token, user, logout, authAlert, isLoading, loadingMessage } = useAuth()
+
+const currentUserName = computed(() => user.value?.username || 'Usuario Demo')
+const currentUserOrg = computed(() => user.value?.organization || 'Psicovibes')
+
+watchEffect(() => {
+  if (!token.value && import.meta.client) {
+    authAlert.value = {
+      title: 'Sesión requerida',
+      message: 'No hay sesión activa. Por favor inicia sesión para continuar.',
+      type: 'error'
+    }
+    router.replace('/private/auth/login')
+  }
+})
 
 // ============================================================
 // LAYOUT EN DESKTOP (grid de 2 columnas)
@@ -161,6 +189,10 @@ function onMessages() {
 
 function onProfile() {
   console.log('Abrir perfil')
+}
+
+async function onLogout() {
+  await logout()
 }
 
 // ============================================================
@@ -567,3 +599,4 @@ function onToggleSidebar() {
   animation: peek 1.6s ease-in-out infinite;
 }
 </style>
+

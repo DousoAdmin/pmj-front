@@ -156,30 +156,52 @@
                 </span>
             </button>
 
-            <button
-                type="button"
-                class="flex items-center gap-2 pl-1 pr-2 md:pr-3 h-11 rounded-2xl
-                        bg-white/10 border border-white/10 shadow-lg
-                        transition-all duration-300 hover:bg-white/15 hover:scale-[1.02]"
-                @click="$emit('openProfile')"
-            >
-                <img
-                    :src="avatarUrl"
-                    alt="Avatar"
-                    class="w-9 h-9 rounded-full object-cover ring-2 ring-white/10"
-                />
-                <div class="hidden md:flex flex-col text-left leading-none">
-                    <span class="text-sm font-black text-white leading-none">{{ username }}</span>
-                    <span v-if="organization" class="text-xs text-white/70 font-semibold leading-none mt-1">
-                        {{ organization }}
+            <div class="relative">
+                <button
+                    type="button"
+                    class="flex items-center gap-2 pl-1 pr-2 md:pr-3 h-11 rounded-2xl
+                            bg-white/10 border border-white/10 shadow-lg
+                            transition-all duration-300 hover:bg-white/15 hover:scale-[1.02]"
+                    @click="isProfileMenuOpen = !isProfileMenuOpen"
+                >
+                    <img
+                        :src="avatarUrl"
+                        alt="Avatar"
+                        class="w-9 h-9 rounded-full object-cover ring-2 ring-white/10"
+                    />
+                    <div class="hidden md:flex flex-col text-left leading-none">
+                        <span class="text-sm font-black text-white leading-none">{{ username }}</span>
+                        <span v-if="organization" class="text-xs text-white/70 font-semibold leading-none mt-1">
+                            {{ organization }}
+                        </span>
+                    </div>
+                    <span class="hidden md:inline-flex w-8 h-8 rounded-xl bg-black/20 border border-white/10 items-center justify-center ml-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
                     </span>
+                </button>
+
+                <div v-if="isProfileMenuOpen" class="absolute right-0 mt-2 w-64 rounded-2xl border border-white/10 bg-[#2f144d] shadow-2xl overflow-hidden">
+                    <div class="px-4 py-4 border-b border-white/10">
+                        <p class="text-xs uppercase tracking-[0.25em] text-white/50">Cuenta</p>
+                        <p class="mt-2 text-sm font-black text-white">{{ username }}</p>
+                        <p v-if="organization" class="text-sm text-white/70">{{ organization }}</p>
+                    </div>
+                    <button
+                        type="button"
+                        class="flex w-full items-center gap-3 px-4 py-3 text-left text-sm font-semibold text-white hover:bg-white/10 transition"
+                        @click="handleLogout"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 17l5-5-5-5" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H3" />
+                        </svg>
+                        <span>Cerrar sesión</span>
+                    </button>
                 </div>
-                <span class="hidden md:inline-flex w-8 h-8 rounded-xl bg-black/20 border border-white/10 items-center justify-center ml-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                    </svg>
-                </span>
-            </button>
+            </div>
         </div>
         </div>
     </header>
@@ -190,19 +212,25 @@
 <script setup>
     import { ref } from 'vue'
 
-    defineEmits(['toggleSidebar', 'openMenuFly', 'search', 'openNotifications', 'openMessages', 'openProfile'])
+    const emit = defineEmits(['toggleSidebar', 'openMenuFly', 'search', 'openNotifications', 'openMessages', 'openProfile', 'logout'])
 
     const yayaBtn = ref(null)
     defineExpose({ yayaBtn })
 
-    defineProps({
-    username: { type: String, default: 'Usuario Demo' },
-    avatarUrl: { type: String, default: 'https://i.pravatar.cc/100?img=3' },
-    organization: { type: String, default: 'Organización Demo' },
-    notifCount: { type: Number, default: 4 },
-    msgCount: { type: Number, default: 1 },
-    sidebarOpen: { type: Boolean, default: true },
+    const props = defineProps({
+        username: { type: String, default: 'Usuario Demo' },
+        avatarUrl: { type: String, default: 'https://i.pravatar.cc/100?img=3' },
+        organization: { type: String, default: 'Organización Demo' },
+        notifCount: { type: Number, default: 4 },
+        msgCount: { type: Number, default: 1 },
+        sidebarOpen: { type: Boolean, default: true },
     })
 
     const q = ref('')
+    const isProfileMenuOpen = ref(false)
+
+    const handleLogout = () => {
+        isProfileMenuOpen.value = false
+        emit('logout')
+    }
 </script>
