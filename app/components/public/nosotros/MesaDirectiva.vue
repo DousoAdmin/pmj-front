@@ -21,7 +21,7 @@
         
         <div class="hidden lg:block pb-2 animate-fade-in-up delay-300">
           <p class="text-sm font-black text-white/40 uppercase tracking-[0.3em] text-right">
-            Liderazgo Juvenil <br/>
+             <br/>
             Mosquera, Cundinamarca
           </p>
         </div>
@@ -87,7 +87,7 @@ const team = ref([
     committee: 'Mesa Directiva',
     initials: 'JE',
     org: 'Hijos del Zipa',
-    photo: 'David.webp',
+    photo: 'David.jpeg',
     gradient: 'bg-gradient-to-br from-[#038C33] to-[#F2780C]'
   },
 
