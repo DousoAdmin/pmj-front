@@ -33,8 +33,8 @@
           </NuxtLink>
         </nav>
 
-        <!-- BOTONES ESCRITORIO -->
-        <div class="hidden xl:flex items-center bg-white/10 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 gap-2 shadow-inner">
+        <!-- BOTONES ESCRITORIO --> 
+        <!-- <div class="hidden xl:flex items-center bg-white/10 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 gap-2 shadow-inner">
           <NuxtLink to="/private/auth/login" 
             class="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest text-white hover:bg-white/10 transition-all duration-300">
             Iniciar Sesión
@@ -43,7 +43,7 @@
             class="px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest text-white bg-[#00B140] hover:bg-[#009235] shadow-lg shadow-[#00B140]/20 transition-all duration-300">
             Regístrate
           </NuxtLink>
-        </div>
+        </div> -->
 
         <!-- MENÚ HAMBURGUESA MÓVIL -->
         <div class="flex items-center space-x-2 sm:space-x-4 shrink-0 xl:hidden">
@@ -204,12 +204,12 @@ const navItems = [
     icon: OrgIcon,
     staticColor: "bg-[#00B140]",
   },
-  {
-    name: "Dashboard",
-    path: "/private/dashboard",
-    icon: DashboardIcon,
-    staticColor: "bg-[#522178]",
-  },
+  // {
+  //   name: "Dashboard",
+  //   path: "/private/dashboard",
+  //   icon: DashboardIcon,
+  //   staticColor: "bg-[#522178]",
+  // },
 ];
 
 // --- Lógica de Scroll y Body Lock ---
